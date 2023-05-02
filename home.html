@@ -1,0 +1,756 @@
+<?php
+include_once("./admin/server/connection.php");
+$post_title = "";
+$post_image = "";
+$post_content = "";
+$ogUrl = "";
+$type = "website";
+$main = "http";
+if(isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+    $main .= "s";
+}
+$main .= "://".$_SERVER["SERVER_NAME"];
+
+if(strpos($_SERVER["REQUEST_URI"], "?") !== false) {
+    $main .= strtok($_SERVER["REQUEST_URI"], "?");
+} else {
+    $main .= $_SERVER["REQUEST_URI"];
+}
+if(isset($_GET['blog_id'])){
+  $post_id = $_GET['blog_id'];
+  $sql = "SELECT * FROM blog WHERE id = ?";
+$stmt = mysqli_stmt_init($connect);
+if(!mysqli_stmt_prepare($stmt, $sql)){
+  echo $connect->error; exit; }
+mysqli_stmt_bind_param($stmt,"i",$post_id);
+if(!mysqli_stmt_execute($stmt)){ echo
+$connect->error; exit; } $result =
+mysqli_stmt_get_result($stmt); if
+($result->num_rows > 0) { $row =
+$result->fetch_assoc(); $post_title =
+$row['title']; $post_image =
+str_replace("home.html","",$main)."admin/blog/".$row["files"];
+$post_content = strip_tags($row['content']); $type
+= "article"; $page_url = "http";
+if(isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"]
+== "on") { $page_url .= "s"; } $page_url .=
+"://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+$ogUrl = $page_url; } else { echo "Post not
+found."; exit; } }else{ $post_title = "Nonny
+Portfolio | Web Design and Development Blog";
+$post_image =
+str_replace("home.html","",$main)."assets/image/logo-no-background.png";
+$post_content = strip_tags("Nonny is software
+engineer, fullastack web developer based in
+Nigeria. This site shows his portfolio and blog");
+$main_url = "http"; if(isset($_SERVER["HTTPS"]) &&
+$_SERVER["HTTPS"] == "on") { $main_url .= "s"; }
+$main_url .= "://".$_SERVER["SERVER_NAME"];
+if(strpos($_SERVER["REQUEST_URI"],
+"?") !== false) { $main_url .=
+strtok($_SERVER["REQUEST_URI"], "?"); } else {
+$main_url .= $_SERVER["REQUEST_URI"]; } $ogUrl =
+$main_url; }  ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title><?= $post_title ?></title>
+    <meta
+      name="description"
+      content="Explore Nonny Theophilus's portfolio and blogs on technology, personal development, entertainment, history, sports, education, government, and humor. As a full-stack web developer based in Nigeria, Nonny shares his expertise and insights with the world."
+    />
+
+    <meta
+      name="keywords"
+      content="Nonny Theophilus, personal, development, entertainment, technology trends, history, sports news, education tips, government policies, humor, portfolio"
+    />
+    <meta
+      name="author"
+      content="Nonny Theophilus"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/image/logo-no-background.png"
+      type="image/x-icon"
+    />
+    <link rel="canonical" href="<?= $main ?>" />
+    <meta
+      property="og:type"
+      content="<?= $type ?>"
+    />
+    <meta
+      property="og:title"
+      content="<?= $post_title ?>"
+    />
+    <meta
+      property="og:description"
+      content="<?= $post_content ?>"
+    />
+    <meta
+      property="og:image"
+      content="<?= $post_image ?>"
+    />
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+    <meta
+      property="og:url"
+      content="<?= $ogUrl ?>"
+    />
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      name="twitter:title"
+      content="<?= $post_title ?>"
+    />
+    <meta
+      name="twitter:description"
+      content="<?= $post_content ?>"
+    />
+    <meta
+      name="twitter:image"
+      content="<?= $post_image ?>"
+    />
+    <meta name="twitter:url" content="<?= $ogUrl ?>" />
+    <!-- Instagram meta tags for sharing -->
+    <meta
+      property="og:insta:shareable"
+      content="true"
+    />
+    <!-- WhatsApp meta tags for sharing -->
+    <meta
+      property="og:whatsapp:message"
+      content="<?= $post_title  ?>"
+    />
+    <meta property="og:site_name" content="Nonny Portfolio | Web Design and Development Blog">
+<meta property="article:publisher" content="+2348135733563">
+
+    <link
+      rel="stylesheet"
+      href="./assets/fontawesome-free-5.15.3-web/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/style/fonts.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/style/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/style/prism.css"
+    />
+  </head>
+
+  <body>
+    <div id="alert"></div>
+    <div class="s-down" id="down"></div>
+    <div class="welcome">
+      <div class="mode">
+        <i class="fas fa-sun" id="mode"></i>
+        <i class="fas fa-palette"></i>
+      </div>
+      <div class="intro home">
+        <header>
+          <div class="logo">
+            <h2>Coding</h2>
+            <p>Nonny.</p>
+          </div>
+          <nav class="nav">
+            <li class="here main" id="homes">
+              <a href="#home">Home</a>
+            </li>
+            <li class="main-two" id="abouts">
+              <a href="#about">About</a>
+            </li>
+            <li class="main-one" id="works">
+              <a href="#work">Works</a>
+            </li>
+            <li class="main-four" id="services">
+              <a href="#service">Services</a>
+            </li>
+            <li class="main-three" id="blogs">
+              <a href="#blog">Blog</a>
+            </li>
+          </nav>
+          <div class="contact-me">
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="bar">
+            <i class="fa fa-bars" id="bars"></i>
+          </div>
+        </header>
+        <section id="home">
+          <div class="intro-text">
+            <div class="name">
+              <h1>
+                Hola!, I Am Nonny Theophilus.
+              </h1>
+              <div class="intro-typing">
+                <p></p>
+              </div>
+            </div>
+            <div class="call-action">
+              <button class="hire">
+                <a
+                  href="resume.html"
+                  title="print resume"
+                  target="_blank"
+                  >See Resume</a
+                >
+              </button>
+              <button class="know">
+                <a
+                  href="#contact"
+                  title="contact me"
+                  >Get in touch</a
+                >
+              </button>
+            </div>
+            <div class="intro-special">
+              <div
+                class="n"
+                style="display: none"
+              >
+                <h1>N</h1>
+              </div>
+              <p style="display: none">
+                <b style="display: none"
+                  >Nonny_Theophilus..</b
+                >. An experienced fullstack Web
+                Developer.
+              </p>
+              <code class="language-javascript">
+                days.forEach((day) =>{ if(alive &&
+                healthy){ pray(); work(); eat();
+                sleep(); repeat(); } })
+              </code>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/theophilusnonny"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://wa.me/message/SXGIV25TKXYOO1"
+                target="_blank"
+                ><i class="fa fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="intro-img">
+            <img
+              src="./assets/image/PXL_20230101_001755186.PORTRAIT_adobe_express_4_adobe_express.png"
+              alt=""
+              class="my-img"
+            />
+            <img
+              src="./assets/image/colors.png"
+              alt=""
+              class="color"
+            />
+            <div class="project">
+              <h2></h2>
+              <small>Projects Completed</small>
+            </div>
+            <div class="xp">
+              <h2>Nonny_Theophilus</h2>
+              <small>2yrs Experience</small>
+            </div>
+          </div>
+        </section>
+        <section id="about">
+          <div class="our-story">
+            <h2>About <span>Me</span></h2>
+            <div class="profile">
+              <div class="about-text">
+                <p>
+                  Chikezie Chinonso Theophilus, I
+                  am a fullstack web developer. My
+                  mission is to make the world a
+                  more accessible and inclusive
+                  place by breaking language
+                  barriers and enabling people to
+                  communicate effectively across
+                  cultures and languages. I
+                  attended NIIT IT school from
+                  September 2020 to September 2021
+                  after obtaining my O level
+                  certificate in 2019. I have
+                  developed various local
+                  applications for companies and
+                  for practice. some of the
+                  projects are, Hospital
+                  management system, Bakery
+                  management system, stock
+                  management system etc.
+                </p>
+                <br />
+                <p>
+                  I believe that with the
+                  continued support from You, I
+                  can achieve this goal. Apart
+                  from being a Software Enginner,
+                  I also specialize in computer
+                  repairs, sales and maintenance,
+                  CCTV camera installation and
+                  maintenance.
+                </p>
+              </div>
+              <div class="intro-img">
+                <img
+                  src="./assets/image/PXL_20230320_145608575_adobe_express.png"
+                  alt=""
+                  class="my-img"
+                />
+                <img
+                  src="./assets/image/colors.png"
+                  alt=""
+                  class="color"
+                />
+              </div>
+            </div>
+            <h2 class="skill">Skills</h2>
+            <ul>
+              <h2>
+                <span>Frontend</span>
+                <!-- <span>Frameworks.</span> -->
+              </h2>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Javascript</li>
+            </ul>
+            <ul>
+              <h2>
+                <span>Backend</span>
+                <!-- <span>Frameworks.</span> -->
+              </h2>
+              <li>PHP</li>
+              <li>SQL</li>
+            </ul>
+            <ul>
+              <h2>
+                <span
+                  >Currently Learning To Up My
+                  Skills</span
+                >
+                <!-- <span>Frameworks.</span> -->
+              </h2>
+              <li>React JS</li>
+              <li>React Native</li>
+              <li>Node JS</li>
+              <li>Laravel</li>
+              <li>Codeigniter</li>
+            </ul>
+          </div>
+          <div class="about-left">
+            <strong>Coding Nonny</strong>
+            <br />
+            <pre class="language-markup">
+              <code class="language-markup">
+                <b>Let's Build Something Fantastic Together.</b>
+                <br>
+                Always ready to recieve your order.
+              </code>
+            </pre>
+          </div>
+          <div class="about-right">
+            <pre class="language-php">
+              <code class="language-php">
+                echo(" Any sufficiently advanced technology
+                is indistinguishable from magic.");
+               </code>
+            </pre>
+          </div>
+        </section>
+        <section id="work">
+          <div class="work">
+            <div class="project">
+              <h1>My Github Repositories.</h1>
+              <div class="all-projects"></div>
+            </div>
+          </div>
+        </section>
+        <section id="service">
+          <div class="service">
+            <h1>
+              Quality Services with <br />
+              best Price.
+            </h1>
+            <ul class="service-list">
+              <li>
+                <h2>
+                  Website design and development.
+                </h2>
+                <p>
+                  Set to give you a well
+                  structured websites and web
+                  applications that is easy to
+                  navigate, user-friendly and well
+                  optimized for search engines.
+                </p>
+              </li>
+              <li>
+                <h2>
+                  E-commerce website development.
+                </h2>
+                <p>
+                  Every business organization
+                  needs online store to enable
+                  customers view and buy their
+                  Products. Developing a well
+                  scaled e-commerce website for
+                  your business is not a problem
+                  for me.
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Content management system.
+                </h2>
+                <p>
+                  This enables you the client to
+                  manage all contents on your
+                  website. You can add, remove,
+                  update and delete contents from
+                  your website.
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Web application development.
+                </h2>
+                <p>
+                  This involves web-based
+                  applications that run on any
+                  device with internet connection
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Responsive website design.
+                </h2>
+                <p>
+                  A responsive website gives you a
+                  good user interface accross all
+                  devices e.g The view on a
+                  desktop is not same with the
+                  mobile view.
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Website maintenance and updates.
+                </h2>
+                <p>
+                  I maintain and update your
+                  existing websites.
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Web hosting and server
+                  management.
+                </h2>
+                <p>
+                  I host your website with a good
+                  hosting service so your websites
+                  or web apllications stay online
+                  24/7
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Search engine optimization.
+                </h2>
+                <p>
+                  This improves your website
+                  visibilty on search engines.
+                </p>
+              </li>
+              <li>
+                <h2>
+                  Website Security and Protection.
+                </h2>
+                <p>
+                  Protects your website from cyber
+                  attacks
+                </p>
+              </li>
+              <li>
+                <h2>
+                  website analytics and tracking.
+                </h2>
+                <p>
+                  This helps you see how people
+                  interact with your site or web
+                  application.
+                </p>
+              </li>
+            </ul>
+            <div class="more-services">
+              <h1>More Services.</h1>
+              <p></p>
+            </div>
+            <a
+              href="#contact"
+              style="display: none"
+            ></a>
+          </div>
+        </section>
+        <section id="contact">
+          <div class="contact">
+            <div class="contact-head">
+              <h1>Ways To Contact Me</h1>
+              <p>
+                Feel free to reach out to me using
+                the contact info or the contact
+                form below.
+              </p>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/theophilusnonny"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://wa.me/message/SXGIV25TKXYOO1"
+                target="_blank"
+                ><i class="fa fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+            <div class="contact-icon">
+              <div>
+                <i class="fas fa-phone"></i>
+                <p>+2349014586518</p>
+              </div>
+              <div>
+                <i class="fa fa-whatsapp"></i>
+                <p>+2348135733563</p>
+              </div>
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p>chikezienonny@gmail.com</p>
+              </div>
+            </div>
+            <form action="">
+              <h3>Send a message</h3>
+              <div class="success-msg">
+                <p></p>
+              </div>
+              <div class="form-left">
+                <div>
+                  <label
+                    >Your name
+                    <i
+                      class="fas fa-signature"
+                    ></i
+                  ></label>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    name="name"
+                  />
+                </div>
+                <div>
+                  <label for=""
+                    >Email
+                    <i class="fas fa-envelope"></i
+                  ></label>
+                  <input
+                    type="text"
+                    placeholder="Your email address"
+                    name="email"
+                  />
+                </div>
+                <div>
+                  <label for=""
+                    >Phone number
+                    <i
+                      class="fas fa-mobile-phone"
+                    ></i
+                  ></label>
+                  <input
+                    type="text"
+                    placeholder="Your phone number (optional)"
+                    name="number"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="form-right">
+                <label for="">Message</label>
+                <textarea
+                  name="message"
+                  id=""
+                  cols="30"
+                  rows="10"
+                  placeholder="message"
+                ></textarea>
+              </div>
+              <button>Send Message</button>
+            </form>
+          </div>
+        </section>
+        <section id="blog">
+          <div class="blog">
+            <div class="blog-head">
+              <h1>Nonny Blogs</h1>
+              <div class="subscribe">
+                <h4>
+                  Subscribe to my newsletter. Get
+                  email notifications once a new
+                  blog is posted.
+                </h4>
+                <input
+                  type="text"
+                  placeholder="Email address"
+                  name="sub"
+                />
+                <button id="subscribe">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+            <div class="blog-type">
+              <span id="all">All</span>
+              <span id="personal">Personal</span>
+              <span id="sports">Sports</span>
+              <span id="funny">Funny</span>
+              <span id="history">History</span>
+              <span id="tech">Technology</span>
+              <span id="gov">Government</span>
+              <span id="ent">Entertainment</span>
+              <span id="edu">Education</span>
+              <span id="dev">Development</span>
+            </div>
+            <div class="blog-search">
+              <input
+                type="search"
+                name="search"
+                id="search-blog"
+                placeholder="search contents"
+              />
+              <button type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="blog-div"></div>
+          </div>
+        </section>
+      </div>
+      <footer>
+        <div class="social-links">
+          <a
+            href="https://www.facebook.com/theophilusnonny"
+            target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://wa.me/message/SXGIV25TKXYOO1"
+            target="_blank"
+            ><i class="fa fa-whatsapp"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+        <h4>
+          Nonny.com &copy; <em>2023</em>. All
+          Right Reserved
+        </h4>
+        <h5
+          style="
+            text-align: center;
+            width: 100%;
+            font-weight: 500;
+          "
+        >
+          This site was developed By Chinonso
+          Chikezie Theophilus
+        </h5>
+      </footer>
+    </div>
+    <script src="./assets/script/prism.js"></script>
+    <script src="./assets/script/jquery.js"></script>
+    <script src="./assets//script/alert_nonny.js"></script>
+    <script src="./assets/script/home.js"></script>
+    <script src="./assets/script/github_fecth.js"></script>
+    <script src="./assets/script/mode.js"></script>
+    <script src="./assets/script/lazysizes.min.js"></script>
+    <script>
+      (function () {
+        var docElem =
+          document.querySelector(".welcome");
+
+        window.lazySizesConfig =
+          window.lazySizesConfig || {};
+
+        window.lazySizesConfig.loadMode = 1;
+
+        //set expand to a higher value on larger displays
+        window.lazySizesConfig.expand = Math.max(
+          Math.min(
+            docElem.clientWidth,
+            docElem.clientHeight,
+            1222
+          ) - 1,
+          359
+        );
+        window.lazySizesConfig.expFactor =
+          lazySizesConfig.expand < 380 ? 3 : 2;
+      })();
+    </script>
+    <script src="./assets/script/blog_func.js"></script>
+  </body>
+</html>
