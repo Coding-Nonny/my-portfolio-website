@@ -127,6 +127,7 @@ if (!isset($_SESSION['user'])) {
         </form>
     </div>
 </div>
+<script src="./script/marked.js"></script>
 <script src="./script/prism.js"></script>
 <script src="./script/jquery.js"></script>
 <script>

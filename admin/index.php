@@ -72,7 +72,8 @@ $user = $users->fetch_assoc();
     $('.li-<?php echo isset($_GET['page']) ? $_GET['page'] : '' ?>').addClass('active');
 
     $("#logout").on("click", function() {
-      $.ajax({
+      if(confirm("Do Yuo Wish To Logout?")){
+        $.ajax({
         url: "./server/logout.php",
         method: "POST",
         success: (data) => {
@@ -81,9 +82,9 @@ $user = $users->fetch_assoc();
           }
         }
       })
+      }
     })
   </script>
-  <script src="./script/marked.js"></script>
   <script src="./script/admin.js"></script>
   <script src="./script/theme.js"></script>
 </body>
