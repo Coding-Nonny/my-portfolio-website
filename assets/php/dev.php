@@ -13,7 +13,7 @@ try {
     echo $error->getMessage();
 }
 if ($_SERVER['REQUEST_METHOD'] !== "GET") {
-    echo "you don't have permission to access this page";
+    http_response_code(403);
     exit();
 }
 

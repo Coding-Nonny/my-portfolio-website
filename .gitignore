@@ -5,4 +5,5 @@ assets/font-awesome-4.7.0
 .htaccess
 admin/.htaccess
 unzipper.php
-assets/script/github-fetch.js
+assets/php/config.php
+assets/php/api.php

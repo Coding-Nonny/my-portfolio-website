@@ -2331,10 +2331,12 @@ header.scrolled {
   background: #ffffff;
 }
 .pagination-div{
+  max-width: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   padding: 10px;
 }
 .pagination-div button{
