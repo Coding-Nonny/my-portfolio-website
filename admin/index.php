@@ -48,7 +48,7 @@ $user = $users->fetch_assoc();
         <li onclick="location.href = 'index.php?page=comment&limit=2'" class="li-comment" title="review comments">
           <span style="display:none"></span><i class="fa fa-comment"></i><a href="">Comments</a>
         </li>
-        <li onclick="location.href = 'index.php?page=setting&limit=2'" class="li-setting" title="add and edit users"><i class="fa fa-cog"></i><a href="">Settings</a></li>
+        <li onclick="location.href = 'index.php?page=users&limit=2'" class="li-setting" title="add and edit users"><i class="fa fa-users"></i><a href="">Settings</a></li>
         <li title="change theme"><i class="fas fa-sun" id="mode"></i> <a href="" id="dark">Light</a></li>
         <li id="logout" title="log out"><i class="fa fa-sign-out"></i><a href="">Logout</a></li>
       </div>
@@ -72,7 +72,7 @@ $user = $users->fetch_assoc();
     $('.li-<?php echo isset($_GET['page']) ? $_GET['page'] : '' ?>').addClass('active');
 
     $("#logout").on("click", function() {
-      if(confirm("Do Yuo Wish To Logout?")){
+      if(confirm("Do You Wish To Logout?")){
         $.ajax({
         url: "./server/logout.php",
         method: "POST",
