@@ -93,29 +93,29 @@ $(document).ready(async function () {
   });
   //});
 
-  let messageArray = [
-    "I also maintain, repair and sale computer systems, maintain and install CCTV camera and other computer related stuffs. Contact me for detailed informtions.",
-  ];
-  let count = 0;
-  let index = 0;
-  let currentText = "";
-  let letter = "";
+  // let messageArray = [
+  //   "",
+  // ];
+  // let count = 0;
+  // let index = 0;
+  // let currentText = "";
+  // let letter = "";
 
-  (function type() {
-    if (count === messageArray.length) {
-      count = 0;
-    }
-    currentText = messageArray[count];
-    letter = currentText.slice(0, ++index);
-    document.querySelector(
-      ".more-services p"
-    ).innerHTML = letter;
-    if (letter.length === currentText.length) {
-      count++;
-      index = 0;
-    }
-    setTimeout(type, 200);
-  })();
+  // (function type() {
+  //   if (count === messageArray.length) {
+  //     count = 0;
+  //   }
+  //   currentText = messageArray[count];
+  //   letter = currentText.slice(0, ++index);
+  //   document.querySelector(
+  //     ".more-services p"
+  //   ).innerHTML = letter;
+  //   if (letter.length === currentText.length) {
+  //     count++;
+  //     index = 0;
+  //   }
+  //   setTimeout(type, 200);
+  // })();
 
   let messageArrays = Array(
     "I'm delighted to welcome you to my website! Here, you'll find a diverse range of my best work, as well as information about my background and experience.",

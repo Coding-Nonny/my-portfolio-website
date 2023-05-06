@@ -1,7 +1,7 @@
 :root {
   --bgcolor: #beb8ac;
   --blue: #31d275;
-  --black: #141414;
+  --black: #1e1c1c;
   --white: #f1f1f1;
   --gray: #d8dce4;
   --lightgray: #241f2b;
@@ -11,8 +11,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-  /* font-family: 'Lobster', cursive; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
 html {
@@ -37,7 +37,7 @@ a {
 }
 
 .light-mode a {
-  color: #1e1e20;
+  color: #121212;
   font-weight: 600;
 }
 
@@ -59,7 +59,7 @@ textarea {
 
 .light-mode textarea,
 .light-mode input {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .bar i {
@@ -83,7 +83,6 @@ form {
 
 p {
   font-weight: 600;
-  /* font-size: 18px; */
 }
 
 h1,
@@ -102,7 +101,7 @@ h4 {
   z-index: 2000;
 }
 h1,h2,h3,strong, span{
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 button {
@@ -131,7 +130,7 @@ pre {
   height: 100%;
   padding: 0px;
   color: #f5f3f3;
-  background: #141414;
+  background: #1e1c1c;
   overflow-x: hidden;
   overflow-y: scroll;
   transition: all 1s;
@@ -177,12 +176,12 @@ pre {
 }
 
 .mode .fa-moon {
-  color: #141414;
+  color: #1e1c1c;
 }
 
 .light-mode {
   background: #f5f3f3;
-  color: #1e1e20;
+  color: #121212;
   transition: all 1000ms;
 }
 
@@ -198,7 +197,7 @@ pre {
 }
 
 .intro {
-  background: #1e1e20;
+  background: #121212;
   transition: all 1000ms;
 }
 
@@ -214,16 +213,14 @@ pre {
 }
 
 header.scrolled {
-  background: #141414;
+  background: #1e1c1c;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
-  /* border-bottom: 1px solid #ffffff; */
   transition: all 1000ms;
 }
 
 .light-mode header.scrolled {
   background: #f5f3f3;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
-  /* border-bottom: 1px solid #1e1e20; */
 }
 
 .welcome .intro header .logo {
@@ -297,9 +294,34 @@ header.scrolled {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 50px;
+  padding: 50px 50px 0px 50px;
+  overflow: hidden;
 }
-
+.intro #home .bg-image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  padding: 50px;
+  z-index: 0;
+  filter: grayscale(100%);
+  animation: zoom 10s infinite;
+}
+@keyframes zoom{
+  0%{
+    transform:scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
 .intro #home .intro-text {
   width: 50%;
   display: flex;
@@ -307,6 +329,7 @@ header.scrolled {
   align-items: center;
   padding: 4px;
   opacity: 0;
+  z-index: 1;
   transition: opacity 1000ms;
 }
 
@@ -344,12 +367,10 @@ header.scrolled {
   font-weight: 600;
   color: #ffffff;
   margin-top: 10px;
-  /* font-size: 18px; */
   text-align: center;
   padding: 8px;
   transition: all 1s;
 }
-
 .intro #home .intro-text .name p::after {
   content: "";
   position: absolute;
@@ -359,7 +380,6 @@ header.scrolled {
   background-color: #31d275;
   animation: cursor 1.5s linear infinite;
 }
-
 @keyframes cursor {
   0%,
   100% {
@@ -383,7 +403,7 @@ header.scrolled {
 }
 
 .light-mode .intro #home .intro-text .name p {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #home .intro-text .call-action {
@@ -470,7 +490,7 @@ header.scrolled {
   .intro-text
   .intro-special
   p {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #home .intro-text .intro-special p b {
@@ -498,7 +518,7 @@ header.scrolled {
   .intro-text
   .social-links
   i {
-  color: #141414;
+  color: #1e1c1c;
 }
 
 .intro
@@ -572,7 +592,7 @@ header.scrolled {
 #about .intro-img {
   position: relative;
   width: 50%;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 10px;
   opacity: 0;
   transition: opacity 1000ms;
@@ -583,17 +603,17 @@ header.scrolled {
   position: absolute;
   width: 100%;
   height: 100%;
+  object-fit: contain;
   left: 0;
   right: 0;
   bottom: 0;
-  transform: rotate(-20deg);
-  object-fit: contain;
+  top: 0;
   z-index: 1;
 }
 
 .intro #home .intro-img .color,
 #about .color {
-  width: 100%;
+  max-width: 100%;
   animation: trans 10s ease-in-out infinite;
 }
 
@@ -639,7 +659,7 @@ header.scrolled {
   position: absolute;
   top: 50%;
   right: 0;
-  background: #1e1e20;
+  background: #121212;
   padding: 10px;
   border-radius: 12px;
   z-index: 2;
@@ -668,7 +688,7 @@ header.scrolled {
   animation: transY 10s ease-in-out infinite;
 }
 .light-mode .intro #home .intro-img .xp {
-  background: #141414;
+  background: #1e1c1c;
 }
 .intro #home .intro-img .xp small,
 .intro #home .intro-img .xp small {
@@ -695,7 +715,7 @@ header.scrolled {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background: #141414;
+  background: #1e1c1c;
   padding: 20px;
   transition: all 1000ms;
 }
@@ -707,7 +727,7 @@ header.scrolled {
 .intro #about .about-left {
   max-width: 65%;
   width: 100%;
-  background: #1e1e20;
+  background: #121212;
   padding: 10px;
   margin-top: 2rem;
   border-radius: 12px;
@@ -745,7 +765,7 @@ header.scrolled {
 }
 
 .light-mode .intro #about .about-left h1 b {
-  color: #141414;
+  color: #1e1c1c;
 }
 
 .intro #about .about-left strong {
@@ -950,7 +970,7 @@ header.scrolled {
 }
 
 .light-mode .intro #about .our-story p {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #about .our-story ul {
@@ -978,7 +998,7 @@ header.scrolled {
 }
 
 .light-mode .intro #about .our-story ul li {
-  color: #1e1e20;
+  color: #121212;
   background-color: rgba(255, 255, 255, 0.315);
 }
 
@@ -986,7 +1006,7 @@ header.scrolled {
   max-width: 30%;
   width: 100%;
   margin-top: 1.5rem;
-  background: #1e1e20;
+  background: #121212;
   padding: 10px;
   border-radius: 12px;
 }
@@ -1002,7 +1022,7 @@ header.scrolled {
   max-width: 100%;
   width: 100%;
   padding: 20px;
-  background: #141414;
+  background: #1e1c1c;
   transition: all 1000ms;
 }
 
@@ -1045,7 +1065,7 @@ header.scrolled {
   background: linear-gradient(
     to right,
     #31d275,
-    #141414
+    #1e1c1c
   );
 }
 
@@ -1103,7 +1123,7 @@ header.scrolled {
   position: relative;
   width: 280px;
   height: 250px;
-  background: #1e1e20;
+  background: #121212;
   margin: 2rem;
   overflow: hidden;
   border-radius: 12px;
@@ -1142,7 +1162,7 @@ header.scrolled {
   position: absolute;
   bottom: 15%;
   left: 10%;
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro
@@ -1179,7 +1199,7 @@ header.scrolled {
   right: 0;
   width: 100%;
   height: 100%;
-  background: #141414b4;
+  background: #1e1c1cb4;
   text-align: center;
   border-radius: 12px;
   transition: all 500ms;
@@ -1241,7 +1261,7 @@ header.scrolled {
   max-width: 100%;
   width: 100%;
   text-align: center;
-  color: #1e1e20;
+  color: #121212;
   font-weight: 800;
   word-wrap: break-word;
 }
@@ -1253,7 +1273,7 @@ header.scrolled {
 }
 
 .light-mode .readme-box p {
-  color: #1e1e20;
+  color: #121212;
   max-width: 100%;
   width: 100%;
   word-wrap: break-word;
@@ -1272,7 +1292,7 @@ header.scrolled {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background: #141414;
+  background: #1e1c1c;
   transition: all 1s;
   /* border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%; */
 }
@@ -1306,7 +1326,7 @@ header.scrolled {
   height: fit-content;
   margin: 1rem;
   padding: 8px;
-  background: #1e1e20;
+  background: #121212;
   border: 1px solid #31d275;
   border-radius: 12px;
   list-style: none;
@@ -1357,7 +1377,7 @@ header.scrolled {
   .service
   .more-services
   p {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #service .service a {
@@ -1453,7 +1473,7 @@ header.scrolled {
   .contact-icon
   div
   .fa-whatsapp {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #contact .contact .contact-icon div p {
@@ -1468,7 +1488,7 @@ header.scrolled {
   .contact-icon
   div
   p {
-  color: #141414;
+  color: #1e1c1c;
 }
 
 .intro #contact .contact form {
@@ -1478,7 +1498,7 @@ header.scrolled {
   align-items: flex-end;
   flex-wrap: wrap;
   margin-top: 2rem;
-  background: #141414;
+  background: #1e1c1c;
   border-radius: 12px;
   padding: 50px;
   box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.3);
@@ -1563,7 +1583,7 @@ header.scrolled {
   width: 100%;
   padding: 2px 2px 6px 6px;
   text-align: left;
-  color: #1e1e20;
+  color: #121212;
   right: 0;
   border-radius: 12px;
 }
@@ -1576,7 +1596,7 @@ header.scrolled {
   .form-left
   div
   input {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #contact .contact form .form-left div i {
@@ -1623,7 +1643,7 @@ header.scrolled {
   form
   .form-right
   textarea {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro #contact .contact form button {
@@ -1638,7 +1658,7 @@ header.scrolled {
 }
 
 .light-mode .intro #contact .contact form button {
-  color: #1e1e20;
+  color: #121212;
 }
 
 .intro
@@ -1973,7 +1993,7 @@ header.scrolled {
   left: 0;
   right: 0;
   margin: 0px;
-  background: #1e1e20;
+  background: #121212;
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 50px;
@@ -2072,7 +2092,7 @@ header.scrolled {
   width: 40px;
   height: 40px;
   font-size: 20px;
-  background: #1e1e20;
+  background: #121212;
   display: block;
   z-index: 10;
 }
@@ -2273,7 +2293,7 @@ header.scrolled {
   .comments {
   width: 60%;
   margin-top: 1rem;
-  background: #141414;
+  background: #1e1c1c;
   border-radius: 10px;
   padding: 10px;
 }
@@ -2312,7 +2332,7 @@ header.scrolled {
   left: 0;
   right: 0;
   object-fit: contain;
-  background: #1e1e20;
+  background: #121212;
   z-index: 11;
 }
 
@@ -2432,7 +2452,7 @@ footer h4 {
 }
 
 .light-mode footer h4 {
-  color: #1e1e20;
+  color: #121212;
 }
 
 footer .social-links i, #contact .social-links i {
@@ -2449,7 +2469,7 @@ footer .social-links i, #contact .social-links i {
 }
 
 .light-mode footer .social-links i {
-  color: #1e1e20;
+  color: #121212;
 }
  .light-mode #contact .social-links i{
   color: #241f2b;
@@ -2466,7 +2486,17 @@ footer .social-links i, #contact .social-links i {
     overflow-x: hidden;
     overflow-y: scroll;
   }
-
+  .intro #home .intro-img .my-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 85vh;
+    object-fit: contain;
+    z-index: 1;
+  }
   .welcome .home {
     position: relative;
     width: 100%;
@@ -2559,7 +2589,7 @@ footer .social-links i, #contact .social-links i {
     margin-top: -6000px;
     flex-direction: column;
     align-items: center;
-    background: #141414;
+    background: #1e1c1c;
     top: 0;
     left: 0;
     right: 0;
@@ -2581,7 +2611,7 @@ footer .social-links i, #contact .social-links i {
     margin-top: 0px;
     flex-direction: column;
     align-items: center;
-    background: #141414;
+    background: #1e1c1c;
     top: 0;
     left: 0;
     right: 0;
@@ -2692,7 +2722,7 @@ footer .social-links i, #contact .social-links i {
     background: linear-gradient(
       to right,
       #31d275,
-      #141414
+      #1e1c1c
     );
   }
 
@@ -2940,7 +2970,7 @@ footer .social-links i, #contact .social-links i {
     .comments {
     width: 100%;
     margin-top: 1rem;
-    background: #141414;
+    background: #1e1c1c;
     border-radius: 10px;
     padding: 10px;
   }

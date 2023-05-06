@@ -1,10 +1,4 @@
 class NonnyAlert {
-  nonnyTimeout = null;
-  nonnyAlertDiv = null;
-  NonnyClose = null;
-  nonnyColor = null;
-  position = null;
-  placement = null;
   constructor(
     divName = "nonny-alert",
     $timeOut = 10000,

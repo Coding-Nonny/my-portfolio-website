@@ -228,25 +228,6 @@ $main_url; }  ?>
                 >
               </button>
             </div>
-            <div class="intro-special">
-              <div
-                class="n"
-                style="display: none"
-              >
-                <h1>N</h1>
-              </div>
-              <p style="display: none">
-                <b style="display: none"
-                  >Nonny_Theophilus..</b
-                >. An experienced fullstack Web
-                Developer.
-              </p>
-              <code class="language-javascript">
-                days.forEach((day) =>{ if(alive &&
-                healthy){ pray(); work(); eat();
-                sleep(); repeat(); } })
-              </code>
-            </div>
             <div class="social-links">
               <a
                 href="https://www.facebook.com/theophilusnonny"
@@ -269,10 +250,29 @@ $main_url; }  ?>
                 ><i class="fab fa-instagram"></i
               ></a>
             </div>
+            <div class="intro-special">
+              <div
+                class="n"
+                style="display: none"
+              >
+                <h1>N</h1>
+              </div>
+              <p style="display: none">
+                <b style="display: none"
+                  >Nonny_Theophilus..</b
+                >. An experienced fullstack Web
+                Developer.
+              </p>
+              <code class="language-javascript">
+                days.forEach((day) =>{ if(alive &&
+                healthy){ pray(); work(); eat();
+                sleep(); repeat(); } })
+              </code>
+            </div>
           </div>
           <div class="intro-img">
             <img
-              src="./assets/image/PXL_20230101_001755186.PORTRAIT_adobe_express_4_adobe_express.png"
+              src="./assets/image/IMG_g07lud_adobe_express.png"
               alt=""
               class="my-img"
             />
@@ -522,7 +522,7 @@ $main_url; }  ?>
             </ul>
             <div class="more-services">
               <h1>More Services.</h1>
-              <p></p>
+              <p>I also maintain, repair and sale computer systems, maintain and install CCTV camera and other computer related stuffs. Contact me for detailed informtions.</p>
             </div>
             <a
               href="#contact"
@@ -532,6 +532,7 @@ $main_url; }  ?>
         </section>
         <section id="contact">
           <div class="contact">
+            <div class="bg-image"></div>
             <div class="contact-head">
               <h1>Ways To Contact Me</h1>
               <p>
@@ -750,6 +751,24 @@ $main_url; }  ?>
         window.lazySizesConfig.expFactor =
           lazySizesConfig.expand < 380 ? 3 : 2;
       })();
+
+
+      const images = [
+        'url(./assets/image/1.jpg)',
+        'url(./assets/image/2.jpg)',
+        'url(./assets/image/3.jpg)',
+        'url(./assets/image/4.jpg)',
+        'url(./assets/image/5.jpg)'
+      ];
+      function changeImg (){
+        const randomI = Math.floor(Math.random() * images.length);
+        const image = images[randomI];
+        document.querySelector(".bg-image").style.backgroundImage = `linear-gradient(40deg,rgba(255,255,255),transparent),${image}`;
+        document.querySelector(".bg-image").style.backgroundSize = "cover";
+        document.querySelector(".bg-image").style.backgroundPosition = "center";
+      }
+      changeImg();
+      setInterval(changeImg, 10000);
     </script>
     <script src="./assets/script/blog-func.js"></script>
   </body>
