@@ -1,7 +1,7 @@
 :root {
   --bgcolor: #beb8ac;
   --blue: #31d275;
-  --black: #1e1c1c;
+  --black: #121212;
   --white: #f1f1f1;
   --gray: #d8dce4;
   --lightgray: #241f2b;
@@ -32,7 +32,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #f5f3f3;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -127,12 +127,13 @@ pre {
 .welcome {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0px;
-  color: #f5f3f3;
-  background: #1e1c1c;
+  color: #ffffff;
+  background: #121212;
   overflow-x: hidden;
   overflow-y: scroll;
+  scrollbar-width: 0px;
   transition: all 1s;
 }
 
@@ -176,11 +177,11 @@ pre {
 }
 
 .mode .fa-moon {
-  color: #1e1c1c;
+  color: #121212;
 }
 
 .light-mode {
-  background: #f5f3f3;
+  background: #ffffff;
   color: #121212;
   transition: all 1000ms;
 }
@@ -213,13 +214,13 @@ pre {
 }
 
 header.scrolled {
-  background: #1e1c1c;
+  background: #121212;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
   transition: all 1000ms;
 }
 
 .light-mode header.scrolled {
-  background: #f5f3f3;
+  background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
 }
 
@@ -277,7 +278,7 @@ header.scrolled {
 
 .welcome .intro header .contact-me {
   width: auto;
-  padding: 12px;
+  padding: 6px;
   border-radius: 10px;
   background: #31d275;
   cursor: pointer;
@@ -295,9 +296,8 @@ header.scrolled {
   display: flex;
   justify-content: space-between;
   padding: 50px 50px 0px 50px;
-  overflow: hidden;
 }
-.intro #home .bg-image{
+.intro #contact .bg-image{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -327,7 +327,7 @@ header.scrolled {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4px;
+  padding: 4px 4px 10px 4px;
   opacity: 0;
   z-index: 1;
   transition: opacity 1000ms;
@@ -507,7 +507,6 @@ header.scrolled {
 
 .intro #home .intro-text .social-links i {
   font-size: 28px;
-  font-weight: 700;
   color: #f1f1f1;
   transition: color 1s ease;
 }
@@ -518,7 +517,7 @@ header.scrolled {
   .intro-text
   .social-links
   i {
-  color: #1e1c1c;
+  color: #121212;
 }
 
 .intro
@@ -599,18 +598,32 @@ header.scrolled {
   /* animation: skew 30s linear infinite; */
 }
 
-.intro #home .intro-img .my-img {
+.intro #home .my-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-height: 85vh;
+  z-index: 2;
+}
+.intro #home .intro-img .my-img1 {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   z-index: 1;
+  display: none;
 }
-
+ /* width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 0; */
 .intro #home .intro-img .color,
 #about .color {
   max-width: 100%;
@@ -688,7 +701,7 @@ header.scrolled {
   animation: transY 10s ease-in-out infinite;
 }
 .light-mode .intro #home .intro-img .xp {
-  background: #1e1c1c;
+  background: #121212;
 }
 .intro #home .intro-img .xp small,
 .intro #home .intro-img .xp small {
@@ -715,13 +728,13 @@ header.scrolled {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background: #1e1c1c;
+  background: #121212;
   padding: 20px;
   transition: all 1000ms;
 }
 
 .light-mode .intro #about {
-  background: #f5f3f3;
+  background: #ffffff;
 }
 
 .intro #about .about-left {
@@ -765,7 +778,7 @@ header.scrolled {
 }
 
 .light-mode .intro #about .about-left h1 b {
-  color: #1e1c1c;
+  color: #121212;
 }
 
 .intro #about .about-left strong {
@@ -1022,7 +1035,7 @@ header.scrolled {
   max-width: 100%;
   width: 100%;
   padding: 20px;
-  background: #1e1c1c;
+  background: #121212;
   transition: all 1000ms;
 }
 
@@ -1035,7 +1048,7 @@ header.scrolled {
 }
 
 .light-mode .intro #work {
-  background: #f5f3f3;
+  background: #ffffff;
 }
 
 .intro #work .project {
@@ -1065,7 +1078,7 @@ header.scrolled {
   background: linear-gradient(
     to right,
     #31d275,
-    #1e1c1c
+    #121212
   );
 }
 
@@ -1136,7 +1149,7 @@ header.scrolled {
   #work
   .all-projects
   .project-box {
-  background: #f5f3f3;
+  background: #ffffff;
 }
 
 .intro
@@ -1199,7 +1212,7 @@ header.scrolled {
   right: 0;
   width: 100%;
   height: 100%;
-  background: #1e1c1cb4;
+  background: #121212b4;
   text-align: center;
   border-radius: 12px;
   transition: all 500ms;
@@ -1292,13 +1305,13 @@ header.scrolled {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background: #1e1c1c;
+  background: #121212;
   transition: all 1s;
   /* border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%; */
 }
 
 .light-mode .intro #service .service {
-  background: #f5f3f3;
+  background: #ffffff;
 }
 
 .intro #service .service h1 {
@@ -1362,6 +1375,10 @@ header.scrolled {
 
 .intro #service .service .more-services {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   opacity: 0;
 }
@@ -1370,7 +1387,12 @@ header.scrolled {
   color: #ffffff;
   margin-top: 1rem;
 }
-
+.intro #service .service .more-services p{
+  position: relative;
+  width: 50%;
+  height: fit-content;
+  margin: 1rem;
+}
 .light-mode
   .intro
   #service
@@ -1391,6 +1413,7 @@ header.scrolled {
 
 /* contact */
 .intro #contact {
+  position: relative;
   width: 100%;
   padding: 50px;
 }
@@ -1488,7 +1511,7 @@ header.scrolled {
   .contact-icon
   div
   p {
-  color: #1e1c1c;
+  color: #121212;
 }
 
 .intro #contact .contact form {
@@ -1498,7 +1521,7 @@ header.scrolled {
   align-items: flex-end;
   flex-wrap: wrap;
   margin-top: 2rem;
-  background: #1e1c1c;
+  background: #121212;
   border-radius: 12px;
   padding: 50px;
   box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.3);
@@ -1506,7 +1529,7 @@ header.scrolled {
 }
 
 .light-mode .intro #contact .contact form {
-  background: #f5f3f3;
+  background: #ffffff;
 }
 
 .intro #contact .contact form .success-msg {
@@ -2293,7 +2316,7 @@ header.scrolled {
   .comments {
   width: 60%;
   margin-top: 1rem;
-  background: #1e1c1c;
+  background: #121212;
   border-radius: 10px;
   padding: 10px;
 }
@@ -2306,7 +2329,7 @@ header.scrolled {
   .blog-posts.blog-toggle
   .blog-comments
   .comments {
-  background: #f5f3f3;
+  background: #ffffff;
 }
 
 .intro
@@ -2415,7 +2438,7 @@ header.scrolled {
 }
 .blog-search button i{
   font-size: 18px;
-  color: #f5f3f3;
+  color: #ffffff;
 }
 .light-mode .blog-search button i{
   color: #241f2b;
@@ -2433,6 +2456,10 @@ header.scrolled {
 footer {
   width: 100%;
   padding: 12px;
+  background: #241f2b;
+}
+.light-mode footer{
+  background: #f1f1f1;
 }
 
 footer .social-links, #contact .social-links {
@@ -2481,8 +2508,9 @@ footer .social-links i, #contact .social-links i {
   .welcome {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 0px;
+    scrollbar-width: 0px;
     overflow-x: hidden;
     overflow-y: scroll;
   }
@@ -2520,7 +2548,7 @@ footer .social-links i, #contact .social-links i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
     margin-top: 0px;
   }
 
@@ -2589,7 +2617,7 @@ footer .social-links i, #contact .social-links i {
     margin-top: -6000px;
     flex-direction: column;
     align-items: center;
-    background: #1e1c1c;
+    background: #121212;
     top: 0;
     left: 0;
     right: 0;
@@ -2599,7 +2627,7 @@ footer .social-links i, #contact .social-links i {
   }
 
   .light-mode .intro header .nav {
-    background: #f5f3f3;
+    background: #ffffff;
   }
 
   .welcome .intro header .nav.show-menu {
@@ -2611,7 +2639,7 @@ footer .social-links i, #contact .social-links i {
     margin-top: 0px;
     flex-direction: column;
     align-items: center;
-    background: #1e1c1c;
+    background: #121212;
     top: 0;
     left: 0;
     right: 0;
@@ -2621,7 +2649,7 @@ footer .social-links i, #contact .social-links i {
   }
 
   .light-mode .intro header .nav.show-menu {
-    background: #f5f3f3;
+    background: #ffffff;
   }
 
   .welcome .intro header .nav li {
@@ -2674,7 +2702,6 @@ footer .social-links i, #contact .social-links i {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
     padding: 10px;
   }
 
@@ -2722,7 +2749,7 @@ footer .social-links i, #contact .social-links i {
     background: linear-gradient(
       to right,
       #31d275,
-      #1e1c1c
+      #121212
     );
   }
 
@@ -2845,8 +2872,10 @@ footer .social-links i, #contact .social-links i {
   #about .intro-img {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 10px;
+    opacity: 0;
+    transition: opacity 1000ms;
     /* animation: skew 30s linear infinite; */
   }
   .intro #work .project .all-projects .load-more {
@@ -2874,6 +2903,30 @@ footer .social-links i, #contact .social-links i {
     background-clip: text;
     color: transparent;
     text-align: center;
+  }
+  .intro #home .my-img {
+    display: none;
+    position: static;
+    max-height: 100%;
+    width: 100%;
+  }
+  .intro #home .intro-img .my-img1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    display: block;
+  }
+  .intro #service .service .more-services p{
+    position: relative;
+    width: 70%;
+    height: fit-content;
+    margin: 1rem;
   }
 }
 
@@ -2970,7 +3023,7 @@ footer .social-links i, #contact .social-links i {
     .comments {
     width: 100%;
     margin-top: 1rem;
-    background: #1e1c1c;
+    background: #121212;
     border-radius: 10px;
     padding: 10px;
   }
@@ -2990,6 +3043,18 @@ footer .social-links i, #contact .social-links i {
     color: #000;
     background: rgba(255, 255, 255, 0.05);
     border:2px solid #000;
+  }
+  .intro #home .my-img {
+    display: none;
+    position: static;
+    max-height: 100%;
+    width: 100%;
+  }
+  .intro #service .service .more-services p{
+    position: relative;
+    width:100%;
+    height: fit-content;
+    margin: 1rem;
   }
 }
 

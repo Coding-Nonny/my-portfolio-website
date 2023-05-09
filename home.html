@@ -174,8 +174,8 @@ $main_url; }  ?>
       <div class="intro home">
         <header>
           <div class="logo">
-            <h2>Coding</h2>
-            <p>Nonny.</p>
+            <h2>Coding </h2> 
+            <p> Nonny.</p>
           </div>
           <nav class="nav">
             <li class="here main" id="homes">
@@ -205,7 +205,7 @@ $main_url; }  ?>
           <div class="intro-text">
             <div class="name">
               <h1>
-                Hola!, I Am Nonny Theophilus.
+                Hola, Welcome,<br> I am Coding Nonny.
               </h1>
               <div class="intro-typing">
                 <p></p>
@@ -224,7 +224,7 @@ $main_url; }  ?>
                 <a
                   href="#contact"
                   title="contact me"
-                  >Get in touch</a
+                  >Get In Touch</a
                 >
               </button>
             </div>
@@ -270,11 +270,16 @@ $main_url; }  ?>
               </code>
             </div>
           </div>
+          <img
+              src="./assets/image/IMG_g07lud_adobe_express.png"
+              alt=""
+              class="my-img"
+            />
           <div class="intro-img">
             <img
               src="./assets/image/IMG_g07lud_adobe_express.png"
               alt=""
-              class="my-img"
+              class="my-img1"
             />
             <img
               src="./assets/image/colors.png"
@@ -286,8 +291,8 @@ $main_url; }  ?>
               <small>Projects Completed</small>
             </div>
             <div class="xp">
-              <h2>Nonny_Theophilus</h2>
-              <small>2yrs Experience</small>
+              <h2>Coding-Nonny</h2>
+              <small>2yrs XP</small>
             </div>
           </div>
         </section>
@@ -522,7 +527,7 @@ $main_url; }  ?>
             </ul>
             <div class="more-services">
               <h1>More Services.</h1>
-              <p>I also maintain, repair and sale computer systems, maintain and install CCTV camera and other computer related stuffs. Contact me for detailed informtions.</p>
+              <p></p>
             </div>
             <a
               href="#contact"
@@ -532,7 +537,6 @@ $main_url; }  ?>
         </section>
         <section id="contact">
           <div class="contact">
-            <div class="bg-image"></div>
             <div class="contact-head">
               <h1>Ways To Contact Me</h1>
               <p>
@@ -751,24 +755,6 @@ $main_url; }  ?>
         window.lazySizesConfig.expFactor =
           lazySizesConfig.expand < 380 ? 3 : 2;
       })();
-
-
-      const images = [
-        'url(./assets/image/1.jpg)',
-        'url(./assets/image/2.jpg)',
-        'url(./assets/image/3.jpg)',
-        'url(./assets/image/4.jpg)',
-        'url(./assets/image/5.jpg)'
-      ];
-      function changeImg (){
-        const randomI = Math.floor(Math.random() * images.length);
-        const image = images[randomI];
-        document.querySelector(".bg-image").style.backgroundImage = `linear-gradient(40deg,rgba(255,255,255),transparent),${image}`;
-        document.querySelector(".bg-image").style.backgroundSize = "cover";
-        document.querySelector(".bg-image").style.backgroundPosition = "center";
-      }
-      changeImg();
-      setInterval(changeImg, 10000);
     </script>
     <script src="./assets/script/blog-func.js"></script>
   </body>
