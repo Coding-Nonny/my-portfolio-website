@@ -126,27 +126,18 @@ $(document).ready(async function () {
     "As a creative professional, I'm excited to share my work and inspire you with my unique vision.",
     "Programs must be written for people to read, and only incidentally for machines to execute. This quote emphasizes the importance of writing code that is clear and understandable for human readers, not just efficient for machines."
   );
-  let counts = 0;
-  let indexs = 0;
-  let currentTexts = "";
+
   let letters = "";
 
   (function typing() {
-    if (counts === messageArrays.length) {
-      counts = 0;
-    }
-    let span = document.createElement("span");
-    currentTexts = messageArrays[counts];
-    letters = currentTexts.slice(0, ++indexs);
     let p = document.querySelector(
       ".intro #home .intro-text .name p"
     );
+    letters = messageArrays[Math.floor(Math.random() * messageArrays.length)];
+    p.style = "transition:all 1s;opacity:0";
+    p.style.opacity = "1";
     p.innerHTML = letters;
-    if (letters.length === currentTexts.length) {
-      counts++;
-      indexs = 0;
-    }
-    setTimeout(typing, 200);
+    setTimeout(typing, 10000);
   })();
 
   $("body").on(

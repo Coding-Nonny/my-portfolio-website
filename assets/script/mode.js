@@ -242,7 +242,7 @@ function generateColor() {
     .css("color", "transparent");
   document
     .querySelectorAll(
-      ".intro #about .our-story ul li "
+      ".intro #about .our-story ul .learning "
     )
     .forEach((elem) => {
       elem.style.border = `2px solid ${color}`;
@@ -416,7 +416,7 @@ if (savedColor) {
     .css("color", "transparent");
   document
     .querySelectorAll(
-      ".intro #about .our-story ul li "
+      ".intro #about .our-story ul .learning "
     )
     .forEach((elem) => {
       elem.style.border = `2px solid${savedColor}`;
