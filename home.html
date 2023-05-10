@@ -588,7 +588,7 @@ $main_url; }  ?>
               </div>
               <div class="form-left">
                 <div>
-                  <label
+                  <label for="name"
                     >Your name
                     <i
                       class="fas fa-signature"
@@ -598,10 +598,12 @@ $main_url; }  ?>
                     type="text"
                     placeholder="Your name"
                     name="name"
+                    id="name"
+                    autocomplete="off"
                   />
                 </div>
                 <div>
-                  <label for=""
+                  <label for="email"
                     >Email
                     <i class="fas fa-envelope"></i
                   ></label>
@@ -609,10 +611,12 @@ $main_url; }  ?>
                     type="text"
                     placeholder="Your email address"
                     name="email"
+                    id="email"
+                    autocomplete="off"
                   />
                 </div>
                 <div>
-                  <label for=""
+                  <label for="number"
                     >Phone number
                     <i
                       class="fas fa-mobile-phone"
@@ -622,15 +626,16 @@ $main_url; }  ?>
                     type="text"
                     placeholder="Your phone number (optional)"
                     name="number"
+                    id="number"
                     autocomplete="off"
                   />
                 </div>
               </div>
               <div class="form-right">
-                <label for="">Message</label>
+                <label for="message">Message</label>
                 <textarea
                   name="message"
-                  id=""
+                  id="message"
                   cols="30"
                   rows="10"
                   placeholder="message"

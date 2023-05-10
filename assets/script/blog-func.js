@@ -459,8 +459,10 @@ function getAllBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -482,9 +484,9 @@ function getAllBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -747,8 +749,10 @@ function getPersonalBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -770,9 +774,9 @@ function getPersonalBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -910,8 +914,10 @@ function getTechBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -933,9 +939,9 @@ function getTechBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -1073,8 +1079,10 @@ function getSportsBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -1096,9 +1104,9 @@ function getSportsBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -1237,8 +1245,10 @@ function getFunnyBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -1260,9 +1270,9 @@ function getFunnyBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -1402,8 +1412,10 @@ function getHistoryBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -1425,9 +1437,9 @@ function getHistoryBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -1565,8 +1577,10 @@ function getGovBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -1588,9 +1602,9 @@ function getGovBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -1728,8 +1742,10 @@ function getEntBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -1751,9 +1767,9 @@ function getEntBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -1891,8 +1907,10 @@ function getEduBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -1914,9 +1932,9 @@ function getEduBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -2054,8 +2072,10 @@ function getDevBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -2077,9 +2097,9 @@ function getDevBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
@@ -2216,8 +2236,10 @@ function getSearchBlog(
           .map(
             (comment) => `
                 <div class="comments">
-                  <strong>${comment.username}</strong>
-                  <small>${comment.comment_text} <br /> <em>${comment.comment_date}</em></small>
+                <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
+                  <strong style="color: ${color}">${comment.username}</strong>
+                  <small>${comment.comment_text} </small>
+                  <em>${comment.comment_date}</em>
                 </div>
               `
           )
@@ -2239,9 +2261,9 @@ function getSearchBlog(
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
-                    <input type="text" style="border:2px solid ${color}" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
-                    <input type="email" style="border:2px solid ${color}" placeholder="Your email address" name="email" email-id="${blog.id}" />
-                    <textarea name="comment" id="" cols="30" rows="10" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
+                    <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
+                    <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
+                    <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
                     <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>

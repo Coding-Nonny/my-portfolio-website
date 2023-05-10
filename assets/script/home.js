@@ -371,6 +371,32 @@ $("body").on("click", "#instagram-share", function (e) {
     function (e) {
       e.preventDefault();
       let formId = $(this).data("id");
+      let userN = $(
+        ".intro #blog .blog .blog-div .blog-toggle .blog-action form input[type=text][user-id=" +
+          formId +
+          "]"
+      );
+      const nameOf = userN.val().charAt(0).toUpperCase();
+      const initial = nameOf;
+      const canvas = document.createElement("canvas");
+      canvas.width = 100;
+      canvas.height = 100;
+
+      const context = canvas.getContext("2d");
+      context.fillStyle = "#000000";
+      context.fillRect(0,0,canvas.width, canvas.height);
+      context.font = "48px Arial";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+context.fillStyle = JSON.parse(localStorage.getItem("color")) ||
+"#31d275";
+context.fillText(initial,canvas.width / 2,canvas.height / 2);
+const img = canvas.toDataURL();
+console.log(img);
+// const nImag = new Image();
+// nImag.src = img;
+// document.body.appendChild(nImag)
+
       if (
         $(
           ".intro #blog .blog .blog-div .blog-toggle .blog-action form input[type=checkbox][data-id=" +
@@ -398,6 +424,7 @@ $("body").on("click", "#instagram-share", function (e) {
         );
         let formdata = new FormData(this);
         formdata.append("blog_id", formId);
+        formdata.append("image", img);
         $.ajax({
           url: "assets/php/comment.php",
           type: "POST",
@@ -424,6 +451,7 @@ $("body").on("click", "#instagram-share", function (e) {
       } else {
         let formdata = new FormData(this);
         formdata.append("blog_id", formId);
+        formdata.append("image", img);
         $.ajax({
           url: "assets/php/comment.php",
           type: "POST",
@@ -466,46 +494,14 @@ $("body").on("click", "#instagram-share", function (e) {
         contentType: false,
         success: function (data) {
           if (data == "submitted") {
-            // $(".success-msg").css(
-            //   "display",
-            //   "block"
-            // );
-            // $(".success-msg p").css(
-            //   "color",
-            //   "#31d275"
-            // );
-            // $(".success-msg p").text(
-            //   "You message was sent, relax as we get back to you."
-            // );
             message.alert_message(
               "You message was sent, relax as we get back to you.",
               "success"
             );
-            // setTimeout(() => {
-            //   $(".success-msg").css(
-            //     "display",
-            //     "none"
-            //   );
-            // }, 8000);
             $(
               ".intro #contact .contact form"
             )[0].reset();
           } else {
-            // $(".success-msg").css(
-            //   "display",
-            //   "block"
-            // );
-            // $(".success-msg p").css(
-            //   "color",
-            //   "crimson"
-            // );
-            // $(".success-msg p").text(data);
-            // setTimeout(() => {
-            //   $(".success-msg").css(
-            //     "display",
-            //     "none"
-            //   );
-            // }, 8000);
             message.alert_message(
               data,
               "warning"
