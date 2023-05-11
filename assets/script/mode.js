@@ -254,6 +254,13 @@ function generateColor() {
     .forEach((elem) => {
       elem.style.color = color;
     });
+    document
+    .querySelectorAll(
+      ".level-bar"
+    )
+    .forEach((elem) => {
+      elem.style.backgroundColor = color;
+    });
   // let before = window.getComputedStyle(document.querySelector("#progress"),":after");
   // before.background = color;
 } //.intro #home .intro-img .project h2
@@ -439,4 +446,11 @@ if (savedColor) {
   $(".blog-search button").each(function () {
     $(this).css("background", savedColor);
   });
+  document
+    .querySelectorAll(
+      ".level-bar"
+    )
+    .forEach((elem) => {
+      elem.style.backgroundColor = savedColor;
+    });
 }

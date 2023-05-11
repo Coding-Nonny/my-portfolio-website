@@ -353,17 +353,32 @@ $main_url; }  ?>
                 <span>Frontend</span>
                 <!-- <span>Frameworks.</span> -->
               </h2>
-              <li class="frontend">HTML 90%</li>
-              <li class="frontend">CSS 80%</li>
-              <li class="frontend">Javascript 50%</li>
+              <li class="frontend" data-name="HTML" data-level="90">
+                <p>HTML 90%</p>
+                <span class="level-bar"></span>
+              </li>
+              <li class="frontend" data-name="CSS" data-level="80">
+                <p>CSS 80%</p>
+                <span class="level-bar"></span>
+              </li>
+              <li class="frontend" data-name="JAVASCRIPT" data-level="50">
+                <p>JAVASCRIPT 50%</p>
+                <span class="level-bar"></span>
+              </li>
             </ul>
             <ul>
               <h2>
                 <span>Backend</span>
                 <!-- <span>Frameworks.</span> -->
               </h2>
-              <li class="backend">PHP 50%</li>
-              <li class="backend">SQL 60%</li>
+              <li class="backend frontend" data-name="PHP" data-level="50">
+                <p>PHP 50%</p>
+                <span class="level-bar"></span>
+              </li>
+              <li class="backend frontend" data-name="SQL" data-level="60">
+                <p>SQL 50%</p>
+                <span class="level-bar"></span>
+              </li>
             </ul>
             <ul>
               <h2>
@@ -691,45 +706,45 @@ $main_url; }  ?>
             <div class="blog-div"></div>
           </div>
         </section>
-      </div>
-      <footer>
-        <div class="social-links">
-          <a
-            href="https://www.facebook.com/theophilusnonny"
-            target="_blank"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a
-            href="https://wa.me/message/SXGIV25TKXYOO1"
-            target="_blank"
-            ><i class="fa fa-whatsapp"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
-            target="_blank"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
-            target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
+        <div class="footer">
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+          <h4>
+            Nonny.com &copy; <em>2023</em>. All
+            Right Reserved
+          </h4>
+          <h5
+            style="
+              text-align: center;
+              width: 100%;
+              font-weight: 500;
+            "
+          >
+            This site was developed By Chinonso
+            Chikezie Theophilus
+          </h5>
         </div>
-        <h4>
-          Nonny.com &copy; <em>2023</em>. All
-          Right Reserved
-        </h4>
-        <h5
-          style="
-            text-align: center;
-            width: 100%;
-            font-weight: 500;
-          "
-        >
-          This site was developed By Chinonso
-          Chikezie Theophilus
-        </h5>
-      </footer>
+      </div>
     </div>
     <script src="./assets/script/prism.js"></script>
     <script src="./assets/script/jquery.js"></script>
@@ -760,6 +775,48 @@ $main_url; }  ?>
         window.lazySizesConfig.expFactor =
           lazySizesConfig.expand < 380 ? 3 : 2;
       })();
+      $(document).ready(function() {
+  // Select the parent element
+  // Get all the skill elements
+var skills = document.getElementsByClassName('frontend');
+
+// Create an intersection observer instance
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      // Get the level bar element within the current skill
+      var levelBar = entry.target.querySelector('.level-bar');
+      var levelP = entry.target.querySelector('p');
+      // Get the skill level as a percentage (0 to 100)
+      var skillLevel = entry.target.getAttribute('data-level');
+       // Get the skill name using data-name attribute
+      var skill = entry.target.getAttribute('data-name');
+
+      // Set the width of the level bar based on the skill level
+      levelBar.style.width = skillLevel + '%';
+      let count = 0;
+  function updateCount() {
+  if (count <= parseInt(skillLevel)) {
+    levelP.textContent = `${skill} ${count}%`;
+    count++;
+    setTimeout(updateCount, 40);
+  }
+}
+updateCount();
+    }else{
+      var levelBar = entry.target.querySelector('.level-bar');
+      levelBar.style.width = '0';
+    }
+  });
+});
+
+// Observe each skill element
+Array.prototype.forEach.call(skills, function(skill) {
+  observer.observe(skill);
+});
+
+});
+
     </script>
     <script src="./assets/script/blog-func.js"></script>
   </body>
