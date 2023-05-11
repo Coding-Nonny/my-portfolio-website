@@ -9,7 +9,7 @@ $(document).ready(() => {
   if (dataCache) {
     let data = JSON.parse(dataCache);
     document.querySelector(
-      ".intro #home .intro-img .project h2"
+      ".intro #home .intro-img .project h4"
     ).innerHTML = data.length;
     showRepos(data);
   }

@@ -249,7 +249,7 @@ function generateColor() {
     });
   document
     .querySelectorAll(
-      ".intro #home .intro-img h2"
+      ".intro #home .intro-img h4"
     )
     .forEach((elem) => {
       elem.style.color = color;
@@ -423,7 +423,7 @@ if (savedColor) {
     });
   document
     .querySelectorAll(
-      ".intro #home .intro-img h2"
+      ".intro #home .intro-img h4"
     )
     .forEach((elem) => {
       elem.style.color = savedColor;
