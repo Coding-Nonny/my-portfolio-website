@@ -8,7 +8,7 @@ $(document).ready(async function () {
     ),
     icon = document.querySelector(".bar #bars"),
     menuList = document.querySelectorAll(
-      ".welcome .intro header .nav li"
+      ".welcome header .nav li"
     );
   let home = document.querySelector(".main");
 
@@ -59,7 +59,7 @@ $(document).ready(async function () {
 
   document
     .querySelector(
-      ".welcome .intro header .contact-me"
+      ".welcome header .contact-me"
     )
     .addEventListener("click", function () {
       if (menu.classList.contains("show-menu")) {

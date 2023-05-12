@@ -69,7 +69,7 @@ function generateColor() {
   );
   h1Element.style.color = color;
   document.querySelector(
-    ".intro header .logo h2 "
+    ".welcome header .logo h2 "
   ).style.color = color;
   document.querySelector(
     ".intro #home .intro-text .intro-special p b "
@@ -201,7 +201,7 @@ function generateColor() {
       $(this).css("border", `2px solid${color}`);
     }
   );
-  $(".welcome .intro header .nav li.here").each(
+  $(".welcome header .nav li.here").each(
     function () {
       $(this).css(
         "border-bottom",
@@ -295,7 +295,7 @@ if (savedColor) {
   );
   h1Element.style.color = savedColor;
   document.querySelector(
-    ".intro header .logo h2 "
+    ".welcome header .logo h2 "
   ).style.color = savedColor;
   document.querySelector(
     ".intro #home .intro-text .intro-special p b "

@@ -37,6 +37,7 @@ html {
 }
 
 body {
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -48,6 +49,7 @@ body {
 a {
   text-decoration: none;
   color: var(--bg-white);
+  transition: all 1s;
 }
 
 .light-mode a {
@@ -120,13 +122,14 @@ h4 {
   font-size: var(--h4-lg);
 }
 .s-down {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
+  right: 0;
   width: 0;
   height: 3px;
   background: #31d275;
-  z-index: 1000;
+  z-index: 1001;
 }
 h1,
 h2,
@@ -138,6 +141,7 @@ span {
 
 button {
   border-radius: 20px;
+  transition: all 1s;
 }
 
 b {
@@ -233,20 +237,21 @@ pre {
 }
 
 .intro {
+  position: relative;
   background: var(--bg-black);
   transition: all 1000ms;
 }
 
-.welcome .intro header {
+.welcome  header {
   position: sticky;
-  position: -webkit-sticky;
   display: flex;
   top: 0;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  z-index: 1000;
   transition: all 1000ms;
+  z-index: 10000;
 }
 
 
@@ -261,7 +266,7 @@ header.scrolled {
   box-shadow: 0px 2px 8px var(--box-shadow);
 }
 
-.welcome .intro header .logo {
+.welcome header .logo {
   width: 50px;
   height: 50px;
   display: flex;
@@ -275,17 +280,17 @@ header.scrolled {
 .light-mode .intro header .logo {
   background: var(--partial-dark);
 }
-.welcome .intro header .logo h2 {
+.welcome header .logo h2 {
   font-size: var(--logo-lg);
   color: #31d275;
 }
 
-.welcome .intro header .logo p {
+.welcome header .logo p {
   font-size: var(--logo-lg);
   color: var(--color-after);
 }
 
-.welcome .intro header .nav {
+.welcome header .nav {
   max-width: 100%;
   width: fit-content;
   display: flex;
@@ -294,20 +299,20 @@ header.scrolled {
   gap: 20px;
 }
 
-.welcome .intro header .nav li {
+.welcome header .nav li {
   list-style: none;
   font-size: 18px;
   font-weight: 600;
   transition: all 500ms;
 }
 
-.welcome .intro header .nav i {
+.welcome header .nav i {
   list-style: none;
   font-size: var(--p-fsl);
   transition: all 500ms;
 }
 
-.welcome .intro header .nav li a {
+.welcome header .nav li a {
   text-decoration: none;
   padding: 8px;
   border-radius: 12px;
@@ -315,22 +320,22 @@ header.scrolled {
   transition: background-color 500ms;
 }
 
-.welcome .intro header .nav li:hover {
+.welcome header .nav li:hover {
   border-bottom: 2px solid #31d275;
   transform: scale(1.1);
 }
 
-.welcome .intro header .contact-me {
+.welcome header .contact-me {
   width: auto;
   padding: 6px;
   border-radius: 10px;
   background: #31d275;
   cursor: pointer;
 }
-.welcome .intro header .contact-me:hover{
+.welcome  header .contact-me:hover{
   transform: scale(1.1);
 }
-.welcome .intro header .contact-me a {
+.welcome  header .contact-me a {
   text-decoration: none;
   font-weight: 600;
 }
@@ -340,6 +345,7 @@ header.scrolled {
   width: 100%;
   height: 100%;
   display: flex;
+  margin-top: 1rem;
   justify-content: space-between;
   padding: 50px 50px 0px 50px;
 }
@@ -464,7 +470,9 @@ header.scrolled {
   font-weight: 600;
   cursor: pointer;
 }
-
+.intro #home .intro-text .call-action a:hover{
+  transform: scale(1.1);
+}
 .intro
   #home
   .intro-text
@@ -2555,14 +2563,16 @@ header.scrolled {
 /* .Footer */
 
 .footer {
-  position: sticky;
-  top: 100%;
+  position: relative;
   padding: 10px;
   width: 100%;
-  background: #241f2b;
+  background: var(--bg-black);
+  margin-top: 2rem;
+  border-top: 1px solid var(--gray);
 }
 .light-mode .footer {
-  background: #d8dce4;
+  background: var(--bg-white);
+  border-top: 1px solid var(--partial-dark);
 }
 
 .footer .social-links,
@@ -2635,14 +2645,15 @@ header.scrolled {
     padding: 0px;
   }
 
-  .welcome .intro header {
+  .welcome header {
     position: sticky;
     display: flex;
     top: 0;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    z-index: 1000;
+    z-index: 10000;
   }
 
   .intro #home {
@@ -2652,7 +2663,7 @@ header.scrolled {
     flex-direction: column;
     align-items: center;
     padding: 10px 10px 0px 10px;
-    margin-top: 0px;
+    margin-top: 1rem;
   }
 
   .intro #home .intro-img {
@@ -2710,7 +2721,7 @@ header.scrolled {
     text-align: center;
   }
 
-  .welcome .intro header .nav {
+  .welcome  header .nav {
     position: absolute;
     max-width: 100%;
     width: 100%;
@@ -2728,11 +2739,11 @@ header.scrolled {
     transition: all 700ms;
   }
 
-  .light-mode .intro header .nav {
+  .light-mode  header .nav {
     background: var(--bg-white);
   }
 
-  .welcome .intro header .nav.show-menu {
+  .welcome header .nav.show-menu {
     position: fixed;
     max-width: 100%;
     width: 100%;
@@ -2754,13 +2765,13 @@ header.scrolled {
     background: var(--bg-white);
   }
 
-  .welcome .intro header .nav li {
+  .welcome  header .nav li {
     list-style: none;
     font-size: 18px;
     transition: all 500ms;
   }
 
-  .welcome .intro header .contact-me {
+  .welcome  header .contact-me {
     position: absolute;
     top: 8%;
     left: 5%;
@@ -2775,7 +2786,6 @@ header.scrolled {
   }
 
   .welcome
-    .intro
     header
     .contact-me.contact-icon {
     position: absolute;
@@ -3033,7 +3043,7 @@ header.scrolled {
     right: 0;
     border-radius: 100px 0px 0px 100px;
   }
-  .welcome .intro header .logo {
+  .welcome  header .logo {
     width: 40px;
     height: 40px;
     display: flex;
@@ -3042,17 +3052,17 @@ header.scrolled {
     border-radius: 50%;
     padding: 8px;
   }
-  .welcome .intro header .logo h2 {
+  .welcome  header .logo h2 {
     font-size: var(--logo-sm);
     color: #31d275;
   }
 
-  .welcome .intro header .logo p {
+  .welcome  header .logo p {
     font-size: var(--logo-sm);
     color: var(--color-after);
   }
-  .welcome .intro header .nav i,
-  .welcome .intro header i {
+  .welcome  header .nav i,
+  .welcome  header i {
     list-style: none;
     font-size: var(--hi-lg);
     transition: all 500ms;
@@ -3185,14 +3195,14 @@ header.scrolled {
     height: fit-content;
     margin: 1rem;
   }
-  .welcome .intro header .nav i,
-  .welcome .intro header i {
+  .welcome  header .nav i,
+  .welcome  header i {
     list-style: none;
     font-size: var(--hi-sm);
     transition: all 500ms;
   }
 
-  .welcome .intro header .nav li a {
+  .welcome header .nav li a {
     text-decoration: none;
     padding: 8px;
     border-radius: 12px;
