@@ -169,13 +169,10 @@ $(document).ready(async function () {
           "]"
       );
       blog.removeClass("blog-toggle");
-      let rl = (location.href = "home.html#blog");
-      if (rl) {
-        await new Promise((resolve) =>
+      await new Promise((resolve) =>
           setTimeout(resolve, 1000)
         );
-        $(".main-three").addClass("here");
-      }
+      let rl = (location.href = "home.html#blog");
     }
   );
 

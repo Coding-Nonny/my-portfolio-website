@@ -46,11 +46,11 @@ Nigeria. This site shows his portfolio and blog");
 $main_url = "http"; if(isset($_SERVER["HTTPS"]) &&
 $_SERVER["HTTPS"] == "on") { $main_url .= "s"; }
 $main_url .= "://".$_SERVER["SERVER_NAME"];
-if(strpos($_SERVER["REQUEST_URI"],
-"?") !== false) { $main_url .=
-strtok($_SERVER["REQUEST_URI"], "?"); } else {
-$main_url .= $_SERVER["REQUEST_URI"]; } $ogUrl =
-$main_url; }  ?>
+if(strpos($_SERVER["REQUEST_URI"], "?") !== false)
+{ $main_url .= strtok($_SERVER["REQUEST_URI"],
+"?"); } else { $main_url .=
+$_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -127,7 +127,10 @@ $main_url; }  ?>
       name="twitter:image"
       content="<?= $post_image ?>"
     />
-    <meta name="twitter:url" content="<?= $ogUrl ?>" />
+    <meta
+      name="twitter:url"
+      content="<?= $ogUrl ?>"
+    />
     <!-- Instagram meta tags for sharing -->
     <meta
       property="og:insta:shareable"
@@ -138,8 +141,14 @@ $main_url; }  ?>
       property="og:whatsapp:message"
       content="<?= $post_title  ?>"
     />
-    <meta property="og:site_name" content="Nonny Portfolio | Web Design and Development Blog">
-<meta property="article:publisher" content="+2348135733563">
+    <meta
+      property="og:site_name"
+      content="Nonny Portfolio | Web Design and Development Blog"
+    />
+    <meta
+      property="article:publisher"
+      content="+2348135733563"
+    />
 
     <link
       rel="stylesheet"
@@ -164,8 +173,6 @@ $main_url; }  ?>
   </head>
 
   <body>
-    <div id="alert"></div>
-    <div class="s-down" id="down"></div>
     <div class="welcome">
       <div class="mode">
         <i class="fas fa-sun" id="mode"></i>
@@ -173,8 +180,8 @@ $main_url; }  ?>
       </div>
       <div class="intro home">
         <header>
-          <div class="logo">
-            <h2>C</h2> 
+          <div class="logo" onclick="location.reload();">
+            <h2>C</h2>
             <p>N</p>
           </div>
           <nav class="nav">
@@ -201,32 +208,31 @@ $main_url; }  ?>
             <i class="fa fa-bars" id="bars"></i>
           </div>
         </header>
+        <div id="alert"></div>
+        <div class="s-down" id="down"></div>
         <section id="home">
           <div class="intro-text">
             <div class="name">
               <h1>
-                Hola, Welcome,<br> I am Coding Nonny.
+                Hola, Welcome,<br />
+                I am Coding Nonny.
               </h1>
               <div class="intro-typing">
                 <p></p>
               </div>
             </div>
             <div class="call-action">
-              <button class="hire">
                 <a
                   href="resume.html"
                   title="print resume"
                   target="_blank"
-                  >See Resume</a
+                  class="hire">See Resume</a
                 >
-              </button>
-              <button class="know">
                 <a
                   href="#contact"
                   title="contact me"
-                  >Get In Touch</a
+                  class="know">Get In Touch</a
                 >
-              </button>
             </div>
             <div class="social-links">
               <a
@@ -271,10 +277,10 @@ $main_url; }  ?>
             </div>
           </div>
           <img
-              src="./assets/image/IMG_g07lud_adobe_express.png"
-              alt=""
-              class="my-img"
-            />
+            src="./assets/image/IMG_g07lud_adobe_express.png"
+            alt=""
+            class="my-img"
+          />
           <div class="intro-img">
             <img
               src="./assets/image/IMG_g07lud_adobe_express.png"
@@ -309,18 +315,15 @@ $main_url; }  ?>
                   place by breaking language
                   barriers and enabling people to
                   communicate effectively across
-                  cultures and languages. I
-                  attended NIIT IT school from
-                  September 2020 to September 2021
-                  after obtaining my O level
-                  certificate in 2019. I have
-                  developed various local
+                  cultures and languages.
+                  As a self taught software developer, 
+                  I have developed various local
                   applications for companies and
                   for practice. some of the
                   projects are, Hospital
                   management system, Bakery
                   management system, stock
-                  management system etc.
+                  management system using technologies like PHP, CSS, Javascript, HTML, Jquery etc.
                 </p>
                 <br />
                 <p>
@@ -353,16 +356,36 @@ $main_url; }  ?>
                 <span>Frontend</span>
                 <!-- <span>Frameworks.</span> -->
               </h2>
-              <li class="frontend" data-name="HTML" data-level="90">
+              <li
+                class="frontend"
+                data-name="HTML"
+                data-level="90"
+              >
                 <p>HTML 90%</p>
                 <span class="level-bar"></span>
               </li>
-              <li class="frontend" data-name="CSS" data-level="80">
+              <li
+                class="frontend"
+                data-name="CSS"
+                data-level="80"
+              >
                 <p>CSS 80%</p>
                 <span class="level-bar"></span>
               </li>
-              <li class="frontend" data-name="JAVASCRIPT" data-level="50">
+              <li
+                class="frontend"
+                data-name="JAVASCRIPT"
+                data-level="50"
+              >
                 <p>JAVASCRIPT 50%</p>
+                <span class="level-bar"></span>
+              </li>
+              <li
+                class="frontend"
+                data-name="JQUERY"
+                data-level="50"
+              >
+                <p>JQUERY 50%</p>
                 <span class="level-bar"></span>
               </li>
             </ul>
@@ -371,11 +394,19 @@ $main_url; }  ?>
                 <span>Backend</span>
                 <!-- <span>Frameworks.</span> -->
               </h2>
-              <li class="backend frontend" data-name="PHP" data-level="50">
+              <li
+                class="backend frontend"
+                data-name="PHP"
+                data-level="50"
+              >
                 <p>PHP 50%</p>
                 <span class="level-bar"></span>
               </li>
-              <li class="backend frontend" data-name="SQL" data-level="60">
+              <li
+                class="backend frontend"
+                data-name="SQL"
+                data-level="60"
+              >
                 <p>SQL 50%</p>
                 <span class="level-bar"></span>
               </li>
@@ -383,16 +414,20 @@ $main_url; }  ?>
             <ul>
               <h2>
                 <span
-                  >Currently Learning To Up My
-                  Skills</span
+                  >Looking To Upgrade My
+                  Skills With</span
                 >
                 <!-- <span>Frameworks.</span> -->
               </h2>
               <li class="learning">React JS</li>
-              <li class="learning">React Native</li>
+              <li class="learning">
+                React Native
+              </li>
               <li class="learning">Node JS</li>
               <li class="learning">Laravel</li>
-              <li class="learning">Codeigniter</li>
+              <li class="learning">
+                Codeigniter
+              </li>
             </ul>
           </div>
           <div class="about-left">
@@ -647,7 +682,9 @@ $main_url; }  ?>
                 </div>
               </div>
               <div class="form-right">
-                <label for="message">Message</label>
+                <label for="message"
+                  >Message</label
+                >
                 <textarea
                   name="message"
                   id="message"
@@ -775,48 +812,70 @@ $main_url; }  ?>
         window.lazySizesConfig.expFactor =
           lazySizesConfig.expand < 380 ? 3 : 2;
       })();
-      $(document).ready(function() {
-  // Select the parent element
-  // Get all the skill elements
-var skills = document.getElementsByClassName('frontend');
+      $(document).ready(function () {
+        // Select the parent element
+        // Get all the skill elements
+        var skills =
+          document.getElementsByClassName(
+            "frontend"
+          );
 
-// Create an intersection observer instance
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      // Get the level bar element within the current skill
-      var levelBar = entry.target.querySelector('.level-bar');
-      var levelP = entry.target.querySelector('p');
-      // Get the skill level as a percentage (0 to 100)
-      var skillLevel = entry.target.getAttribute('data-level');
-       // Get the skill name using data-name attribute
-      var skill = entry.target.getAttribute('data-name');
+        // Create an intersection observer instance
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                // Get the level bar element within the current skill
+                var levelBar =
+                  entry.target.querySelector(
+                    ".level-bar"
+                  );
+                var levelP =
+                  entry.target.querySelector("p");
+                // Get the skill level as a percentage (0 to 100)
+                var skillLevel =
+                  entry.target.getAttribute(
+                    "data-level"
+                  );
+                // Get the skill name using data-name attribute
+                var skill =
+                  entry.target.getAttribute(
+                    "data-name"
+                  );
 
-      // Set the width of the level bar based on the skill level
-      levelBar.style.width = skillLevel + '%';
-      let count = 0;
-  function updateCount() {
-  if (count <= parseInt(skillLevel)) {
-    levelP.textContent = `${skill} ${count}%`;
-    count++;
-    setTimeout(updateCount, 40);
-  }
-}
-updateCount();
-    }else{
-      var levelBar = entry.target.querySelector('.level-bar');
-      levelBar.style.width = '0';
-    }
-  });
-});
+                // Set the width of the level bar based on the skill level
+                levelBar.style.width =
+                  skillLevel + "%";
+                let count = 0;
+                function updateCount() {
+                  if (
+                    count <= parseInt(skillLevel)
+                  ) {
+                    levelP.textContent = `${skill} ${count}%`;
+                    count++;
+                    setTimeout(updateCount, 30);
+                  }
+                }
+                updateCount();
+              } else {
+                var levelBar =
+                  entry.target.querySelector(
+                    ".level-bar"
+                  );
+                levelBar.style.width = "0";
+              }
+            });
+          }
+        );
 
-// Observe each skill element
-Array.prototype.forEach.call(skills, function(skill) {
-  observer.observe(skill);
-});
-
-});
-
+        // Observe each skill element
+        Array.prototype.forEach.call(
+          skills,
+          function (skill) {
+            observer.observe(skill);
+          }
+        );
+      });
     </script>
     <script src="./assets/script/blog-func.js"></script>
   </body>

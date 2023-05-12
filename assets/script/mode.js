@@ -213,8 +213,8 @@ function generateColor() {
     ".intro #blog .blog .blog-type span.current"
   ).each(function () {
     $(this).css(
-      "border-bottom",
-      `2px solid${color}`
+      "background",
+      `${color}`
     );
   });
   $(
@@ -240,6 +240,16 @@ function generateColor() {
     .css("background-clip", "text")
     .css("-moz-webkit-background-clip", "text")
     .css("color", "transparent");
+    $(".intro #about .our-story h2")
+    .css(
+      "background",
+      `linear-gradient( to right, #31d275, ${color})`
+    )
+    .css("-webkit-background-clip", "text")
+    .css("background-clip", "text")
+    .css("-moz-webkit-background-clip", "text")
+    .css("color", "transparent");
+    //.intro #about .our-story h2
   document
     .querySelectorAll(
       ".intro #about .our-story ul .learning "
@@ -453,4 +463,13 @@ if (savedColor) {
     .forEach((elem) => {
       elem.style.backgroundColor = savedColor;
     });
+    $(".intro #about .our-story h2")
+    .css(
+      "background",
+      `linear-gradient( to right, #31d275, ${savedColor})`
+    )
+    .css("-webkit-background-clip", "text")
+    .css("background-clip", "text")
+    .css("-moz-webkit-background-clip", "text")
+    .css("color", "transparent");
 }

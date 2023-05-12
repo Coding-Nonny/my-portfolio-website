@@ -18,6 +18,8 @@
   --h4-lg: 20px;
   --hi-lg: 25px;
   --hi-sm: 20px;
+  --blog-div: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  --blog-div-lt: 0px 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -25,6 +27,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
 }
 
 html {
@@ -122,7 +126,7 @@ h4 {
   width: 0;
   height: 3px;
   background: #31d275;
-  z-index: 2000;
+  z-index: 1000;
 }
 h1,
 h2,
@@ -266,6 +270,7 @@ header.scrolled {
   border-radius: 50%;
   padding: 8px;
   background: var(--gray);
+  cursor: pointer;
 }
 .light-mode .intro header .logo {
   background: var(--partial-dark);
@@ -312,6 +317,7 @@ header.scrolled {
 
 .welcome .intro header .nav li:hover {
   border-bottom: 2px solid #31d275;
+  transform: scale(1.1);
 }
 
 .welcome .intro header .contact-me {
@@ -321,7 +327,9 @@ header.scrolled {
   background: #31d275;
   cursor: pointer;
 }
-
+.welcome .intro header .contact-me:hover{
+  transform: scale(1.1);
+}
 .welcome .intro header .contact-me a {
   text-decoration: none;
   font-weight: 600;
@@ -447,7 +455,7 @@ header.scrolled {
   align-items: center;
 }
 
-.intro #home .intro-text .call-action button {
+.intro #home .intro-text .call-action a {
   padding: 8px;
   font-size: 16px;
   border: none;
@@ -461,9 +469,9 @@ header.scrolled {
   #home
   .intro-text
   .call-action
-  button:first-child {
+  a:first-child {
   background: #31d275;
-  color: var(--bg-white);
+  color: var(--gray);
 }
 
 .light-mode
@@ -471,23 +479,14 @@ header.scrolled {
   #home
   .intro-text
   .call-action
-  button:first-child
-  a {
-  color: var(--bg-white);
+  a:first-child{
+  color: var(--partial-dark);
 }
 .intro
   #home
   .intro-text
   .call-action
-  button:first-child
-  a {
-  color: var(--bg-white);
-}
-.intro
-  #home
-  .intro-text
-  .call-action
-  button:last-child {
+  a:last-child {
   background: transparent;
   border: 1px solid #31d275;
   margin-left: 16px;
@@ -1551,6 +1550,7 @@ header.scrolled {
 }
 
 .intro #contact .contact form {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1562,12 +1562,28 @@ header.scrolled {
   padding: 50px;
   box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.3);
   opacity: 0;
+  transition: all 1s;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .light-mode .intro #contact .contact form {
   background: var(--bg-white);
 }
-
+.intro #contact .contact form::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--color-after);
+  border-style: solid;
+  border-width: 0 100px 100px 0;
+  border-color: transparent;
+  border-radius: 0 0 0 50px;
+  z-index: 0;
+}
 .intro #contact .contact form .success-msg {
   width: 100%;
   padding: 10px;
@@ -1583,6 +1599,7 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 1;
 }
 
 .intro #contact .contact form .form-left div {
@@ -1704,7 +1721,7 @@ header.scrolled {
   .form-right
   textarea {
   color: var(--bg-black);
-  background: #d8dce4;
+  background: var(--gray);
 }
 
 .intro #contact .contact form button {
@@ -1716,6 +1733,7 @@ header.scrolled {
   padding: 10px;
   margin-top: 16px;
   font-weight: 700;
+  z-index: 1;
 }
 
 .light-mode .intro #contact .contact form button {
@@ -1742,6 +1760,7 @@ header.scrolled {
 .intro #contact .contact form h3 {
   width: 100%;
   text-align: center;
+  z-index: 1;
 }
 
 /* contact ends */
@@ -1816,12 +1835,16 @@ header.scrolled {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 2rem;
+  padding: 10px;
   border-bottom: 1px solid #31d275;
 }
 
 .intro #blog .blog .blog-type span {
   padding: 8px;
   cursor: pointer;
+}
+.intro #blog .blog .blog-type span:hover{
+  transform: scale(1.1);
 }
 
 .intro #blog .blog .blog-div {
@@ -1836,9 +1859,14 @@ header.scrolled {
 
 .intro #blog .blog .blog-div .blog-posts {
   width: 350px;
-  margin: 1rem;
+  margin: 1rem 0 1rem 0 ;
+  box-shadow: var(--blog-div-lt);
+  padding: 15px;
+  border-radius: 0.5rem;
 }
-
+.light-mode .intro #blog .blog .blog-div .blog-posts {
+  box-shadow: var(--blog-div);
+}
 .intro
   #blog
   .blog
@@ -1847,7 +1875,7 @@ header.scrolled {
   .blog-details {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: fit-content;
   text-transform: capitalize;
   border-radius: 12px;
   overflow: hidden;
@@ -1868,7 +1896,8 @@ header.scrolled {
   .blog-details
   video {
   width: 100%;
-  height: 100%;
+  height: 200px;
+  border-radius: 12px;
 }
 
 .intro
@@ -1894,7 +1923,7 @@ header.scrolled {
   right: 0;
   max-width: 100%;
   width: 100%;
-  height: 10vh;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1949,6 +1978,7 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .intro
@@ -1962,9 +1992,25 @@ header.scrolled {
   text-align: left;
   font-weight: 600;
   margin-top: 18px;
-  border-bottom: 2px solid #31d275;
+  text-transform: capitalize;
+  height: 45px;
+  overflow: hidden;
 }
-
+.intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts.blog-toggle
+  .blog-text
+  h3 {
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 18px;
+  text-transform: capitalize;
+  height: auto;
+  overflow: unset;
+}
 .intro
   #blog
   .blog
@@ -1973,12 +2019,11 @@ header.scrolled {
   .blog-text
   .blog-writing {
   width: 100%;
-  height: 50px;
+  max-height: 55px;
+  height: 55px;
   text-align: left;
   margin-top: 1rem;
   word-wrap: break-word;
-  background-position: center bottom;
-  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -2005,6 +2050,7 @@ header.scrolled {
   /* width: 35%; */
   background: #31d275;
   padding: 8px;
+  font-size: var(--p-fsl);
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
@@ -2039,7 +2085,8 @@ header.scrolled {
 }
 
 .current {
-  border-bottom: 2px solid #31d275;
+  background: #31d275;
+  border-radius: 10px;
 }
 
 .intro
@@ -2125,6 +2172,7 @@ header.scrolled {
   .blog-posts.blog-toggle
   .blog-text
   .blog-writing {
+  max-height: 100%;
   width: 100%;
   height: auto;
   text-align: left;
@@ -2435,6 +2483,7 @@ header.scrolled {
   border-radius: 4px;
   font-size: 16px;
   border: 2px solid #fff;
+  cursor: pointer;
 }
 .light-mode .pagination-div button {
   color: #000;
@@ -2506,8 +2555,8 @@ header.scrolled {
 /* .Footer */
 
 .footer {
-  position: relative;
-  margin-top: 20px;
+  position: sticky;
+  top: 100%;
   padding: 10px;
   width: 100%;
   background: #241f2b;
@@ -2592,7 +2641,7 @@ header.scrolled {
     top: 0;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     z-index: 1000;
   }
 
@@ -2865,7 +2914,6 @@ header.scrolled {
   /* contact end */
   .intro #blog .blog .blog-div .blog-posts {
     width: 100%;
-    margin: 0px;
   }
 
   .intro #blog .blog .blog-head h1 {
@@ -3185,7 +3233,9 @@ header.scrolled {
     width: 100%;
     text-align: center;
    font-size: var(--p-fss);
-    color: #d8dce4;
+  }
+  .intro #blog .blog .blog-div .blog-posts .blog-text .read-post h4{
+    font-size: var(--p-fss);
   }
 }
 

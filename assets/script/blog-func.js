@@ -27,7 +27,7 @@ $(document).ready(function () {
         localStorage.setItem("searched", value);
         blogType.forEach((cat) => {
           cat.classList.remove("current");
-          cat.style.borderBottom = "none";
+          cat.style.background = "none";
         });
       }else{
         message.alert_message(
@@ -52,7 +52,7 @@ $(document).ready(function () {
       localStorage.setItem("searched", value);
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
     }else{
       message.alert_message(
@@ -65,14 +65,14 @@ $(document).ready(function () {
     getPersonalBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -80,14 +80,14 @@ $(document).ready(function () {
     getTechBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -95,14 +95,14 @@ $(document).ready(function () {
     getSportsBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -110,14 +110,14 @@ $(document).ready(function () {
     getFunnyBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -125,14 +125,14 @@ $(document).ready(function () {
     getHistoryBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -140,14 +140,14 @@ $(document).ready(function () {
     getGovBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -155,14 +155,14 @@ $(document).ready(function () {
     getEntBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -170,14 +170,14 @@ $(document).ready(function () {
     getEduBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -185,14 +185,14 @@ $(document).ready(function () {
     getDevBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById(lastCategory)
       .classList.add("current");
     document.getElementById(
       lastCategory
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -203,20 +203,20 @@ $(document).ready(function () {
       $(".blog-search #search-blog").val(value);
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
   } else {
     getAllBlog();
     blogType.forEach((cat) => {
       cat.classList.remove("current");
-      cat.style.borderBottom = "none";
+      cat.style.background = "none";
     });
     document
       .getElementById("all")
       .classList.add("current");
     document.getElementById(
       "all"
-    ).style.borderBottom = `2px solid ${
+    ).style.background = `${
       JSON.parse(localStorage.getItem("color")) ||
       "#31d275"
     }`;
@@ -232,10 +232,10 @@ $(document).ready(function () {
       getPersonalBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -248,10 +248,10 @@ $(document).ready(function () {
       getAllBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -267,10 +267,10 @@ $(document).ready(function () {
       getTechBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -286,10 +286,10 @@ $(document).ready(function () {
       getSportsBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -305,10 +305,10 @@ $(document).ready(function () {
       getFunnyBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -324,10 +324,10 @@ $(document).ready(function () {
       getHistoryBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -340,10 +340,10 @@ $(document).ready(function () {
       getGovBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -356,10 +356,10 @@ $(document).ready(function () {
       getEntBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -372,10 +372,10 @@ $(document).ready(function () {
       getEduBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -388,10 +388,10 @@ $(document).ready(function () {
       getDevBlog();
       blogType.forEach((cat) => {
         cat.classList.remove("current");
-        cat.style.borderBottom = "none";
+        cat.style.background = "none";
       });
       this.classList.add("current");
-      this.style.borderBottom = `2px solid ${
+      this.style.background = `${
         JSON.parse(
           localStorage.getItem("color")
         ) || "#31d275"
@@ -475,12 +475,12 @@ function getAllBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -675,7 +675,7 @@ function goToPage(page) {
         $(".blog-search #search-blog").val(value);
         blogType.forEach((cat) => {
           cat.classList.remove("current");
-          cat.style.borderBottom = "none";
+          cat.style.background = "none";
         });
         localStorage.setItem(
           "current10",
@@ -765,12 +765,12 @@ function getPersonalBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -930,12 +930,12 @@ function getTechBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -1095,12 +1095,12 @@ function getSportsBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -1261,12 +1261,12 @@ function getFunnyBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -1428,12 +1428,12 @@ function getHistoryBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -1593,12 +1593,12 @@ function getGovBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -1758,12 +1758,12 @@ function getEntBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -1923,12 +1923,12 @@ function getEduBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -2088,12 +2088,12 @@ function getDevBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
@@ -2252,12 +2252,12 @@ function getSearchBlog(
                 ${file}
                 <div class="title">
                   <p>${blog.writer}</p>
-                  <p>${blog.date_created}</p>
                   <p>${blog.category}</p>
+                  <span>${blog.date_created}</span>
                 </div>
               </div>
               <div class="blog-text">
-                <h3 class="title-text" style="border-bottom:2px solid ${color}">${blog.title}</h3>
+                <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${blog.content}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
