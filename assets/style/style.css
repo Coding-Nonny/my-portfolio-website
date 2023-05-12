@@ -1,6 +1,6 @@
 :root {
   --green: #31d275;
-  --bg-black: #121212;
+  --bg-black: #141414;
   --bg-white: #ffffff;
   --gray: #d8dce4;
   --partial-dark: #241f2b;
@@ -20,8 +20,13 @@
   --hi-sm: 20px;
   --blog-div: 0px 4px 20px rgba(0, 0, 0, 0.3);
   --blog-div-lt: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  --button-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --button-shadow-light: 0 2px 4px rgba(255, 255, 255, 0.2);
 }
-
+::selection{
+  background: var(--color-after);
+  color: var(--green);
+}
 * {
   margin: 0;
   padding: 0;
@@ -142,8 +147,14 @@ span {
 button {
   border-radius: 20px;
   transition: all 1s;
+  box-shadow: var(--button-shadow-light);
 }
-
+.light-mode button{
+  box-shadow: var(--button-shadow-dark);
+}
+button:hover{
+  transform: scale(1.1);
+}
 b {
   font-weight: 900;
 }
@@ -190,7 +201,7 @@ pre {
 
 .mode i {
   margin: 1rem;
-  color: #31d275;
+  color: var(--green);
   padding: 10px;
   border-radius: 50%;
   background: var(--partial-dark);
@@ -277,7 +288,7 @@ header.scrolled {
   background: var(--gray);
   cursor: pointer;
 }
-.light-mode .intro header .logo {
+.light-mode header .logo {
   background: var(--partial-dark);
 }
 .welcome header .logo h2 {
@@ -1328,7 +1339,9 @@ header.scrolled {
 /* Works end */
 /* ---- Services ---- */
 .intro #service {
+  position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .intro #service .service {
@@ -2761,7 +2774,7 @@ header.scrolled {
     transition: all 700ms;
   }
 
-  .light-mode .intro header .nav.show-menu {
+  .light-mode header .nav.show-menu {
     background: var(--bg-white);
   }
 
