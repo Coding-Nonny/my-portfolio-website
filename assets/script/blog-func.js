@@ -39,7 +39,6 @@ $(document).ready(function () {
   })
   $(".blog-search button").on("click", (e) => {
     e.preventDefault();
-    console.log(e);
     let value = $(
       ".blog-search #search-blog"
     ).val();
@@ -54,6 +53,10 @@ $(document).ready(function () {
         cat.classList.remove("current");
         cat.style.background = "none";
       });
+      message.alert_message(
+        `showing search results for ${value}`,
+        "success"
+      );
     }else{
       message.alert_message(
         "fill search field and try again",
@@ -481,7 +484,7 @@ function getAllBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -513,6 +516,7 @@ function getAllBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
       // Add buttons to DOM
       // Generate pagination buttons
       const buttonHtml =
@@ -771,7 +775,7 @@ function getPersonalBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -803,6 +807,7 @@ function getPersonalBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -936,7 +941,7 @@ function getTechBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -968,6 +973,7 @@ function getTechBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1101,7 +1107,7 @@ function getSportsBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1133,6 +1139,7 @@ function getSportsBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1267,7 +1274,7 @@ function getFunnyBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1299,6 +1306,7 @@ function getFunnyBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1434,7 +1442,7 @@ function getHistoryBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1466,6 +1474,7 @@ function getHistoryBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1599,7 +1608,7 @@ function getGovBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1631,6 +1640,7 @@ function getGovBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1764,7 +1774,7 @@ function getEntBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1796,6 +1806,7 @@ function getEntBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1929,7 +1940,7 @@ function getEduBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1961,6 +1972,7 @@ function getEduBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2094,7 +2106,7 @@ function getDevBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2126,6 +2138,7 @@ function getDevBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2258,7 +2271,7 @@ function getSearchBlog(
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${blog.content}</div>
+                <div class="blog-writing">${marked(blog.content)}</div>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2290,6 +2303,7 @@ function getSearchBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
+       Prism.highlightAll();
 
       // Add buttons to DOM
       // Generate pagination buttons

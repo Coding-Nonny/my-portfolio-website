@@ -128,7 +128,6 @@ if (!isset($_SESSION['user'])) {
     </div>
 </div>
 <script src="./script/marked.js"></script>
-<script src="./script/prism.js"></script>
 <script src="./script/jquery.js"></script>
 <script>
     // prevent form default submission and send formdata using ajax
@@ -179,6 +178,13 @@ if (!isset($_SESSION['user'])) {
         $(".create-manage #text").val(v1);
         $(".create-manage #title").val(v2);
         $(".create-manage #name").val(v3);
+        const textareaValue = $(".create-manage #text").val();
+
+// Remove spaces from the textarea value
+const trimmedValue = textareaValue.trim();
+
+// Set the modified value back to the textarea
+$(".create-manage #text").val(trimmedValue);
     });
     const textArea = document.getElementById("text");
 
@@ -188,7 +194,8 @@ if (!isset($_SESSION['user'])) {
                 const markDown = $(this).val();
                 const outText = marked(markDown);
                 $(".p-tray").html(outText);
-            }, 200);
+                Prism.highlightAll();
+            }, 1000);
         }
     });
 
@@ -209,7 +216,7 @@ if (!isset($_SESSION['user'])) {
         const selectionStart = textArea.selectionStart;
         const selectionEnd = textArea.selectionEnd;
         const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const boldText = `<pre class="language"><code>${selectedText}</code></pre>`;
+        const boldText = `<pre class="language-"><code class="language-">${selectedText}</code></pre>`;
         textArea.value =
             textArea.value.substring(0, selectionStart) +
             boldText +
@@ -248,7 +255,7 @@ if (!isset($_SESSION['user'])) {
         const selectionStart = textArea.selectionStart;
         const selectionEnd = textArea.selectionEnd;
         const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const lineText = `<br/>`;
+        const lineText = `<br/><br/>`;
         textArea.value =
             textArea.value.substring(0, selectionStart) +
             lineText +

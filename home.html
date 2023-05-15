@@ -171,6 +171,8 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
       rel="stylesheet"
       href="./assets/style/prism.css"
     />
+    <script src="./assets/script/prism.js"></script>
+    <script src="./admin/script/marked.js"></script>
   </head>
 
   <body>
@@ -270,11 +272,13 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                 >. An experienced fullstack Web
                 Developer.
               </p>
-              <code class="language-javascript">
-                days.forEach((day) =>{ if(alive &&
-                healthy){ pray(); work(); eat();
-                sleep(); repeat(); } })
-              </code>
+              <pre class="language-javascript">
+                <code class="language-javascript">
+                  days.forEach((day) =>{ if(alive &&
+                  healthy){ pray(); work(); eat();
+                  sleep(); repeat(); } })
+                </code>
+              </pre>
             </div>
           </div>
           <img
@@ -318,7 +322,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   communicate effectively across
                   cultures and languages.
                   As a self taught software developer, 
-                  I have developed various local
+                  I have developed various local web
                   applications for companies and
                   for practice. some of the
                   projects are, Hospital
@@ -416,7 +420,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <h2>
                 <span
                   >Looking To Upgrade My
-                  Skills With</span
+                  Skill With</span
                 >
                 <!-- <span>Frameworks.</span> -->
               </h2>
@@ -434,8 +438,8 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           <div class="about-left">
             <strong>Coding Nonny</strong>
             <br />
-            <pre class="language-markup">
-              <code class="language-markup">
+            <pre class="language-html">
+              <code class="language-html">
                 <b>Let's Build Something Fantastic Together.</b>
                 <br>
                 Always ready to recieve your order.
@@ -774,7 +778,6 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         </div>
       </div>
     </div>
-    <script src="./assets/script/prism.js"></script>
     <script src="./assets/script/jquery.js"></script>
     <script src="./assets//script/alert-nonny.js"></script>
     <script src="./assets/script/home.js"></script>
@@ -869,5 +872,8 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
       });
     </script>
     <script src="./assets/script/blog-func.js"></script>
+    <script>
+      Prism.highlightAll();
+    </script>
   </body>
 </html>
