@@ -185,6 +185,7 @@ const trimmedValue = textareaValue.trim();
 
 // Set the modified value back to the textarea
 $(".create-manage #text").val(trimmedValue);
+$(".create-manage #text").focus();
     });
     const textArea = document.getElementById("text");
 
