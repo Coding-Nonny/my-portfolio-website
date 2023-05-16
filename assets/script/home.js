@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-  const message = new NonnyAlert("#alert",5000,"top-right", "#000000");
+  const message = new NonnyAlert(10000,"top-right", "#000000");
 
   let bar = document.querySelector(".bar"),
     menu = document.querySelector(".nav"),
