@@ -71,7 +71,10 @@ a {
   text-align: center;
   display: none;
 }
-
+label{
+  font-weight: 600;
+  text-align: center;
+}
 input,
 textarea {
   color: var(--bg-white);
@@ -387,7 +390,7 @@ header.scrolled {
   bottom: 0;
   right: 5%;
   border-radius: 100px 100px 0px 0px;
-  background: rgb(92, 66, 208);
+  background: var(--color-after);
   transition: all 1.5s;
 }
 .intro #contact .bg-image {
@@ -464,6 +467,15 @@ header.scrolled {
   transition: all 1s;
 }
 .intro #home .intro-text .name p::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  transition: opacity 200ms;
+  background-color: var(--color-after);
+  animation: cursor 1.5s linear infinite;
+}
+.intro #service .service .more-services p::after {
   content: "";
   position: absolute;
   width: 4px;
@@ -812,18 +824,7 @@ header.scrolled {
 .light-mode .intro #about {
   background: var(--bg-white);
 }
-.intro #about::after {
-  content: "";
-  position: absolute;
-  width: 1000px;
-  height: 1000px;
-  bottom: -20%;
-  right: -8%;
-  background: var(--color-after);
-  border-radius: 50%;
-  z-index: 0;
-  /* animation: move 30s linear infinite; */
-}
+
 @keyframes move {
   0%,
   100% {
@@ -1356,18 +1357,6 @@ header.scrolled {
   overflow: hidden;
   /* border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%; */
 }
-.intro #service .service::after{
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 100%;
-  bottom: -30%;
-  right: -70%;
-  background: var(--color-after);
-  border-radius: 20px;
-  transform: rotate(150deg);
-  z-index: 0;
-}
 
 .intro #service .service h1 {
   width: 100%;
@@ -1447,8 +1436,7 @@ header.scrolled {
   color: var(--bg-white);
   margin: 1rem;
   padding: 10px;
-  background: #241f2b;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .light-mode
   .intro
@@ -1457,7 +1445,6 @@ header.scrolled {
   .more-services
   p {
   color: var(--bg-black);
-  background: #f1f1f1;
 }
 
 .intro #service .service a {
@@ -1663,7 +1650,6 @@ header.scrolled {
   label {
   width: 100%;
   padding: 2px 2px 6px 6px;
-  text-align: left;
   color: var(--bg-white);
   right: 0;
   border-radius: 12px;
@@ -1679,7 +1665,6 @@ header.scrolled {
   label {
   width: 100%;
   padding: 2px 2px 6px 6px;
-  text-align: left;
   color: var(--bg-black);
   right: 0;
   border-radius: 12px;
@@ -2059,10 +2044,9 @@ header.scrolled {
   .blog-posts
   .blog-text
   .read-post {
-  width: 100%;
-  margin: 1rem;
-  text-align: left;
-  transition: all 1s;
+    margin: 1rem 1rem 0;
+    text-align: left;
+    transition: all 1s;
 }
 .intro
   #blog
@@ -2476,6 +2460,7 @@ header.scrolled {
   right: 0;
   object-fit: contain;
   background: var(--bg-black);
+  border-radius: 0px;
   z-index: 11;
 }
 
@@ -3276,7 +3261,26 @@ header.scrolled {
     font-size: var(--p-fss);
   }
 }
-
+#notification-box-of-boxes {
+  max-width:450px; width: fit-content;
+  animation: dim 1.5s ease-in-out forwards;
+  }
+  
+  @keyframes dim{
+    0%,100%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0.5;
+    }
+  }
+  
+  @media screen and (max-width:500px){
+    #notification-box-of-boxes {
+      max-width:90%; width: fit-content;
+      animation: dim 1.5s ease-in-out forwards;
+      }
+  }
 /* .intro #home .intro-img:before{
     content: "";
     position: absolute;

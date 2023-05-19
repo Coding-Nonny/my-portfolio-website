@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-  const message = new NonnyAlert(10000,"top-right", "#000000");
+  const message = new AlertNotify(10000,"top-right", "#000000");
 
   let bar = document.querySelector(".bar"),
     menu = document.querySelector(".nav"),
@@ -34,7 +34,6 @@ $(document).ready(async function () {
     .classList.add("current");
 
   menuList.forEach((list) => {
-    //list.classList.remove("here");
     list.onclick = function () {
       menuList.forEach((list) => {
         list.classList.remove("here");
@@ -77,7 +76,6 @@ $(document).ready(async function () {
       });
     });
 
-  //$(function () {
   let timeOut;
   $(".welcome").on("scroll", function () {
     let $nav = $("header");
@@ -91,7 +89,6 @@ $(document).ready(async function () {
       $(".mode").css("display", "flex");
     }, 1000);
   });
-  //});
 
   let messageArray = [
     "I also maintain, repair and sale computer systems, maintain and install CCTV cameras and other computer related stuffs. Contact me for detailed information.",
@@ -114,7 +111,7 @@ $(document).ready(async function () {
       count++;
       index = 0;
     }
-    setTimeout(type, 200);
+    setTimeout(type, 400);
   })();
 
   let messageArrays = Array(
@@ -280,10 +277,10 @@ let pageUrl = $('meta[property="og:url"]').attr("content");
 let pageImage = $('meta[property="og:image"]').attr("content");
 
 // Customize the sharing messages
-let fbMessage = "Check out this post on my website: " + pageTitle;
-let twMessage = "Check out this post on my website: " + pageTitle + " " + pageUrl;
-let waMessage = "Check out this post on my website: " + pageTitle + " " + pageUrl;
-let instaMessage = "Check out this post on my website: " + pageTitle;
+let fbMessage =  pageTitle;
+let twMessage = pageTitle + " " + pageUrl;
+let waMessage =  pageTitle + " " + pageUrl;
+let instaMessage = pageTitle;
 
 // Share on Facebook
 $("body").on("click", "#facebook-share", function (e) {
@@ -341,6 +338,7 @@ $("body").on("click", "#instagram-share", function (e) {
                 "warning"
               );
             }
+            message.shouldAutoHide(true)
           },
         });
       }
@@ -389,10 +387,6 @@ context.fillStyle = JSON.parse(localStorage.getItem("color")) ||
 "#31d275";
 context.fillText(initial,canvas.width / 2,canvas.height / 2);
 const img = canvas.toDataURL();
-console.log(img);
-// const nImag = new Image();
-// nImag.src = img;
-// document.body.appendChild(nImag)
 
       if (
         $(
@@ -443,6 +437,7 @@ console.log(img);
                 "warning"
               );
             }
+            message.shouldAutoHide(true)
           },
         });
       } else {
@@ -470,6 +465,7 @@ console.log(img);
                 "warning"
               );
             }
+            message.shouldAutoHide(true)
           },
         });
       }
@@ -504,6 +500,7 @@ console.log(img);
               "warning"
             );
           }
+          message.shouldAutoHide(true)
         },
       });
     }

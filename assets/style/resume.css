@@ -10,7 +10,7 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-	font-family: "Inter", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 body{
 	background: var(--bgcolor);
@@ -181,7 +181,7 @@ body{
     content: '';
     display: block;
     background: var(--blue);
-    width: 65%;
+    width: 60%;
     height: 100%;
     border-radius: 9px;
 }
@@ -196,7 +196,7 @@ body{
     content: '';
     display: block;
     background: var(--blue);
-    width: 60%;
+    width: 50%;
     height: 100%;
     border-radius: 9px;
 }
@@ -227,7 +227,7 @@ body{
     content: '';
     display: block;
     background: var(--blue);
-    width: 90%;
+    width: 80%;
     height: 100%;
     border-radius: 9px;
 }
