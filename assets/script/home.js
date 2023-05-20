@@ -121,7 +121,7 @@ $(document).ready(async function () {
     "As a seasoned professional, I'm excited to showcase my accomplishments and demonstrate my expertise.",
     " Here, you'll find a curated selection of my best projects, along with information about my skills, interests, and goals.",
     "As a creative professional, I'm excited to share my work and inspire you with my unique vision.",
-    "Programs must be written for people to read, and only incidentally for machines to execute. This quote emphasizes the importance of writing code that is clear and understandable for human readers, not just efficient for machines."
+    "Programs must be written for people to read, and only incidentally for machines to execute. This quote emphasizes the importance of writing code that is clear and understandable for human readers, not just efficient for machines.","Code is like humor. When you have to explain it, it’s bad","The best error message is the one that never shows up.","Any one can write code that a computer can understand. Good programmers write code that humans can understand.","The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.","Give a man a program, frustrate him for a day. Teach a man to program, frustrate him for a lifetime.","If debugging is the process of removing software bugs, then programming must be the process of putting them in.","The function of good software is to make the complex appear to be simple.","Programming isn't about what you know; it's about what you can figure out."
   );
 
   let letters = "";
@@ -134,6 +134,10 @@ $(document).ready(async function () {
     p.style = "transition:all 1s;opacity:0";
     p.style.opacity = "1";
     p.innerHTML = letters;
+   let voice = new SpeechSynthesisUtterance(letters);
+   p.onclick = () =>{
+    speechSynthesis.speak(voice);
+   } 
     setTimeout(typing, 10000);
   })();
 

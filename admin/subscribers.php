@@ -84,4 +84,56 @@ if (!isset($_SESSION['user'])) {
       })
     }
   })
+
+  const nextButton = document.querySelectorAll(".next");
+const prevButton = document.querySelectorAll(".prev");
+if (nextButton && prevButton) {
+  nextButton.forEach((nextBtn)=>{
+    nextBtn.addEventListener("click", () => {
+    // get current "posts" parameter from URL
+    const params = new URLSearchParams(window.location.search);
+    const currentPosts = parseInt(params.get("limit")) || 0;
+
+    // check if current "posts" value is valid
+    if (isNaN(currentPosts) || currentPosts < 0) {
+      console.error("Invalid 'limit' parameter:", currentPosts);
+      return;
+    }
+
+    // calculate new "posts" value
+    const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
+
+    // redirect to new URL with updated "posts" parameter
+    if (newPosts !== currentPosts) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("limit", newPosts);
+      window.location.href = url.toString();
+    }
+  });
+  })
+
+  prevButton.forEach((prevBtn) =>{
+    prevBtn.addEventListener("click", () => {
+    // get current "posts" parameter from URL
+    const params = new URLSearchParams(window.location.search);
+    const currentPosts = parseInt(params.get("limit")) || 0;
+
+    // check if current "posts" value is valid
+    if (isNaN(currentPosts) || currentPosts < 0) {
+      console.error("Invalid 'posts' parameter:", currentPosts);
+      return;
+    }
+
+    // calculate new "posts" value
+    const newPosts = Math.max(currentPosts - 2, 0);
+
+    // redirect to new URL with updated "posts" parameter
+    if (newPosts !== currentPosts) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("limit", newPosts);
+      window.location.href = url.toString();
+    }
+  });
+  })
+}
 </script>

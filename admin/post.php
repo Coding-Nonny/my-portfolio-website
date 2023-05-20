@@ -55,12 +55,17 @@ if (!isset($_SESSION['user'])) {
 
            
         }
-        // use $fetch variable to fetch posts from database
-
+        
         $select = $connect->query("SELECT * FROM blog ORDER BY id DESC LIMIT $fetch");
         if ($select->num_rows > 0) :
 
             while ($row = $select->fetch_assoc()) :
+                $mimeType = mime_content_type("./blog/".$row['files']);
+                if(strpos($mimeType, "video/") === 0){
+                    echo "vid";
+                }else{
+                    echo "img";
+                }
         ?>
                 <tr>
                     <td class="title">
