@@ -1,6 +1,6 @@
 :root{
 	--bgcolor:#beb8ac;
-	--blue:#31d275;
+	--blue:rgb(92, 66, 208);
 	--black:#141414;
 	--white:#f1f1f1;
 	--gray:#d8dce4;
@@ -10,7 +10,7 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 body{
 	background: var(--bgcolor);
@@ -143,7 +143,6 @@ body{
 	margin-top: 20px;
 	color: var(--lightgray);
 	text-align: justify;
-	word-spacing: -4px;
 }
 .left{
 	width: 25%;
@@ -181,7 +180,7 @@ body{
     content: '';
     display: block;
     background: var(--blue);
-    width: 60%;
+    width: 50%;
     height: 100%;
     border-radius: 9px;
 }

@@ -430,7 +430,7 @@ function getAllBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -497,10 +497,10 @@ function getAllBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -721,7 +721,7 @@ function getPersonalBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -788,10 +788,10 @@ function getPersonalBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -887,7 +887,7 @@ function getTechBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -954,10 +954,10 @@ function getTechBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1053,7 +1053,7 @@ function getSportsBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -1120,10 +1120,10 @@ function getSportsBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1220,7 +1220,7 @@ function getFunnyBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -1287,10 +1287,10 @@ function getFunnyBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1388,7 +1388,7 @@ function getHistoryBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -1455,10 +1455,10 @@ function getHistoryBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1554,7 +1554,7 @@ function getGovBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -1621,10 +1621,10 @@ function getGovBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1720,7 +1720,7 @@ function getEntBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -1787,10 +1787,10 @@ function getEntBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1886,7 +1886,7 @@ function getEduBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -1953,10 +1953,10 @@ function getEduBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -2052,7 +2052,7 @@ function getDevBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -2119,10 +2119,10 @@ function getDevBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -2217,7 +2217,7 @@ function getSearchBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No blog posts found</p>"
+          "<p>No content to display</p>"
         );
         paginationDiv.empty();
         return;
@@ -2284,10 +2284,10 @@ function getSearchBlog(
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
                     <div class="share-icons">
-                    <a href="" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
