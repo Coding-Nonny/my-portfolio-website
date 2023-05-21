@@ -361,7 +361,7 @@ header.scrolled {
 .welcome header .contact-me {
   width: auto;
   padding: 6px;
-  border-radius: 10px;
+  border-radius: 20px;
   background: #31d275;
   cursor: pointer;
 }
@@ -591,6 +591,7 @@ header.scrolled {
 .intro #home .intro-text .social-links i {
   font-size: var(--p-fsl);
   color: #f1f1f1;
+  padding: 8px;
   transition: color 1s ease;
 }
 
@@ -681,15 +682,15 @@ header.scrolled {
 
 .intro #home .my-img {
   position: absolute;
-  right: 0;
+  right: 10%;
   bottom: 0;
   max-height: 85vh;
   z-index: 3;
-  filter: grayscale(100%);
+  filter: saturate(0);
   transition: all 1s;
 }
 .intro #home .my-img:hover {
-  filter: grayscale(0);
+  filter: saturate(1);
 }
 .intro #home .intro-img .my-img1 {
   position: absolute;
@@ -2045,7 +2046,7 @@ header.scrolled {
   .blog-posts
   .blog-text
   .read-post {
-    margin: 1rem 1rem 0;
+    margin: 8px;
     text-align: left;
     transition: all 1s;
 }
@@ -2069,10 +2070,11 @@ header.scrolled {
   background: #31d275;
   padding: 8px;
   font-size: var(--p-fsl);
-  border-radius: 12px;
+  border-radius: 20px;
   text-align: center;
   cursor: pointer;
   box-shadow: var(--blog-div);
+  font-weight: 500;
 }
 
 .intro
@@ -2611,12 +2613,13 @@ header.scrolled {
 #contact .social-links i {
   font-size: var(--p-fss);
   margin: 10px;
+  padding: 0 8px 0 8px;
   color: var(--bg-white);
 }
 
 #contact .social-links i {
   font-size: var(--p-fsl);
-  margin: 10px 20px 10px 20px;
+  margin: 10px;
   color: var(--bg-white);
   border-radius: 50%;
 }
@@ -2806,7 +2809,7 @@ header.scrolled {
     left: 5%;
     width: auto;
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 20px;
     background: #31d275;
     cursor: pointer;
     z-index: 11;
