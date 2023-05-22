@@ -2857,7 +2857,15 @@ header.scrolled {
     background-clip: text;
     color: transparent;
   }
-
+  .intro #about .our-story p {
+    font-weight: 600;
+    line-height: 2;
+    text-align: center;
+    line-height: 1.4;
+    color: var(--gray);
+    opacity: 0;
+    z-index: 1;
+}
   .intro #work .project h1 {
     position: relative;
     width: 100%;
