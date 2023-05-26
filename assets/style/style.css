@@ -87,6 +87,53 @@ input:focus,
 textarea:focus{
   box-shadow: none;
 }
+table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: var(--bg-black);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+    -3px -3px 7px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+.light-mode table {
+  background: var(--bg-white);
+}
+tr th {
+  font-weight: 700;
+  padding: 0 24px;
+  white-space: nowrap;
+  text-align: left;
+  color: var(--bg-white);
+}
+tr td {
+  padding: 0 24px;
+  color: var(--bg-white);;
+  font-weight: 400;
+}
+.light-mode tr td {
+  padding: 0 24px;
+  color: var(--bg-black);
+  font-weight: 400;
+}
+.light-mode tr th {
+  font-weight: 700;
+  padding: 0 24px;
+  white-space: nowrap;
+  text-align: left;
+  color: var(--bg-black);
+}
+tr {
+  height: 48px;
+  border-bottom: 1px solid var(--gray);
+}
+td,
+th {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid var(--gray);
+}
 .light-mode textarea,
 .light-mode input {
   color: var(--bg-black);
@@ -256,6 +303,7 @@ pre {
   background: var(--bg-white);
   color: var(--bg-black);
   transition: all 1000ms;
+  --color-after:rgb(244, 71, 46);
 }
 
 .welcome::-webkit-scrollbar {
@@ -360,8 +408,8 @@ header.scrolled {
 
 .welcome header .contact-me {
   width: auto;
-  padding: 6px;
-  border-radius: 20px;
+  padding: 10px 30px;
+  border-radius: 30px;
   background: #31d275;
   cursor: pointer;
 }
@@ -1049,7 +1097,7 @@ header.scrolled {
 .level-bar{
   width: 0;
   height: 8px;
-  background: var(--color-after);
+  background: var(--green);
   transition: width 4s;
   z-index: 1;
   border-radius: 20px;
@@ -1072,7 +1120,7 @@ header.scrolled {
   position: absolute;
   display: block;
   width: 100%;
-  height: 6px;
+  height: 8px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -1943,7 +1991,8 @@ header.scrolled {
   align-items: center;
   flex-wrap: wrap;
   background: rgba(5, 5, 5, 0.315);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 10px;
 }
 .light-mode
@@ -2126,7 +2175,7 @@ header.scrolled {
   background: var(--bg-black);
   overflow-x: hidden;
   overflow-y: scroll;
-  padding: 50px;
+  padding: 50px;border-radius: 0px;
   z-index: 1000;
 }
 
@@ -2198,7 +2247,23 @@ header.scrolled {
   text-align: left;
   margin-top: 1rem;
 }
-
+.intro
+#blog
+.blog
+.blog-div
+.blog-posts.blog-toggle
+form
+textarea:focus,
+.intro
+#blog
+.blog
+.blog-div
+.blog-posts.blog-toggle
+form
+  input:focus {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.05);
+}
 .intro
   #blog
   .blog
@@ -2581,30 +2646,97 @@ header.scrolled {
 
 .footer {
   position: relative;
-  padding: 10px;
+  padding: 30px;
   width: 100%;
   background: var(--bg-black);
   margin-top: 2rem;
   border-top: 1px solid var(--gray);
+  display: flex;
+  flex-direction: row-reverse;
+  transition: all 1s;
 }
 .light-mode .footer {
   background: var(--bg-white);
   border-top: 1px solid var(--partial-dark);
 }
-
-.footer .social-links,
+.footer div{
+  text-align: center;
+}
+.col-2{
+  flex-grow: 2;
+}
+.footer div h3{
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-size: var(--h4-lg);
+  transition: all 1s;
+}
+.col-2 .form input{
+  width: 400px;
+  height: 45px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  outline: none;
+  border: none;
+}
+.col-2 .form button{
+  background: transparent;
+  border: 2px solid var(--gray);
+  color: var(--bg-white);
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 1s;
+}
+.light-mode .col-2 .form button{
+  background: transparent;
+  border: 2px solid var(--partial-dark);
+  color: var(--bg-black);
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 15px;
+  cursor: pointer;
+}
+/* .footer .social-links, */
 #contact .social-links {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.footer h4 {
-  width: 100%;
-  text-align: center;
- font-size: var(--h4-lg);
-  color: #d8dce4;
+.footer .col-1 img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: var(--blog-div);
+}
+.intro #blog .blog .blog-div .blog-posts .footer{
+  display: none;
+}
+.intro #blog .blog .blog-div .blog-posts.blog-toggle .footer{
+position: relative;
+padding: 16px 0 0 0;
+width: 100%;
+background: var(--bg-black);
+margin-top: 2rem;
+border-top: 1px solid var(--gray);
+display: flex;
+flex-direction: row-reverse;
+transition: all 1s;
+}
+.light-mode .intro #blog .blog .blog-div .blog-posts.blog-toggle .footer {
+  background: var(--bg-white);
+  border-top: 1px solid var(--partial-dark);
+}
+.intro #blog .blog .blog-div .blog-posts.blog-toggle .footer .col-1 img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: var(--blog-div);
 }
 
 .light-mode .footer h4 {
@@ -2794,8 +2926,8 @@ header.scrolled {
     top: 8%;
     left: 5%;
     width: auto;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 10px 30px;
+    border-radius: 30px;
     background: #31d275;
     cursor: pointer;
     z-index: 11;
@@ -2810,8 +2942,8 @@ header.scrolled {
     top: 8%;
     left: 5%;
     width: auto;
-    padding: 8px;
-    border-radius: 20px;
+    padding: 10px 30px;
+    border-radius: 30px;
     background: #31d275;
     cursor: pointer;
     z-index: 11;
@@ -3092,6 +3224,32 @@ header.scrolled {
     font-size: var(--hi-lg);
     transition: all 500ms;
   }
+  .footer,.intro #blog .blog .blog-div .blog-posts.blog-toggle .footer {
+    position: relative;
+    padding: 16px;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .intro #blog .blog .blog-div .blog-posts.blog-toggle .footer {
+    position: relative;
+    padding: 16px 0 0 0;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .footer div{
+    width: 100%;
+    margin-top: 20px;
+  }
+  .footer div:last-child{
+    margin-top: 0;
+  }
+  .col-2 .form input{
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -3266,7 +3424,7 @@ header.scrolled {
   h4 {
     font-size: var(--p-fss);
   }
-  .footer h4 {
+  .footer div h3 {
     width: 100%;
     text-align: center;
    font-size: var(--p-fss);

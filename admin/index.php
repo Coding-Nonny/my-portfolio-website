@@ -33,11 +33,9 @@ $user = $users->fetch_assoc();
     <div class="left">
       <div class="dash-user">
         <h2 style="display: none;">N</h2>
+        <img src="profile/<?= $user['img'] ?>" alt="" />
       </div>
       <div class="dash-nav">
-      <li title="user image">
-      <img src="profile/<?= $user['img'] ?>" alt="" />
-      </li>
         <li onclick="location.href = 'index.php?page=dash'" class="li-dash" title="dashboard">
           <i class="fa fa-tachometer"></i><a href="">Dashboard</a>
         </li>

@@ -12,7 +12,8 @@ if (!isset($_SESSION['user'])) {
   <table>
     <tr>
       <th>#</th>
-      <th>Username</th>
+    <th>Username</th>
+    <th>Image</th>
       <th>Comment</th>
       <th>Date</th>
       <th>Blog Id</th>
@@ -62,6 +63,7 @@ if (!isset($_SESSION['user'])) {
           <td>
             <p><?= $row['username'] ?></p>
           </td>
+          <td><img src="../assets/user/<?= $row['img'] ?>" alt="user image" width="50" height="50"></td>
           <td class="content">
             <p><?= $row['comment_text'] ?></p>
           </td>

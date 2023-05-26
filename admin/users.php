@@ -66,7 +66,7 @@ $user = $users->fetch_assoc();
                         <p><?= $row['username'] ?></p>
                     </td>
                     <td class="content">
-                        <img src="profile/<?= $row['img'] ?>" alt="" width="100" />
+                        <img src="profile/<?= $row['img'] ?>" alt="" width="50" height="50" />
                     </td>
                     <td><button class="edit" data-id="<?= $row['user_id'] ?>">Edit</button></td>
                     <td><button class="delete" data-id="<?= $row['user_id'] ?>">Delete</button></td>

@@ -151,7 +151,7 @@ $(document).ready(async function () {
           id +
           "]"
       );
-      location.href = `home.html?blog_id=${id}`;
+      location.href = `?blog_id=${id}`;
       setTimeout(() => {
         blog.addClass("blog-toggle");
       }, 1000);
@@ -170,10 +170,16 @@ $(document).ready(async function () {
           "]"
       );
       blog.removeClass("blog-toggle");
-      await new Promise((resolve) =>
+        let searchRl = new URL(window.location.href);
+        if(searchRl.searchParams.has("blog_id")){
+          searchRl.searchParams.delete("blog_id");
+          history.pushState(null,'',searchRl.href);
+        }
+        await new Promise((resolve) =>
           setTimeout(resolve, 1000)
         );
-      let rl = (location.href = "home.html#blog");
+      let rl = document.getElementById("blog");
+      rl.scrollIntoView({behavior: 'smooth'});
     }
   );
 
@@ -349,6 +355,37 @@ $("body").on("click", "#instagram-share", function (e) {
     }
   );
 
+  $(".footer .col-2 .form .s").on("click", async function (e) {
+      e.preventDefault();
+      const email = $(".footer .col-2 .form input").val();
+      if (
+        await message.alert_Confirm(
+          "Do You Wish To Subscribe?"
+        )
+      ) {
+        $.ajax({
+          url: "assets/php/subscribe.php",
+          type: "POST",
+          data: { email: email },
+          success: function (data) {
+            if (data == "subscribed") {
+              message.alert_message(
+                "You successfully subscribed.",
+                "success"
+              );
+              $(".subscribe input").val("");
+            } else {
+              message.alert_message(
+                data,
+                "warning"
+              );
+            }
+            message.shouldAutoHide(true)
+          },
+        });
+      }
+    }
+  );
   // toggle blog image
   $("body").on(
     "click",
@@ -360,7 +397,7 @@ $("body").on("click", "#instagram-share", function (e) {
 
   let date = new Date();
   let year = date.getFullYear();
-  $("footer h4 small").text(year);
+  $(".footer .col-1 h3 em").text(year);
 
   // comments
 

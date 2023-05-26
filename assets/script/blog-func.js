@@ -495,7 +495,7 @@ function getAllBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -512,6 +512,48 @@ function getAllBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -786,7 +828,7 @@ function getPersonalBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -803,6 +845,48 @@ function getPersonalBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -952,7 +1036,7 @@ function getTechBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -969,6 +1053,48 @@ function getTechBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -1118,7 +1244,7 @@ function getSportsBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -1135,6 +1261,48 @@ function getSportsBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -1285,7 +1453,7 @@ function getFunnyBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -1302,6 +1470,48 @@ function getFunnyBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -1453,7 +1663,7 @@ function getHistoryBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -1470,6 +1680,48 @@ function getHistoryBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -1619,7 +1871,7 @@ function getGovBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -1636,6 +1888,48 @@ function getGovBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -1785,7 +2079,7 @@ function getEntBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -1802,6 +2096,48 @@ function getEntBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -1951,7 +2287,7 @@ function getEduBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -1968,6 +2304,48 @@ function getEduBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -2117,7 +2495,7 @@ function getDevBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -2134,6 +2512,48 @@ function getDevBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;
@@ -2282,7 +2702,7 @@ function getSearchBlog(
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
-                    <h3 style="border-bottom:2px solid ${color}">Share this blog</h3>
+                    <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
                     <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
                     <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
@@ -2299,6 +2719,48 @@ function getSearchBlog(
                   <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
+              <div class="footer">
+          <div class="col-1">
+            <h3>
+              Nonny.com &copy; <em></em>. All
+              Right Reserved
+            </h3>
+            <img src="./assets/image/logo-no-background.png" alt="logo">
+          </div>
+         <div class="col-2">
+          <h3>NEWSLETTER</h3>
+          <div class="form">
+            <input type="text" placeholder="Your Email Address">
+            <br>
+            <button class="s">SUBSCRIBE NOW</button>
+          </div>
+         </div>
+         <div class="col-3">
+          <h3>SOCIAL LINKS</h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+         </div>
+        </div>
             </div>
           `;
         blogHtml += blogPost;

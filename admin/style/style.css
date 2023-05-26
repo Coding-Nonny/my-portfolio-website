@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-weight: 600;
+  transition: all 1s;
 }
 
 html {
@@ -24,6 +25,7 @@ body {
 
 h1,
 h2 {
+  position: relative;
   font-size: 20px;
   color: #ffffff;
 }
@@ -98,6 +100,7 @@ u {
   color: #141414;
 }
 .dashboard {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -122,12 +125,16 @@ u {
   height: 100%;
   top: 0;
   left: 0;
-  background: #141414;
+  background: #1414145e;
   padding: 20px;
   transition: all 500ms;
+  z-index: 10;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -3px -3px 7px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 .light-mode .left {
-  background: #ffffff;
+  background: #ffffff4f;
 }
 
 .dashboard  .dash-user {
@@ -195,21 +202,67 @@ u {
   position: relative;
   flex: 1;
   transition: all 700ms;
-  background: inherit;
-  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  z-index: 20;
 }
-
+.dashboard::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: rgb(92, 66, 208);
+  border-radius: 50%;
+  transform: rotate(20deg) translateX(-200px) translateY(-200px);
+  z-index: 0;
+  transition: all 1000ms;
+}
+.dashboard::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: rgb(92, 66, 208);
+  border-radius: 50%;
+  transform: rotate(20deg) translateX(200px) translateY(200px);
+  z-index: 0;
+  transition: all 1000ms;
+}
+.btns{
+  display: flex;
+  width: fit-content;
+  position: relative;
+  background: #14141470;
+  border-radius: 18px;
+  gap: 18px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -3px -3px 7px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.light-mode .btns{
+  background: #ffffff62;
+}
+.btns button{
+  border-radius: 20px;
+}
 .dashboard .right .top {
-  position: fixed;
+  position: absolute;
   width: inherit;
-  
   top: 0; /* set to the height of the element above it */
   left: 0;
   right: 0;
-  background: #141414;
+  background: #14141452;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -3px -3px 7px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 .light-mode .right .top {
-  background: #ffffff;
+  background: #ffffff49;
 }
 
 .dashboard .right .top .dash-head {
@@ -226,18 +279,28 @@ u {
 
 .dashboard .right .top .dash-head h2 {
   color: #ffffff;
+  text-align: right;
 }
 .light-mode .right .top .dash-head h2 {
   color: #141414;
 }
 
 .dashboard .right main {
+  position: relative;
   margin-top: 3rem;
-  width: 100%;
-  height: fit-content;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: auto;
+  height: 100%;
+  padding: 16px;
+  z-index: 1;
+  overflow: scroll;
+  scrollbar-width: 0px;
 }
-
+.dashboard .right main::-webkit-scrollbar{
+  width: 0;
+}
 .dashboard .right main .analytic {
   max-width: 100%;
   width: 100%;
@@ -245,13 +308,14 @@ u {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #141414;
+  background: #14141463;
   border-radius: 12px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
     -3px -3px 7px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
 }
 .light-mode .right main .analytic {
-  background: #ffffff;
+  background: #ffffff65;
 }
 
 .dashboard .right main .analytic h1 {
@@ -402,12 +466,14 @@ main table {
   width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
-  background: #141414;
+  background: #14141486;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
     -3px -3px 7px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 .light-mode main table {
-  background: #ffffff;
+  background: #ffffff5d;
 }
 main input[type="search"] {
   width: 250px;
@@ -509,6 +575,7 @@ table button,
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 0px;
+  z-index: 10;
 }
 .create-manage form {
   width: 70%;
@@ -823,19 +890,61 @@ table button,
     display: flex;
     overflow: hidden;
   }
+  .dashboard::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 700px;
+    height: 700px;
+    background: rgb(92, 66, 208);
+    border-radius: 50%;
+    transform: rotate(20deg) translateX(-400px) translateY(-400px);
+    z-index: 0;
+  }
+  .dashboard::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: rgb(92, 66, 208);
+    border-radius: 50%;
+    transform: rotate(20deg) translateX(400px) translateY(400px);
+    z-index: 0;
+  }
   .mails form {
     position: fixed;
     width: 100%;
+    height: 100%;
     display: none;
     flex-direction: column;
     align-items: center;
     right: 0;
-    top: 20%;
+    top: 0;
     background: #1a181f;
     border: 2px solid #31d275;
     padding: 10px;
     border-radius: 12px;
   }
+  .setting form {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    right: 10%;
+    background: #1a181f;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #31d275;
+    z-index: 1000;
+}
 }
 @media screen and (max-width: 600px) {
   .login form {

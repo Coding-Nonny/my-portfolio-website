@@ -5,7 +5,7 @@ if (!isset($_SESSION['user'])) {
 ?>
 <div class="manage-posts">
     <div class="mg-head">
-        <h1>Manage Posts</h1>
+        <h1>Manage Contents</h1>
         <button class="create"><i class="fa fa-plus"></i> Add new</button>
     </div>
     <div class="btns" style="margin: 1rem;">
@@ -62,9 +62,6 @@ if (!isset($_SESSION['user'])) {
             while ($row = $select->fetch_assoc()) :
                 $mimeType = mime_content_type("./blog/".$row['files']);
                 if(strpos($mimeType, "video/") === 0){
-                    echo "vid";
-                }else{
-                    echo "img";
                 }
         ?>
                 <tr>
