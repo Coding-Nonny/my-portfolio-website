@@ -5,7 +5,7 @@ $(document).ready(function () {
   let blogType = document.querySelectorAll(
     ".intro #blog .blog .blog-type span"
   );
-  const message = new AlertNotify(10000,"center", "#000000");
+  const message = new AlertNotify(10000,"top-left", "#000000");
   $(
     ".blog-search #search-blog"
   ).on("keydown",(e)=>{
@@ -491,16 +491,16 @@ function getAllBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -525,7 +525,7 @@ function getAllBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -570,10 +570,10 @@ function getAllBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -644,14 +644,14 @@ function generatePaginationButtons(
   for (let i = start; i <= end; i++) {
     if (i === parseInt(lastPage)) {
       /* --- If the last viewed page matches the current page, mark the button as active --- */
-      buttonHtml += `<button style="background:${color}" class="page-btn active" onclick="goToPage(${i})">${i}</button>`;
+      buttonHtml += `<button type='button' title='page ${i}' style="background:${color}" class="page-btn active" onclick="goToPage(${i})">${i}</button>`;
     } else if (i === page) {
       /* --- Otherwise, if the current page is being displayed, mark the button as active --- */
-      buttonHtml += `<button style="background:${color}" class="page-btn active" onclick="goToPage(${i})">${i}</button>`;
+      buttonHtml += `<button type='button' title='page ${i}' style="background:${color}" class="page-btn active" onclick="goToPage(${i})">${i}</button>`;
       // Save the current page in localStorage
       localStorage.setItem("lastPage", page);
     } else {
-      buttonHtml += `<button class="page-btn" onclick="goToPage(${i})">${i}</button>`;
+      buttonHtml += `<button class="page-btn" type='button' title='page ${i}' onclick="goToPage(${i})">${i}</button>`;
     }
   }
 
@@ -824,16 +824,16 @@ function getPersonalBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -858,7 +858,7 @@ function getPersonalBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -904,10 +904,10 @@ function getPersonalBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -1032,16 +1032,16 @@ function getTechBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1066,7 +1066,7 @@ function getTechBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1112,10 +1112,10 @@ function getTechBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -1240,16 +1240,16 @@ function getSportsBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1274,7 +1274,7 @@ function getSportsBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1320,10 +1320,10 @@ function getSportsBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -1449,16 +1449,16 @@ function getFunnyBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1483,7 +1483,7 @@ function getFunnyBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1529,10 +1529,10 @@ function getFunnyBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -1659,16 +1659,16 @@ function getHistoryBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1693,7 +1693,7 @@ function getHistoryBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1739,10 +1739,10 @@ function getHistoryBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -1867,16 +1867,16 @@ function getGovBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1901,7 +1901,7 @@ function getGovBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1947,10 +1947,10 @@ function getGovBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -2075,16 +2075,16 @@ function getEntBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -2109,7 +2109,7 @@ function getEntBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2155,10 +2155,10 @@ function getEntBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -2283,16 +2283,16 @@ function getEduBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -2317,7 +2317,7 @@ function getEduBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2363,10 +2363,10 @@ function getEduBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -2491,16 +2491,16 @@ function getDevBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -2525,7 +2525,7 @@ function getDevBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2571,10 +2571,10 @@ function getDevBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {
@@ -2698,16 +2698,16 @@ function getSearchBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
                     <h3 style="border-bottom:2px solid ${color}">Feel Free To Share This Content</h3>
                     <div class="share-icons">
-                    <a href=#"" id="wa-share"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" id="facebook-share"><i class="fa fa-facebook"></i></a>
-                    <a href="#" id="twitter-share"> <i class="fa fa-twitter"></i></a>
-                    <a href="#" id="instagram-share"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="wa-share"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter-share"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram-share"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -2732,7 +2732,7 @@ function getSearchBlog(
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2778,10 +2778,10 @@ function getSearchBlog(
 
       // Add event listeners for next and previous buttons
       const prevButton = $(
-        "<button>Previous</button>"
+        "<button type='button' title='previous'>Previous</button>"
       );
       const nextButton = $(
-        "<button>Next</button>"
+        "<button type='button' title='next'>Next</button>"
       );
       prevButton.click(() => {
         if (currentPage > 1) {

@@ -4,7 +4,7 @@
   --bg-white: #ffffff;
   --gray: #d8dce4;
   --partial-dark: #241f2b;
-  --color-after: rgb(92, 66, 208);
+  --color-after: rgb(2, 194, 71);
   --box-shadow: rgba(0, 0, 0, 0.212);
   --large-home-h1: 4rem;
   --small-home-h1: 3rem;
@@ -34,6 +34,7 @@
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
+  transition: all 1ms;
 }
 
 html {
@@ -211,7 +212,7 @@ button {
   border-radius: 20px;
   transition: all 1s;
   box-shadow: var(--button-shadow-light);
-  color: var(--gray);
+  color: var(--bg-white);
 }
 .light-mode button{
   box-shadow: var(--button-shadow-dark);
@@ -303,7 +304,7 @@ pre {
   background: var(--bg-white);
   color: var(--bg-black);
   transition: all 1000ms;
-  --color-after:rgb(244, 71, 46);
+  
 }
 
 .welcome::-webkit-scrollbar {
@@ -314,6 +315,7 @@ pre {
   position: relative;
   width: 100%;
   height: fit-content;
+  height: -moz-fit-content;
   padding: 0px;
 }
 
@@ -355,7 +357,7 @@ header.scrolled {
   align-items: center;
   border-radius: 50%;
   padding: 8px;
-  background: var(--gray);
+  background: var(--bg-white);
   cursor: pointer;
 }
 .light-mode header .logo {
@@ -374,6 +376,8 @@ header.scrolled {
 .welcome header .nav {
   max-width: 100%;
   width: fit-content;
+  width: -moz-fit-content;
+  width: -moz-fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -496,7 +500,7 @@ header.scrolled {
   background: linear-gradient(
     120deg,
     #31d275,
-    orangered
+    rgb(2, 194, 71)
   );
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -569,7 +573,7 @@ header.scrolled {
   .call-action
   a:first-child {
   background: var(--green);
-  color: var(--gray);
+  color: var(--bg-white);
   box-shadow: var(--blog-div);
 }
 
@@ -602,6 +606,7 @@ header.scrolled {
 
 .intro #home .intro-text .intro-special .n {
   width: fit-content;
+  width: -moz-fit-content;
 }
 
 .intro #home .intro-text .intro-special .n h1 {
@@ -938,8 +943,8 @@ header.scrolled {
   border-radius: 20px;
   margin-top: 5em;
   object-fit: cover;
-  object-position: top center;
   -o-object-position: top center;
+  object-position: top center;
 }
 
 #about .my-img {
@@ -1009,7 +1014,7 @@ header.scrolled {
   background: linear-gradient(
     20deg,
     #31d275,
-    orangered
+    rgb(2, 194, 71)
   );
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -1051,12 +1056,16 @@ header.scrolled {
   color: var(--partial-dark);
 }
 
-.intro #about .our-story ul {
-  width: 48%;
+.intro #about .our-story .skill-div {
+  width: 60%;
   margin-top: 2rem;
   font-weight: 700;
+  padding: 10px;
   text-align: center;
   z-index: 1;
+}
+.intro #about .our-story .skill-div ul{
+  width: 100%;
 }
 .intro #about .our-story .learning{
   background: var(--bg-black);
@@ -1064,7 +1073,7 @@ header.scrolled {
 .light-mode .intro #about .our-story .learning{
   background: var(--bg-white);
 }
-.intro #about .our-story ul li {
+.intro #about .our-story .skill-div ul li {
   width: 100%;
   padding: 1rem;
   color: var(--bg-white);
@@ -1077,7 +1086,7 @@ header.scrolled {
   border-radius: 12px;
   opacity: 0;
 }
-.intro #about .our-story ul .frontend {
+.intro #about .our-story .skill-div ul .frontend {
   position: relative;
   width: 100%;
   display: flex;
@@ -1236,10 +1245,12 @@ header.scrolled {
   height: 250px;
   background: var(--bg-black);
   margin: 1rem;
-  overflow: hidden;
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 10px;
   transition: all 500ms;
+  overflow: hidden;
+  border: 2px solid var(--gray);
+  box-shadow: var(--blog-div-lt);
 }
 
 .light-mode
@@ -1248,6 +1259,7 @@ header.scrolled {
   .all-projects
   .project-box {
   background: var(--bg-white);
+  border: 2px solid var(--partial-dark);
 }
 
 .intro
@@ -1257,7 +1269,7 @@ header.scrolled {
   .project-box
   b {
   position: absolute;
-  bottom: 15%;
+  bottom: 18%;
   left: 10%;
   color: var(--bg-white);
   z-index: 1;
@@ -1271,7 +1283,7 @@ header.scrolled {
   .project-box
   b {
   position: absolute;
-  bottom: 15%;
+  bottom: 18%;
   left: 10%;
   color: var(--bg-black);
 }
@@ -1284,14 +1296,13 @@ header.scrolled {
   .alink
   a {
   position: absolute;
-  width: 100%;
-  bottom: 3%;
+  width: 60%;
+  bottom: 0;
   left: 0;
   right: 0;
   padding: 8px;
-  border-radius: 12px;
-  pointer-events: auto;
-  font-size: 14px;
+  font-size: var(--p-fss);
+  cursor: pointer;
 }
 
 .intro
@@ -1300,21 +1311,20 @@ header.scrolled {
   .all-projects
   .project-box
   .alink {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
   height: 100%;
   background: rgb(0 0 0 / 65%);
   text-align: center;
-  border-radius: 12px;
-  transition: all 500ms;
-  pointer-events: none;
+  transition: all 1000ms;
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -1339,8 +1349,6 @@ header.scrolled {
   top: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
-  border-radius: 10px;
   z-index: 0;
 }
 
@@ -1433,6 +1441,7 @@ header.scrolled {
   position: relative;
   width: 350px;
   height: fit-content;
+  height: -moz-fit-content;
   margin: 1rem;
   padding: 8px;
   background: var(--bg-black);
@@ -1484,6 +1493,7 @@ header.scrolled {
   position: relative;
   width: 50%;
   height: fit-content;
+  height: -moz-fit-content;
   color: var(--bg-white);
   margin: 1rem;
   padding: 10px;
@@ -1641,8 +1651,9 @@ header.scrolled {
   border-style: solid;
   border-width: 0 100px 100px 0;
   border-color: transparent;
-  border-radius: 100px;
+  border-radius: 50% 50% 52% 48% / 34% 64% 36% 66%;
   transform: rotate(40deg) translateY(270px) translateX(10px);
+  transition: all 1s;
   z-index: 0;
 }
 .intro #contact .contact form .success-msg {
@@ -1671,6 +1682,7 @@ header.scrolled {
   align-items: center;
   flex-wrap: wrap;
   height: fit-content;
+  height: -moz-fit-content;
   border-radius: 10px;
   margin: 10px;
 }
@@ -1858,7 +1870,7 @@ header.scrolled {
 
 .subscribe button {
   background: #31d275;
-  color: var(--gray);
+  color: var(--bg-white);
   padding: 10px;
   border-radius: 20px;
   margin-top: 1rem;
@@ -1938,6 +1950,7 @@ header.scrolled {
   position: relative;
   width: 100%;
   height: fit-content;
+  height: -moz-fit-content;
   text-transform: capitalize;
   border-radius: 12px;
   overflow: hidden;
@@ -1986,6 +1999,7 @@ header.scrolled {
   max-width: 100%;
   width: 100%;
   height: fit-content;
+  height: -moz-fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2004,7 +2018,8 @@ header.scrolled {
   .blog-details
   .title {
   background-color: rgba(255, 255, 255, 0.315);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .intro
@@ -2175,7 +2190,8 @@ header.scrolled {
   background: var(--bg-black);
   overflow-x: hidden;
   overflow-y: scroll;
-  padding: 50px;border-radius: 0px;
+  padding: 50px 50px 0;
+  border-radius: 0px;
   z-index: 1000;
 }
 
@@ -2559,6 +2575,7 @@ form
 }
 .pagination-div button {
   width: fit-content;
+  width: -moz-fit-content;
   margin: 10px;
   background: rgba(0, 0, 0, 0.212);
   outline: none;
@@ -2578,10 +2595,12 @@ form
 .page-btn.active {
   background: #3b5998;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .light-mode .page-btn.active {
   background: #3b5998;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .blog-search {
   max-width: 100%;
@@ -2590,6 +2609,7 @@ form
   justify-content: center;
   align-items: center;
   height: fit-content;
+  height: -moz-fit-content;
   margin-top: 1rem;
 }
 .blog-search #search-blog {
@@ -2654,16 +2674,30 @@ form
   display: flex;
   flex-direction: row-reverse;
   transition: all 1s;
+  overflow: hidden;
 }
 .light-mode .footer {
   background: var(--bg-white);
   border-top: 1px solid var(--partial-dark);
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-after);
+  border-radius: 50% 50% 27% 73% / 69% 39% 61% 31% ;
+  transition: all 1s;
+  z-index: 0;
 }
 .footer div{
   text-align: center;
 }
 .col-2{
   flex-grow: 2;
+  z-index: 1;
 }
 .footer div h3{
   font-weight: 300;
@@ -2764,6 +2798,9 @@ transition: all 1s;
 .light-mode #contact .social-links i {
   color: var(--partial-dark);
 }
+.col-1,.col-3{
+  z-index: 1;
+}
 
 /* -------  Media query ------ */
 
@@ -2792,6 +2829,7 @@ transition: all 1s;
     position: relative;
     width: 100%;
     height: fit-content;
+    height: -moz-fit-content;
     padding: 0px;
   }
 
@@ -2982,7 +3020,7 @@ transition: all 1s;
     background: linear-gradient(
       20deg,
       #31d275,
-      orangered
+      rgb(2, 194, 71)
     );
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -3046,6 +3084,7 @@ transition: all 1s;
   .intro #service .service .service-list li {
     width: 250px;
     height: fit-content;
+    height: -moz-fit-content;
     margin: 1rem;
     padding: 8px;
     border: 1px solid #31d275;
@@ -3102,7 +3141,7 @@ transition: all 1s;
     margin: 0px;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding: 20px;
+    padding: 20px 20px 0;
     z-index: 1000;
   }
 
@@ -3160,7 +3199,7 @@ transition: all 1s;
     background: linear-gradient(
       120deg,
       #31d275,
-      orangered
+      rgb(2, 194, 71)
     );
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -3189,13 +3228,14 @@ transition: all 1s;
     position: relative;
     width: 70%;
     height: fit-content;
+    height: -moz-fit-content;
     margin: 1rem;
   }
   .intro #home::after {
     content: "";
     position: absolute;
     width: 90%;
-    height: 60%;
+    height: 40%;
     bottom: 0;
     right: 0;
     border-radius: 100px 0px 0px 100px;
@@ -3259,7 +3299,7 @@ transition: all 1s;
     background: linear-gradient(
       120deg,
       #31d275,
-      orangered
+      rgb(2, 194, 71)
     );
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -3267,7 +3307,7 @@ transition: all 1s;
     color: transparent;
     text-align: center;
   }
-  .intro #about .our-story ul {
+  .intro #about .our-story .skill-div {
     width: 100%;
     color: #31d275;
     font-size: 1rem;
@@ -3291,6 +3331,7 @@ transition: all 1s;
   .intro #service .service .service-list li {
     width: 100%;
     height: fit-content;
+    height: -moz-fit-content;
     margin: 1rem;
     padding: 8px;
     border: 1px solid #31d275;
@@ -3353,6 +3394,7 @@ transition: all 1s;
   }
   .pagination-div button {
     width: fit-content;
+    width: -moz-fit-content;
     margin: 10px;
     background: rgba(0, 0, 0, 0.212);
     outline: none;
@@ -3378,6 +3420,7 @@ transition: all 1s;
     position: relative;
     width: 100%;
     height: fit-content;
+    height: -moz-fit-content;
     margin: 1rem;
   }
   .welcome  header .nav i,
@@ -3398,7 +3441,7 @@ transition: all 1s;
   h2 {
     font-size: var(--h1-sm);
   }
-  .intro #about .our-story ul li {
+  .intro #about .our-story .skill-div ul li {
     width: 100%;
     padding: 1rem;
     list-style: none;
@@ -3435,6 +3478,7 @@ transition: all 1s;
 }
 #notification-box-of-boxes {
   max-width:450px; width: fit-content;
+  width: -moz-fit-content;
   animation: dim 1.5s ease-in-out forwards;
   }
   
@@ -3450,18 +3494,7 @@ transition: all 1s;
   @media screen and (max-width:500px){
     #notification-box-of-boxes {
       max-width:90%; width: fit-content;
+      width: -moz-fit-content;
       animation: dim 1.5s ease-in-out forwards;
       }
   }
-/* .intro #home .intro-img:before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(60deg, blue, red);
-    border-radius: 43% 57% 62% 38% / 37% 32% 68% 63%;
-    z-index: -1;
-} */

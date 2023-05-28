@@ -1,5 +1,6 @@
 <?php
 include_once("./admin/server/connection.php");
+header('Content-Type: text/html');
 $post_title = "";
 $post_image = "";
 $post_content = "";
@@ -180,7 +181,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           <h2>C</h2>
           <p>N</p>
         </div>
-        <nav class="nav">
+        <ul class="nav">
           <li class="here main" id="homes">
             <a href="#home">Home</a>
           </li>
@@ -196,7 +197,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           <li class="main-three" id="blogs">
             <a href="#blog">Blog</a>
           </li>
-        </nav>
+        </ul>
         <div class="contact-me">
           <a href="#contact">Contact</a>
         </div>
@@ -207,7 +208,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
       </header>
       <div class="mode">
         <i class="fas fa-sun" id="mode" title="toggle day and night"></i>
-        <i class="fas fa-palette" title="change theme" translate="yes"></i>
+        <i class="fas fa-palette" title="change theme"></i>
       </div>
       <div class="intro home">
         <div id="alert"></div>
@@ -280,13 +281,13 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
             </div>
           </div>
           <img
-            src="./assets/image/PXL_20230521_080005512.PORTRAIT_3_adobe_express.png"
+            src="./assets/image/PXL_20230320_145608575_adobe_express.png"
             alt=""
             class="my-img"
           />
           <div class="intro-img">
             <img
-              src="./assets/image/PXL_20230521_080005512.PORTRAIT_3_adobe_express.png"
+              src="./assets/image/PXL_20230320_145608575_adobe_express.png"
               alt=""
               class="my-img1"
             />
@@ -354,84 +355,84 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               </div>
             </div>
             <h2 class="skill">Skills</h2>
-            <ul>
+            <div class="skill-div">
               <h2>
                 <span>Frontend</span>
-                <!-- <span>Frameworks.</span> -->
               </h2>
-              <li
-                class="frontend"
-                data-name="HTML"
-                data-level="90"
-              >
-                <p>HTML 90%</p>
-                <span class="level-bar"></span>
-              </li>
-              <li
-                class="frontend"
-                data-name="CSS"
-                data-level="80"
-              >
-                <p>CSS 80%</p>
-                <span class="level-bar"></span>
-              </li>
-              <li
-                class="frontend"
-                data-name="JAVASCRIPT"
-                data-level="50"
-              >
-                <p>JAVASCRIPT 50%</p>
-                <span class="level-bar"></span>
-              </li>
-              <li
-                class="frontend"
-                data-name="JQUERY"
-                data-level="50"
-              >
-                <p>JQUERY 50%</p>
-                <span class="level-bar"></span>
-              </li>
-            </ul>
-            <ul>
+              <ul>
+                <li
+                  class="frontend"
+                  data-name="HTML"
+                  data-level="90"
+                >
+                  <p>HTML 90%</p>
+                  <span class="level-bar"></span>
+                </li>
+                <li
+                  class="frontend"
+                  data-name="CSS"
+                  data-level="80"
+                >
+                  <p>CSS 80%</p>
+                  <span class="level-bar"></span>
+                </li>
+                <li
+                  class="frontend"
+                  data-name="JAVASCRIPT"
+                  data-level="50"
+                >
+                  <p>JAVASCRIPT 50%</p>
+                  <span class="level-bar"></span>
+                </li>
+                <li
+                  class="frontend"
+                  data-name="JQUERY"
+                  data-level="50"
+                >
+                  <p>JQUERY 50%</p>
+                  <span class="level-bar"></span>
+                </li>
+              </ul>
+            </div>
+            <div class="skill-div">
               <h2>
                 <span>Backend</span>
-                <!-- <span>Frameworks.</span> -->
               </h2>
-              <li
-                class="backend frontend"
-                data-name="PHP"
-                data-level="50"
-              >
-                <p>PHP 50%</p>
-                <span class="level-bar"></span>
-              </li>
-              <li
-                class="backend frontend"
-                data-name="SQL"
-                data-level="60"
-              >
-                <p>SQL 50%</p>
-                <span class="level-bar"></span>
-              </li>
-            </ul>
-            <ul>
-              <h2>
-                <span
-                  >Looking To Upgrade My
-                  Skill With</span
+              <ul>
+                <li
+                  class="backend frontend"
+                  data-name="PHP"
+                  data-level="50"
                 >
-                <!-- <span>Frameworks.</span> -->
-              </h2>
+                  <p>PHP 50%</p>
+                  <span class="level-bar"></span>
+                </li>
+                <li
+                  class="backend frontend"
+                  data-name="SQL"
+                  data-level="60"
+                >
+                  <p>SQL 50%</p>
+                  <span class="level-bar"></span>
+                </li>
+              </ul>
+            </div>
+           <div class="skill-div">
+            <h2>
+              <span>Looking To Upgrade My Skill With</span>
+            </h2>
+            <ul>
               <li class="learning">React JS</li>
               <li class="learning">
                 React Native
               </li>
-              <li class="learning">Node JS</li>
+              <li class="learning">Next JS</li>
               <li class="learning">Laravel</li>
               <li class="learning">
                 Codeigniter
               </li>
             </ul>
+           </div>
           </div>
           <div class="about-left">
             <strong>Coding Nonny</strong>
@@ -696,7 +697,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   placeholder="message"
                 ></textarea>
               </div>
-              <button>Send Message</button>
+              <button title="send message" type="button">Send Message</button>
             </form>
           </div>
         </section>
@@ -715,7 +716,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   placeholder="Email address"
                   name="sub"
                 />
-                <button id="subscribe">
+                <button id="subscribe" title="subscribe" type="button">
                   Subscribe Now
                 </button>
               </div>
@@ -739,7 +740,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                 id="search-blog"
                 placeholder="search contents"
               />
-              <button type="button">
+              <button type="button" title="search">
                 <i class="fas fa-search"></i>
               </button>
             </div>
@@ -759,7 +760,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           <div class="form">
             <input type="text" placeholder="Your Email Address">
             <br>
-            <button class="s">SUBSCRIBE NOW</button>
+            <button class="s" title="subscribe" type="button">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -883,6 +884,13 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
             observer.observe(skill);
           }
         );
+
+
+        // Access the CSS root
+const root = document.documentElement;
+
+// Change the color by modifying the CSS variable
+root.style.setProperty('--color-after', JSON.parse(localStorage.getItem("color")) || "#31d275"); // Updated color
       });
     </script>
     <script src="./assets/script/blog-func.js"></script>

@@ -214,7 +214,7 @@ u {
   width: 700px;
   height: 700px;
   background: rgb(92, 66, 208);
-  border-radius: 50%;
+  border-radius:52% 48% 28% 72% / 48% 69% 31% 52% ;
   transform: rotate(20deg) translateX(-200px) translateY(-200px);
   z-index: 0;
   transition: all 1000ms;
@@ -227,7 +227,7 @@ u {
   width: 700px;
   height: 700px;
   background: rgb(92, 66, 208);
-  border-radius: 50%;
+  border-radius: 52% 48% 28% 72% / 48% 69% 31% 52% ;
   transform: rotate(20deg) translateX(200px) translateY(200px);
   z-index: 0;
   transition: all 1000ms;

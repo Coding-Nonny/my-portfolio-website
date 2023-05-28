@@ -64,6 +64,10 @@ function generateColor() {
     "color",
     JSON.stringify(color)
   );
+  const roots = document.documentElement;
+
+// Change the color by modifying the CSS variable
+  roots.style.setProperty('--color-after', color);
   const h1Element = document.querySelector(
     ".intro #home .intro-text .intro-special .n h1"
   );
@@ -97,9 +101,6 @@ function generateColor() {
   document.querySelector(
     ".intro #about .about-left strong "
   ).style.borderBottom = `2px solid${color}`;
-  // document.querySelector(
-  //   ".intro #about .about-right p"
-  // ).style.color = color;
   document
     .querySelectorAll(
       ".intro #service .service h1"

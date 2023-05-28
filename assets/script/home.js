@@ -183,7 +183,6 @@ $(document).ready(async function () {
     }
   );
 
-  // fetch blog according blog_id
 
   $(".intro #home .intro-text").css(
     "opacity",
@@ -293,28 +292,28 @@ let waMessage =  pageTitle + " " + pageUrl;
 let instaMessage = pageTitle;
 
 // Share on Facebook
-$("body").on("click", "#facebook-share", function (e) {
+$("body").on("click", ".facebook-share", function (e) {
   e.preventDefault();
   let shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageUrl);
   window.open(shareUrl, "_blank");
 });
 
 // Share on Twitter
-$("body").on("click", "#twitter-share", function (e) {
+$("body").on("click", ".twitter-share", function (e) {
   e.preventDefault();
   let shareUrl = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(pageUrl) + "&text=" + encodeURIComponent(twMessage);
   window.open(shareUrl, "_blank");
 });
 
 // Share on WhatsApp
-$("body").on("click", "#wa-share", function (e) {
+$("body").on("click", ".wa-share", function (e) {
   e.preventDefault();
   let shareUrl = "whatsapp://send?text=" + encodeURIComponent(waMessage);
   window.location.href = shareUrl;
 });
 
 // Share on Instagram
-$("body").on("click", "#instagram-share", function (e) {
+$("body").on("click", ".instagram-share", function (e) {
   e.preventDefault();
   let instaUrl = "https://www.instagram.com/create/story"; // Instagram's story creation URL
   window.open(instaUrl + "?url=" + encodeURIComponent(pageUrl) + "&text=" + encodeURIComponent(instaMessage));
@@ -546,6 +545,7 @@ const img = canvas.toDataURL();
       });
     }
   );
+  // page scroll width
   const progressBar =
     document.querySelector("#down");
   function updateProgressBar() {

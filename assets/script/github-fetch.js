@@ -2,7 +2,7 @@ $(document).ready(() => {
   let username = "Coding-Nonny";
   let url = `https://api.github.com/users/${username}/repos`;
   let page = 1;
-  let perPage = 6;
+  let perPage = 8;
   let maxPages;
   let dataCache =
     localStorage.getItem("my_repos");
@@ -85,7 +85,6 @@ $(document).ready(() => {
           readmeDiv.text("no description");
           alink.append(readmeDiv);
         }
-        //$(".all-projects").append(div);
         let Badges =
           "https://img.shields.io/github/stars/{Coding-Nonny}/{repository}.svg"
             .replace(
