@@ -523,7 +523,7 @@ function getAllBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -587,6 +587,8 @@ function getAllBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -600,6 +602,8 @@ function getAllBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -735,6 +739,8 @@ function goToPage(page) {
       page
     );
   }
+  let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
 }
 // GET Personal
 
@@ -856,7 +862,7 @@ function getPersonalBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -921,6 +927,8 @@ function getPersonalBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -934,6 +942,8 @@ function getPersonalBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -1064,7 +1074,7 @@ function getTechBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -1129,6 +1139,8 @@ function getTechBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -1142,6 +1154,8 @@ function getTechBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -1272,7 +1286,7 @@ function getSportsBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -1337,6 +1351,8 @@ function getSportsBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -1350,6 +1366,8 @@ function getSportsBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -1481,7 +1499,7 @@ function getFunnyBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -1546,6 +1564,8 @@ function getFunnyBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -1559,6 +1579,8 @@ function getFunnyBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -1691,7 +1713,7 @@ function getHistoryBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -1756,6 +1778,8 @@ function getHistoryBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+         blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -1769,6 +1793,8 @@ function getHistoryBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -1899,7 +1925,7 @@ function getGovBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -1964,6 +1990,8 @@ function getGovBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -1977,6 +2005,8 @@ function getGovBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -2107,7 +2137,7 @@ function getEntBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -2172,6 +2202,8 @@ function getEntBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -2185,6 +2217,8 @@ function getEntBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -2315,7 +2349,7 @@ function getEduBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -2380,6 +2414,8 @@ function getEduBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -2393,6 +2429,8 @@ function getEduBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -2523,7 +2561,7 @@ function getDevBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -2588,6 +2626,8 @@ function getDevBlog(
             currentPage - 1
           );
         }
+         let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -2601,6 +2641,8 @@ function getDevBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM
@@ -2730,7 +2772,7 @@ function getSearchBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
+            <input name="text" data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
             <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
@@ -2797,6 +2839,8 @@ function getSearchBlog(
             currentPage - 1
           );
         }
+        let blogPage = document.getElementById('blog');
+  blogPage.scrollIntoView({behavior: 'smooth'});
       });
       nextButton.click(() => {
         if (currentPage < totalPages) {
@@ -2812,6 +2856,8 @@ function getSearchBlog(
             currentPage + 1
           );
         }
+        let blogPage = document.getElementById('blog');
+        blogPage.scrollIntoView({behavior: 'smooth'});
       });
 
       // Remove old buttons and add new buttons to DOM

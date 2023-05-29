@@ -128,6 +128,8 @@ $(document).ready(() => {
         });
       }
     });
+    let gitPage = document.getElementById('work');
+    gitPage.scrollIntoView({behavior: 'smooth'});
       });
     } else {
       console.log();
@@ -157,6 +159,8 @@ $(document).ready(() => {
         });
       }
     })
+    let gitPage = document.getElementById('work');
+         gitPage.scrollIntoView({behavior: 'smooth'});
       });
     } else {
       console.log();
