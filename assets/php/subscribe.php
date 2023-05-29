@@ -67,13 +67,18 @@ if(!mysqli_stmt_execute($stmt1)){
     exit();
 }
 
+require_once(__DIR__ . '/config.php');
 
+if (!defined('MAIL_KEY')) {
+    http_response_code(500);
+    exit('MAIL key is not defined.');
+}
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'theophilusnonny@gmail.com';
-$mail->Password = 'ypnhdkoermgykxvr';
+$mail->Password = MAIL_KEY;
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 // Set the "From" email address and name

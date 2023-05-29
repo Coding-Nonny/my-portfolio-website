@@ -15,19 +15,20 @@ if (!isset($_SESSION['user'])) {
     <table>
         <tr>
             <th>
-                <h1>Title</h1>
+                Title
             </th>
             <th>Content</th>
+            <th>File</th>
             <th>Writer</th>
             <th>
-                <h1>Category</h1>
+                Category
             </th>
             <th>Date</th>
             <th>
-                <h1>Edit</h1>
+                Edit
             </th>
             <th>
-                <h1>Delete</h1>
+                Delete
             </th>
         </tr>
         <?php
@@ -48,20 +49,22 @@ if (!isset($_SESSION['user'])) {
                 // limit maximum value of $fetch to 100
                 $fetch = min($posts + 2, 100);
             }
-                 // limit $fetch to number of available posts in the database
+            // limit $fetch to number of available posts in the database
             $select1 = $connect->query("SELECT COUNT(*) FROM blog");
             $num_posts = $select1->fetch_row()[0];
             $fetch = min($fetch, $num_posts);
-
-           
         }
-        
+
         $select = $connect->query("SELECT * FROM blog ORDER BY id DESC LIMIT $fetch");
+        $postfiles = "";
         if ($select->num_rows > 0) :
 
             while ($row = $select->fetch_assoc()) :
-                $mimeType = mime_content_type("./blog/".$row['files']);
-                if(strpos($mimeType, "video/") === 0){
+                $mimeType = mime_content_type("./blog/" . $row['files']);
+                if (strpos($mimeType, "video/") === 0) {
+                    $postfiles = '<video src="./blog/' . $row['files'] . '" width="150" height="150" controls></video>';
+                } else {
+                    $postfiles = ' <img src="./blog/' . $row['files'] . '" alt="content file" width="150" height="150">';
                 }
         ?>
                 <tr>
@@ -74,6 +77,7 @@ if (!isset($_SESSION['user'])) {
                             <?= $row['content'] ?>
                         </div>
                     </td>
+                    <td><?= $postfiles ?></td>
                     <td class="writer" data-id="<?= $row['id'] ?>"><?= $row['writer'] ?></td>
                     <td><?= $row['category'] ?></td>
                     <td><?= $row['date_created'] ?></td>
@@ -182,12 +186,12 @@ if (!isset($_SESSION['user'])) {
         $(".create-manage #name").val(v3);
         const textareaValue = $(".create-manage #text").val();
 
-// Remove spaces from the textarea value
-const trimmedValue = textareaValue.trim();
+        // Remove spaces from the textarea value
+        const trimmedValue = textareaValue.trim();
 
-// Set the modified value back to the textarea
-$(".create-manage #text").val(trimmedValue);
-$(".create-manage #text").focus();
+        // Set the modified value back to the textarea
+        $(".create-manage #text").val(trimmedValue);
+        $(".create-manage #text").focus();
     });
     const textArea = document.getElementById("text");
 
@@ -295,55 +299,54 @@ $(".create-manage #text").focus();
         }
     })
     const nextButton = document.querySelectorAll(".next");
-const prevButton = document.querySelectorAll(".prev");
-if (nextButton && prevButton) {
-  nextButton.forEach((nextBtn)=>{
-    nextBtn.addEventListener("click", () => {
-    // get current "posts" parameter from URL
-    const params = new URLSearchParams(window.location.search);
-    const currentPosts = parseInt(params.get("posts")) || 0;
+    const prevButton = document.querySelectorAll(".prev");
+    if (nextButton && prevButton) {
+        nextButton.forEach((nextBtn) => {
+            nextBtn.addEventListener("click", () => {
+                // get current "posts" parameter from URL
+                const params = new URLSearchParams(window.location.search);
+                const currentPosts = parseInt(params.get("posts")) || 0;
 
-    // check if current "posts" value is valid
-    if (isNaN(currentPosts) || currentPosts < 0) {
-      console.error("Invalid 'posts' parameter:", currentPosts);
-      return;
+                // check if current "posts" value is valid
+                if (isNaN(currentPosts) || currentPosts < 0) {
+                    console.error("Invalid 'posts' parameter:", currentPosts);
+                    return;
+                }
+
+                // calculate new "posts" value
+                const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
+
+                // redirect to new URL with updated "posts" parameter
+                if (newPosts !== currentPosts) {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("posts", newPosts);
+                    window.location.href = url.toString();
+                }
+            });
+        })
+
+        prevButton.forEach((prevBtn) => {
+            prevBtn.addEventListener("click", () => {
+                // get current "posts" parameter from URL
+                const params = new URLSearchParams(window.location.search);
+                const currentPosts = parseInt(params.get("posts")) || 0;
+
+                // check if current "posts" value is valid
+                if (isNaN(currentPosts) || currentPosts < 0) {
+                    console.error("Invalid 'posts' parameter:", currentPosts);
+                    return;
+                }
+
+                // calculate new "posts" value
+                const newPosts = Math.max(currentPosts - 2, 0);
+
+                // redirect to new URL with updated "posts" parameter
+                if (newPosts !== currentPosts) {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("posts", newPosts);
+                    window.location.href = url.toString();
+                }
+            });
+        })
     }
-
-    // calculate new "posts" value
-    const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
-
-    // redirect to new URL with updated "posts" parameter
-    if (newPosts !== currentPosts) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("posts", newPosts);
-      window.location.href = url.toString();
-    }
-  });
-  })
-
-  prevButton.forEach((prevBtn) =>{
-    prevBtn.addEventListener("click", () => {
-    // get current "posts" parameter from URL
-    const params = new URLSearchParams(window.location.search);
-    const currentPosts = parseInt(params.get("posts")) || 0;
-
-    // check if current "posts" value is valid
-    if (isNaN(currentPosts) || currentPosts < 0) {
-      console.error("Invalid 'posts' parameter:", currentPosts);
-      return;
-    }
-
-    // calculate new "posts" value
-    const newPosts = Math.max(currentPosts - 2, 0);
-
-    // redirect to new URL with updated "posts" parameter
-    if (newPosts !== currentPosts) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("posts", newPosts);
-      window.location.href = url.toString();
-    }
-  });
-  })
-}
-
 </script>

@@ -35,16 +35,23 @@ if($result->num_rows == 0){
 
 $row = $result->fetch_assoc();
 
+require_once(__DIR__ . '../../../assets/php/config.php');
+
+if (!defined('MAIL_KEY')) {
+    http_response_code(500);
+    exit('MAIL key is not defined.');
+}
+
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'theophilusnonny@gmail.com';
-$mail->Password = 'ypnhdkoermgykxvr';
+$mail->Password = MAIL_KEY;
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 // Set the "From" email address and name
-$mail->setFrom('theophilusnonny@gmail.com', 'Nonny Theophilus');
+$mail->setFrom('theophilusnonny@gmail.com', 'Coding Nonny');
 $mail->addAddress($row['email']);
 $mail->isHTML(true);
 $mail->Subject = 'Subscription';

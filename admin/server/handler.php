@@ -8,7 +8,12 @@ use PHPMailer\PHPMailer\Exception;
 require "../PHPMailer/PHPMailer/src/Exception.php";
 require "../PHPMailer/PHPMailer/src/PHPMailer.php";
 require "../PHPMailer/PHPMailer/src/SMTP.php";
+require_once(__DIR__ . '../../../assets/php/config.php');
 
+if (!defined('MAIL_KEY')) {
+    http_response_code(500);
+    exit('MAIL key is not defined.');
+}
 class Server
 {
     private $db;
@@ -61,17 +66,28 @@ class Server
                 if ($subscribers->num_rows == 0) {
                     return "posted";
                 }
+                $stmtb = mysqli_stmt_init($this->db);
+                $select_blog = "SELECT * FROM blog WHERE files = ?";
+                if (!mysqli_stmt_prepare($stmtb,  $select_blog)) {
+                    return $this->db->error.": error". var_dump($select_blog);
+                }
+                mysqli_stmt_bind_param($stmtb, "s", $date);
+                if (!mysqli_stmt_execute($stmtb)) {
+                    return $this->db->error;
+                }
+                $result = mysqli_stmt_get_result($stmtb);
+                $idb = $result->fetch_assoc();
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'theophilusnonny@gmail.com';
-                $mail->Password = 'ypnhdkoermgykxvr';
+                $mail->Password = MAIL_KEY;
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
 
-                // Set the "From" email address and name
-                $mail->setFrom('theophilusnonny@gmail.com', 'Nonny Theophilus');
+                // Set the "From" email address and name 
+                $mail->setFrom('theophilusnonny@gmail.com', 'Coding Nonny');
 
                 // Loop through subscribers and send an email to each
                 while ($subscriber = $subscribers->fetch_assoc()) {
@@ -83,7 +99,7 @@ class Server
                     $mail->Body = '<!DOCTYPE html>
                      <html>
                      <head>
-                         <title>My Mailer</title>
+                         <title>Mail By Coding Nonny</title>
                          <style>
                              *{
                                  padding: 0;
@@ -105,7 +121,7 @@ class Server
                          <div class="mail">
                              <h1 style="font-size: 24px;
                          color: #241f2b;
-                         margin-bottom: 20px; background: #31d275;padding: 10px;text-align: center;border-radius: 20px;">Nonny.com</h1>
+                         margin-bottom: 20px; background: #31d275;padding: 10px;text-align: center;border-radius: 20px;">Coding Nonny</h1>
                          <p style="margin-bottom: 20px;">Hello,</p>
                          <p style="margin-bottom: 20px; color: #31d275;">A new content was uploaded. Follow the link below to view content.</p>
                          <p style="margin-bottom: 20px; color: #31d275;">Category: ' . $category . ', Title: <b>(' . $title . ')</b></p>
@@ -210,7 +226,7 @@ class Server
                 return "post not found";
                 break;
             default:
-                return "howdy";
+                return "howdy?";
                 break;
         }
     }
@@ -314,7 +330,7 @@ class Server
                 }
                 $selectU = $this->db->query("SELECT * FROM user WHERE user_id != {$id} AND username = '$username'");
                 if ($selectU->num_rows > 0) {
-                    return "username already in user choose another one";
+                    return "username already in use choose another one";
                 }
                 $select = $this->db->query("SELECT * FROM user WHERE user_id = {$id}");
                 $link = $select->fetch_assoc();

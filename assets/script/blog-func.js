@@ -491,7 +491,7 @@ function getAllBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -523,9 +523,9 @@ function getAllBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -824,7 +824,7 @@ function getPersonalBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -856,9 +856,9 @@ function getPersonalBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1032,7 +1032,7 @@ function getTechBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -1064,9 +1064,9 @@ function getTechBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1240,7 +1240,7 @@ function getSportsBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -1272,9 +1272,9 @@ function getSportsBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1449,7 +1449,7 @@ function getFunnyBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -1481,9 +1481,9 @@ function getFunnyBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1659,7 +1659,7 @@ function getHistoryBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -1691,9 +1691,9 @@ function getHistoryBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -1867,7 +1867,7 @@ function getGovBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -1899,9 +1899,9 @@ function getGovBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2075,7 +2075,7 @@ function getEntBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -2107,9 +2107,9 @@ function getEntBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2283,7 +2283,7 @@ function getEduBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -2315,9 +2315,9 @@ function getEduBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2491,7 +2491,7 @@ function getDevBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -2523,9 +2523,9 @@ function getDevBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">
@@ -2698,7 +2698,7 @@ function getSearchBlog(
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
                     <input type="email" style="border:2px solid ${color}" autocomplete="off" placeholder="Your email address" name="email" email-id="${blog.id}" />
                     <textarea name="comment" id="" cols="30" rows="10" autocomplete="off" style="border:2px solid ${color}" placeholder="comment" comment-id="${blog.id}"></textarea>
-                    <button type="button" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Post comment</button>
+                    <button type="submit" title="comment" style="background:${color}" data-id="${blog.id}" class="com">Comment</button>
                     <small style="margin-top: 10px"><input type="checkbox" name="check" class="check" data-id="${blog.id}"/> Remember my details when next i want to comment on this device.</small>
                   </form>
                   <div class="blog-share">
@@ -2730,9 +2730,9 @@ function getSearchBlog(
          <div class="col-2">
           <h3>NEWSLETTER</h3>
           <div class="form">
-            <input type="text" placeholder="Your Email Address">
+            <input data-id="${blog.id}" type="text" placeholder="Your Email Address">
             <br>
-            <button title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
+            <button data-id="${blog.id}" title="subscribe" type="button" class="s">SUBSCRIBE NOW</button>
           </div>
          </div>
          <div class="col-3">

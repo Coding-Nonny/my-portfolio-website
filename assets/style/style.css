@@ -49,7 +49,7 @@ body {
 }
 
 .here {
-  border-bottom: 2px solid #31d275;
+  border-bottom: 2px solid var(--green);
 }
 
 a {
@@ -197,7 +197,7 @@ h4 {
   right: 0;
   width: 0;
   height: 3px;
-  background: #31d275;
+  background: var(--green);
   z-index: 1001;
 }
 h1,
@@ -365,7 +365,7 @@ header.scrolled {
 }
 .welcome header .logo h2 {
   font-size: var(--logo-lg);
-  color: #31d275;
+  color: var(--green);
 }
 
 .welcome header .logo p {
@@ -406,7 +406,7 @@ header.scrolled {
 }
 
 .welcome header .nav li:hover {
-  border-bottom: 2px solid #31d275;
+  border-bottom: 2px solid var(--green);
   transform: scale(1.1);
 }
 
@@ -414,7 +414,7 @@ header.scrolled {
   width: auto;
   padding: 10px 30px;
   border-radius: 30px;
-  background: #31d275;
+  background: var(--green);
   cursor: pointer;
 }
 .welcome  header .contact-me:hover{
@@ -499,7 +499,7 @@ header.scrolled {
   font-weight: 800;
   background: linear-gradient(
     120deg,
-    #31d275,
+    var(--green),
     rgb(2, 194, 71)
   );
   -webkit-background-clip: text;
@@ -610,7 +610,7 @@ header.scrolled {
 }
 
 .intro #home .intro-text .intro-special .n h1 {
-  color: #31d275;
+  color: var(--green);
   font-weight: 600;
 }
 
@@ -630,7 +630,7 @@ header.scrolled {
 }
 
 .intro #home .intro-text .intro-special p b {
-  color: #31d275;
+  color: var(--green);
 }
 
 .intro #home .intro-text .social-links {
@@ -827,7 +827,7 @@ header.scrolled {
 }
 
 .intro #home .intro-img h4 {
-  color: #31d275;
+  color: var(--green);
 }
 
 .intro #home .intro-img small {
@@ -917,7 +917,7 @@ header.scrolled {
   margin-top: 4em;
   font-size: 20px;
   font-weight: 600;
-  color: #31d275;
+  color: var(--green);
 }
 
 .intro #about .about-left h1 b {
@@ -932,8 +932,8 @@ header.scrolled {
 
 .intro #about .about-left strong {
   font-size: 18px;
-  color: #31d275;
-  border-bottom: 2px solid #31d275;
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
 }
 
 .intro #about .about-left img,
@@ -1013,7 +1013,7 @@ header.scrolled {
   font-weight: 700;
   background: linear-gradient(
     20deg,
-    #31d275,
+    var(--green),
     rgb(2, 194, 71)
   );
   -webkit-background-clip: text;
@@ -1040,7 +1040,7 @@ header.scrolled {
 }
 
 .intro #about .our-story h2 span {
-  color: #31d275;
+  color: var(--green);
 }
 
 .intro #about .our-story p {
@@ -1082,7 +1082,7 @@ header.scrolled {
   font-size: var(--p-fsl);
   margin-top: 6px;
   text-transform: capitalize;
-  border: 2px solid #31d275;
+  border: 2px solid var(--green);
   border-radius: 12px;
   opacity: 0;
 }
@@ -1186,7 +1186,7 @@ header.scrolled {
   width: 100%;
   text-align: center;
   font-weight: 600;
-  color: #31d275;
+  color: var(--green);
 }
 
 .intro #work .project .all-projects {
@@ -1420,7 +1420,7 @@ header.scrolled {
 .intro #service .service h1 {
   width: 100%;
   text-align: center;
-  color: #31d275;
+  color: var(--green);
   font-weight: 600;
   margin: 2rem;
   z-index: 1;
@@ -1445,7 +1445,7 @@ header.scrolled {
   margin: 1rem;
   padding: 8px;
   background: var(--bg-black);
-  border: 1px solid #31d275;
+  border: 1px solid var(--green);
   border-radius: 12px;
   list-style: none;
   opacity: 0;
@@ -1467,7 +1467,7 @@ header.scrolled {
 }
 
 .intro #service .service .service-list li h2 {
-  color: #31d275;
+  color: var(--green);
   width: 100%;
   text-align: center;
   font-size: var(--p-fsl);
@@ -1512,7 +1512,7 @@ header.scrolled {
   padding: 10px;
   border-radius: 20px;
   margin-top: 2rem;
-  background-color: #31d275;
+  background-color: var(--green);
 }
 
 /* service ends */
@@ -1543,7 +1543,7 @@ header.scrolled {
 .intro #contact .contact .contact-head h1 {
   width: 100%;
   text-align: center;
-  color: #31d275;
+  color: var(--green);
   font-weight: 600;
 }
 
@@ -1566,7 +1566,7 @@ header.scrolled {
   width: 300px;
   text-align: center;
   margin: 1rem;
-  border: 2px solid #31d275;
+  border: 2px solid var(--green);
   padding: 8px;
   border-radius: 10px;
   transition: all 1s;
@@ -1581,7 +1581,7 @@ header.scrolled {
 .intro #contact .contact .contact-icon div i {
   padding: 10px;
   border-radius: 50%;
-  background: #31d275;
+  background: var(--green);
 }
 
 .intro
@@ -1660,7 +1660,7 @@ header.scrolled {
   width: 100%;
   padding: 10px;
   text-align: center;
-  color: #31d275;
+  color: var(--green);
   display: none;
 }
 
@@ -1699,7 +1699,7 @@ header.scrolled {
   text-align: center;
   outline: none;
   color: var(--bg-white);
-  border: 2px solid #31d275;
+  border: 2px solid var(--green);
   border-radius: 30px;
   background: #241f2b;
   transition: all 1s;
@@ -1749,7 +1749,7 @@ header.scrolled {
 .intro #contact .contact form .form-left div i {
   padding: 10px;
   border-radius: 10px;
-  background: #31d275;
+  background: var(--green);
 }
 
 .intro
@@ -1764,7 +1764,7 @@ header.scrolled {
   padding: 10px;
   color: var(--bg-white);
   outline: none;
-  border: 2px solid #31d275;
+  border: 2px solid var(--green);
   border-radius: 30px;
   background: #241f2b;
   margin: 10px;
@@ -1795,7 +1795,7 @@ header.scrolled {
 }
 
 .intro #contact .contact form button {
-  background: #31d275;
+  background: var(--green);
   border-radius: 20px;
   border: none;
   color: var(--bg-white);
@@ -1869,7 +1869,7 @@ header.scrolled {
 }
 
 .subscribe button {
-  background: #31d275;
+  background: var(--green);
   color: var(--bg-white);
   padding: 10px;
   border-radius: 20px;
@@ -1886,7 +1886,7 @@ header.scrolled {
   height: 45px;
   border: none;
   outline: none;
-  border: 2px solid #31d275;
+  border: 2px solid var(--green);
   padding: 10px;
   margin-top: 1rem;
   border-radius: 30px;
@@ -1898,7 +1898,7 @@ header.scrolled {
 .intro #blog .blog .blog-head h1 {
   width: 100%;
   font-weight: 600;
-  color: #31d275;
+  color: var(--green);
 }
 
 .intro #blog .blog .blog-type {
@@ -1910,7 +1910,7 @@ header.scrolled {
   flex-wrap: wrap;
   margin-top: 2rem;
   padding: 10px;
-  border-bottom: 1px solid #31d275;
+  border-bottom: 1px solid var(--green);
 }
 
 .intro #blog .blog .blog-type span {
@@ -2133,7 +2133,7 @@ header.scrolled {
   .blog-text
   .read-post
   h4 {
-  background: #31d275;
+  background: var(--green);
   padding: 8px;
   font-size: var(--p-fsl);
   border-radius: 20px;
@@ -2151,7 +2151,7 @@ header.scrolled {
   .blog-text
   .read-post
   h4 {
-  background: #31d275;
+  background: var(--green);
   padding: 8px;
   display: none;
   border-radius: 6px;
@@ -2171,7 +2171,7 @@ header.scrolled {
 }
 
 .current {
-  background: #31d275;
+  background: var(--green);
   border-radius: 10px;
 }
 
@@ -2382,7 +2382,7 @@ form
   height: 45px;
   border-radius: 30px;
   margin-top: 1rem;
-  border: 1px solid #31d275;
+  border: 1px solid var(--green);
   outline: none;
   padding: 10px;
 }
@@ -2399,7 +2399,7 @@ form
   height: 200px;
   border-radius: 30px;
   margin-top: 1rem;
-  border: 1px solid #31d275;
+  border: 1px solid var(--green);
   outline: none;
   resize: none;
   padding: 10px;
@@ -2413,7 +2413,7 @@ form
   form
   button {
   padding: 10px;
-  background: #31d275;
+  background: var(--green);
   margin-top: 1rem;
   outline: none;
   border: none;
@@ -2619,7 +2619,7 @@ form
   padding: 10px;
   outline: none;
   text-align: left;
-  border: 2px solid #31d275;
+  border: 2px solid var(--green);
     transition: all 1000ms;
 }
 .blog-search #search-blog:focus{
@@ -2633,7 +2633,7 @@ form
   height: 40px;
   outline: none;
   border: none;
-  background: #31d275;
+  background: var(--green);
   border-radius: 0px 30px 30px 0px;
   cursor: pointer;
 }
@@ -2658,7 +2658,7 @@ form
 .load {
   width: 20%;
   padding: 10px;
-  background: #31d275;
+  background: var(--green);
   border-radius: 12px;
 }
 
@@ -2966,7 +2966,7 @@ transition: all 1s;
     width: auto;
     padding: 10px 30px;
     border-radius: 30px;
-    background: #31d275;
+    background: var(--green);
     cursor: pointer;
     z-index: 11;
     margin-left: -6000px;
@@ -2982,7 +2982,7 @@ transition: all 1s;
     width: auto;
     padding: 10px 30px;
     border-radius: 30px;
-    background: #31d275;
+    background: var(--green);
     cursor: pointer;
     z-index: 11;
     margin-left: 0px;
@@ -3019,7 +3019,7 @@ transition: all 1s;
     font-weight: 600;
     background: linear-gradient(
       20deg,
-      #31d275,
+      var(--green),
       rgb(2, 194, 71)
     );
     -webkit-background-clip: text;
@@ -3040,7 +3040,7 @@ transition: all 1s;
     position: relative;
     width: 100%;
     text-align: center;
-    color: #31d275;
+    color: var(--green);
   }
 
   .intro #work .project h1::before {
@@ -3054,7 +3054,7 @@ transition: all 1s;
     display: none;
     background: linear-gradient(
       to right,
-      #31d275,
+      var(--green),
       var(--bg-black)
     );
   }
@@ -3073,7 +3073,7 @@ transition: all 1s;
   .intro #contact .contact .contact-head h1 {
     width: 100%;
     text-align: center;
-    color: #31d275;
+    color: var(--green);
     font-weight: 600;
   }
 
@@ -3087,7 +3087,7 @@ transition: all 1s;
     height: -moz-fit-content;
     margin: 1rem;
     padding: 8px;
-    border: 1px solid #31d275;
+    border: 1px solid var(--green);
     border-radius: 12px;
     list-style: none;
   }
@@ -3124,7 +3124,7 @@ transition: all 1s;
 
   .intro #blog .blog .blog-head h1 {
     font-weight: 600;
-    color: #31d275;
+    color: var(--green);
   }
 
   .intro
@@ -3198,8 +3198,8 @@ transition: all 1s;
     font-weight: 800;
     background: linear-gradient(
       120deg,
-      #31d275,
-      rgb(2, 194, 71)
+      var(--green),
+      var(--color-after)
     );
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -3251,7 +3251,7 @@ transition: all 1s;
   }
   .welcome  header .logo h2 {
     font-size: var(--logo-sm);
-    color: #31d275;
+    color: var(--color-after);
   }
 
   .welcome  header .logo p {
@@ -3298,8 +3298,8 @@ transition: all 1s;
     font-weight: 800;
     background: linear-gradient(
       120deg,
-      #31d275,
-      rgb(2, 194, 71)
+      var(--green),
+      var(--color-after)
     );
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -3309,7 +3309,7 @@ transition: all 1s;
   }
   .intro #about .our-story .skill-div {
     width: 100%;
-    color: #31d275;
+    color: var(--green);
     font-size: 1rem;
     margin-top: 2rem;
     font-weight: 700;
@@ -3334,7 +3334,7 @@ transition: all 1s;
     height: -moz-fit-content;
     margin: 1rem;
     padding: 8px;
-    border: 1px solid #31d275;
+    border: 1px solid var(--green);
     border-radius: 12px;
   }
 
@@ -3449,12 +3449,12 @@ transition: all 1s;
     font-size: var(--p-fss);
     margin-top: 6px;
     text-transform: capitalize;
-    border: 2px solid #31d275;
+    border: 2px solid var(--green);
     border-radius: 12px;
     opacity: 0;
   }
   .intro #service .service .service-list li h2 {
-    color: #31d275;
+    color: var(--green);
     width: 100%;
     text-align: center;
     font-size: var(--p-fss);

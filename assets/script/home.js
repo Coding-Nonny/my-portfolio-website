@@ -356,7 +356,8 @@ $("body").on("click", ".instagram-share", function (e) {
 
   $(".footer .col-2 .form .s").on("click", async function (e) {
       e.preventDefault();
-      const email = $(".footer .col-2 .form input").val();
+      let id = $(this).data('id');
+      const email = $(".footer .col-2 .form input[data-id="+id+"]").val();
       if (
         await message.alert_Confirm(
           "Do You Wish To Subscribe?"
@@ -372,7 +373,7 @@ $("body").on("click", ".instagram-share", function (e) {
                 "You successfully subscribed.",
                 "success"
               );
-              $(".subscribe input").val("");
+              $(".footer .col-2 .form input[data-id="+id+"]").val("")
             } else {
               message.alert_message(
                 data,

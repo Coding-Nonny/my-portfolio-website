@@ -4,6 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
     exit();
 }
 include("connection.php");
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -30,17 +31,25 @@ if ($update) {
         } else {
             $file =  '<img src="../blog/' . $row1['files'] . '" alt="" width="200">';
         }
+
+        require_once(__DIR__ . '../../../assets/php/config.php');
+
+        if (!defined('MAIL_KEY')) {
+            http_response_code(500);
+            exit('MAIL key is not defined.');
+        }
+
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'theophilusnonny@gmail.com';
-        $mail->Password = 'ypnhdkoermgykxvr';
+        $mail->Password = MAIL_KEY;
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
         // Set the "From" email address and name
-        $mail->setFrom('theophilusnonny@gmail.com', 'Nonny Theophilus');
+        $mail->setFrom('theophilusnonny@gmail.com', 'Coding Nonny');
         $mail->addAddress($row['email']);
         $mail->isHTML(true);
         $mail->Subject = 'Comment Approval';
