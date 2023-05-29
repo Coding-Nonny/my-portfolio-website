@@ -18,7 +18,8 @@ if (!isset($_SESSION['user'])) {
   <?php
   require_once("server/connection.php");
   $fetch = 2 + 2;
-
+  $__user = "";
+  $select = "";
   // check if "posts" parameter is set and not empty
   if (isset($_GET['limit']) && $_GET['limit'] !== '') {
 
@@ -37,7 +38,13 @@ if (!isset($_SESSION['user'])) {
     $num_posts = $select1->fetch_row()[0];
     $fetch = min($fetch, $num_posts);
   }
-  $select = $connect->query("SELECT * FROM subscribers ORDER BY id DESC LIMIT $fetch");
+  if (isset($_GET['email']) && $_GET['email'] !== '') {
+    $__user = strtolower($_GET['email']);
+    $select = $connect->query("SELECT * FROM subscribers WHERE email = '{$__user}' ORDER BY id DESC LIMIT $fetch");
+  } else {
+    $select = $connect->query("SELECT * FROM subscribers ORDER BY id DESC LIMIT $fetch");
+  }
+
   $count = 0;
   if ($select->num_rows > 0) :
     if ($count < $select->num_rows) {
@@ -86,54 +93,74 @@ if (!isset($_SESSION['user'])) {
   })
 
   const nextButton = document.querySelectorAll(".next");
-const prevButton = document.querySelectorAll(".prev");
-if (nextButton && prevButton) {
-  nextButton.forEach((nextBtn)=>{
-    nextBtn.addEventListener("click", () => {
-    // get current "posts" parameter from URL
-    const params = new URLSearchParams(window.location.search);
-    const currentPosts = parseInt(params.get("limit")) || 0;
+  const prevButton = document.querySelectorAll(".prev");
+  if (nextButton && prevButton) {
+    nextButton.forEach((nextBtn) => {
+      nextBtn.addEventListener("click", () => {
+        // get current "posts" parameter from URL
+        const params = new URLSearchParams(window.location.search);
+        const currentPosts = parseInt(params.get("limit")) || 0;
 
-    // check if current "posts" value is valid
-    if (isNaN(currentPosts) || currentPosts < 0) {
-      console.error("Invalid 'limit' parameter:", currentPosts);
-      return;
+        // check if current "posts" value is valid
+        if (isNaN(currentPosts) || currentPosts < 0) {
+          console.error("Invalid 'limit' parameter:", currentPosts);
+          return;
+        }
+
+        // calculate new "posts" value
+        const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
+
+        // redirect to new URL with updated "posts" parameter
+        if (newPosts !== currentPosts) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("limit", newPosts);
+          window.location.href = url.toString();
+        }
+      });
+    })
+
+    prevButton.forEach((prevBtn) => {
+      prevBtn.addEventListener("click", () => {
+        // get current "posts" parameter from URL
+        const params = new URLSearchParams(window.location.search);
+        const currentPosts = parseInt(params.get("limit")) || 0;
+
+        // check if current "posts" value is valid
+        if (isNaN(currentPosts) || currentPosts < 0) {
+          console.error("Invalid 'posts' parameter:", currentPosts);
+          return;
+        }
+
+        // calculate new "posts" value
+        const newPosts = Math.max(currentPosts - 2, 0);
+
+        // redirect to new URL with updated "posts" parameter
+        if (newPosts !== currentPosts) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("limit", newPosts);
+          window.location.href = url.toString();
+        }
+      });
+    })
+  }
+
+  $("#search").on("input keydown paste", function(e) {
+    if (e.keyCode === 13) {
+      let value = $(this).val();
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (regex.test(value) !== true) {
+        alert("invalid email address");
+      } else {
+        let url = new URL(window.location.href);
+        if (url.searchParams.has('email')) {
+          url.searchParams.delete("email");
+          history.pushState(null, '', url.href);
+          location.href += `&email=${encodeURIComponent(value)}`;
+        } else {
+          location.href += `&email=${encodeURIComponent(value)}`;
+        }
+
+      }
     }
-
-    // calculate new "posts" value
-    const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
-
-    // redirect to new URL with updated "posts" parameter
-    if (newPosts !== currentPosts) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("limit", newPosts);
-      window.location.href = url.toString();
-    }
-  });
   })
-
-  prevButton.forEach((prevBtn) =>{
-    prevBtn.addEventListener("click", () => {
-    // get current "posts" parameter from URL
-    const params = new URLSearchParams(window.location.search);
-    const currentPosts = parseInt(params.get("limit")) || 0;
-
-    // check if current "posts" value is valid
-    if (isNaN(currentPosts) || currentPosts < 0) {
-      console.error("Invalid 'posts' parameter:", currentPosts);
-      return;
-    }
-
-    // calculate new "posts" value
-    const newPosts = Math.max(currentPosts - 2, 0);
-
-    // redirect to new URL with updated "posts" parameter
-    if (newPosts !== currentPosts) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("limit", newPosts);
-      window.location.href = url.toString();
-    }
-  });
-  })
-}
 </script>
