@@ -240,22 +240,22 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <a
                 href="https://www.facebook.com/theophilusnonny"
                 target="_blank"
-                ><i class="fab fa-facebook-f"></i
+                title="Facebook"><i class="fab fa-facebook-f"></i
               ></a>
               <a
                 href="https://wa.me/message/SXGIV25TKXYOO1"
                 target="_blank"
-                ><i class="fa fa-whatsapp"></i
+                title="WhatsApp"><i class="fa fa-whatsapp"></i
               ></a>
               <a
                 href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
                 target="_blank"
-                ><i class="fab fa-linkedin"></i
+                title="linkedin"><i class="fab fa-linkedin"></i
               ></a>
               <a
                 href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
                 target="_blank"
-                ><i class="fab fa-instagram"></i
+                title="instagram"><i class="fab fa-instagram"></i
               ></a>
             </div>
             <div class="intro-special">
@@ -601,25 +601,25 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
             </div>
             <div class="social-links">
               <a
-                href="https://www.facebook.com/theophilusnonny"
-                target="_blank"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                href="https://wa.me/message/SXGIV25TKXYOO1"
-                target="_blank"
-                ><i class="fa fa-whatsapp"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
-                target="_blank"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a
-                href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
-                target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              href="https://www.facebook.com/theophilusnonny"
+              target="_blank"
+              title="Facebook"><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/message/SXGIV25TKXYOO1"
+              target="_blank"
+              title="WhatsApp"><i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
+              target="_blank"
+              title="linkedin"><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
+              target="_blank"
+              title="instagram"><i class="fab fa-instagram"></i
+            ></a>
             </div>
             <div class="contact-icon">
               <div>
@@ -769,22 +769,22 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
             <a
               href="https://www.facebook.com/theophilusnonny"
               target="_blank"
-              ><i class="fab fa-facebook-f"></i
+              title="Facebook"><i class="fab fa-facebook-f"></i
             ></a>
             <a
               href="https://wa.me/message/SXGIV25TKXYOO1"
               target="_blank"
-              ><i class="fa fa-whatsapp"></i
+              title="WhatsApp"><i class="fa fa-whatsapp"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/theophilus-chinonso-chikezie-2a4555237"
               target="_blank"
-              ><i class="fab fa-linkedin"></i
+              title="linkedin"><i class="fab fa-linkedin"></i
             ></a>
             <a
               href="https://instagram.com/nonny_theophilus?igshid=YmMyMTA2M2Y="
               target="_blank"
-              ><i class="fab fa-instagram"></i
+              title="instagram"><i class="fab fa-instagram"></i
             ></a>
           </div>
          </div>
@@ -892,6 +892,20 @@ const root = document.documentElement;
 // Change the color by modifying the CSS variable
 root.style.setProperty('--color-after', JSON.parse(localStorage.getItem("color")) || "#31d275"); // Updated color
       });
+      const homeImg = document.querySelector('.intro #home .my-img');
+
+homeImg.addEventListener('mousemove', (event) => {
+  const rect = homeImg.getBoundingClientRect();
+  const xAxis = event.clientX - rect.left;
+  const yAxis = event.clientY - rect.top;
+  const tX = xAxis - (rect.width / 2);
+  const tY = yAxis - (rect.height / 2);
+  
+  homeImg.style.transform = `translateX(${tX}px) translateY(${tY}px)`;
+});
+homeImg.addEventListener('mouseleave', ()=>{
+  homeImg.style.transform = "";
+})
     </script>
     <script src="./assets/script/blog-func.js"></script>
   </body>

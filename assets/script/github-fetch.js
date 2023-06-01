@@ -50,7 +50,7 @@ $(document).ready(() => {
         div.addClass("project-box");
         let link = $("<a>")
           .attr("href", repo.html_url)
-          .text("view on Github?");
+          .text("Star On Github?");
         let language = $("<b>").text(
           "Language: " + repo.language
         );
