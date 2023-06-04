@@ -2627,7 +2627,44 @@ backdrop-filter: blur(20px);
   b {
   font-weight: 800;
 }
-
+.intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts.blog-toggle
+  .blog-writing
+  a{
+    color: var(--color-after);
+  }
+  .light-mode 
+  .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts.blog-toggle
+  .blog-writing
+  a{
+    color: var(--color-after);
+  }
+  .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts.blog-toggle
+  .blog-writing
+  a:hover{
+    border-bottom: 1px solid var(--color-after);
+  }
+  .light-mode  
+  .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts.blog-toggle
+  .blog-writing
+  a:hover{
+    border-bottom: 1px solid var(--color-after);
+  }
 .light-mode .full-image {
   background: var(--bg-white);
 }

@@ -118,7 +118,7 @@ if (!isset($_SESSION['user'])) {
                     <u onclick=" UnderLineText()">Underline</u>
                     <i onclick="italicText()">Italic</i>
                     <span class="delete" onclick="deleteText()">Delete</span>
-                    <strong onclick="code()">Code</strong>
+                    <strong onclick="code()">Link</strong>
                     <strong onclick="lineBreak()">Break</strong>
                 </div>
                 <textarea name="text" id="text" cols="30" rows="10" placeholder="write here..."></textarea>
@@ -223,7 +223,7 @@ if (!isset($_SESSION['user'])) {
         const selectionStart = textArea.selectionStart;
         const selectionEnd = textArea.selectionEnd;
         const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const boldText = `<pre class="language-"><code class="language-">${selectedText}</code></pre>`;
+        const boldText = `<a href="" target="_blank">${selectedText}</a>`;
         textArea.value =
             textArea.value.substring(0, selectionStart) +
             boldText +
