@@ -287,8 +287,8 @@ let pageImage = $('meta[property="og:image"]').attr("content");
 
 // Customize the sharing messages
 let fbMessage =  pageTitle;
-let twMessage = pageTitle + " " + pageUrl;
-let waMessage =  pageTitle + " " + pageUrl;
+let twMessage = pageUrl;
+let waMessage =  pageUrl;
 let instaMessage = pageTitle;
 
 // Share on Facebook

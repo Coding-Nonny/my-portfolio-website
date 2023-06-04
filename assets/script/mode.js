@@ -75,6 +75,10 @@ function generateColor() {
   document.querySelector(
     ".welcome header .logo h2 "
   ).style.color = color;
+  let waves = document.querySelectorAll("svg path");
+waves.forEach((wave)=>{
+  wave.setAttribute('fill', color);
+})
   document.querySelector(
     ".intro #home .intro-text .intro-special p b "
   ).style.color = color;
@@ -232,25 +236,7 @@ function generateColor() {
   document.querySelector(
     ".subscribe input "
   ).style.border = `2px solid${color}`;
-  $(".intro #home .intro-text .name h1")
-    .css(
-      "background",
-      `linear-gradient( to right, #31d275, ${color})`
-    )
-    .css("-webkit-background-clip", "text")
-    .css("background-clip", "text")
-    .css("-moz-webkit-background-clip", "text")
-    .css("color", "transparent");
-    $(".intro #about .our-story h2")
-    .css(
-      "background",
-      `linear-gradient( to right, #31d275, ${color})`
-    )
-    .css("-webkit-background-clip", "text")
-    .css("background-clip", "text")
-    .css("-moz-webkit-background-clip", "text")
-    .css("color", "transparent");
-    //.intro #about .our-story h2
+
   document
     .querySelectorAll(
       ".intro #about .our-story ul .learning "
@@ -423,15 +409,6 @@ if (savedColor) {
   document.querySelector(
     ".subscribe input "
   ).style.border = `2px solid${savedColor}`;
-  $(".intro #home .intro-text .name h1")
-    .css(
-      "background",
-      `linear-gradient(to right, #31d275, ${savedColor})`
-    )
-    .css("-webkit-background-clip", "text")
-    .css("background-clip", "text")
-    .css("-moz-webkit-background-clip", "text")
-    .css("color", "transparent");
   document
     .querySelectorAll(
       ".intro #about .our-story ul .learning "

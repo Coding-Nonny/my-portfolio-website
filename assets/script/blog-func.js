@@ -406,7 +406,7 @@ let blogType = document.querySelectorAll(
   ".intro #blog .blog .blog-type span"
 );
 function getAllBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current")
   ) || 1,
@@ -486,6 +486,8 @@ function getAllBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -578,7 +580,7 @@ function getAllBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getAllBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -593,7 +595,7 @@ function getAllBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getAllBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -745,7 +747,7 @@ function goToPage(page) {
 // GET Personal
 
 function getPersonalBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current1")
   ) || 1,
@@ -825,6 +827,8 @@ function getPersonalBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -918,7 +922,7 @@ function getPersonalBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getPersonalBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -933,7 +937,7 @@ function getPersonalBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getPersonalBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -957,7 +961,7 @@ function getPersonalBlog(
 }
 
 function getTechBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current2")
   ) || 1,
@@ -1037,6 +1041,8 @@ function getTechBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1130,7 +1136,7 @@ function getTechBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getTechBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -1145,7 +1151,7 @@ function getTechBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getTechBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -1169,7 +1175,7 @@ function getTechBlog(
 }
 
 function getSportsBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current3")
   ) || 1,
@@ -1249,6 +1255,8 @@ function getSportsBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1342,7 +1350,7 @@ function getSportsBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getSportsBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -1357,7 +1365,7 @@ function getSportsBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getSportsBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -1382,7 +1390,7 @@ function getSportsBlog(
 
 /* FETCH FUNNY BLOG */
 function getFunnyBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current4")
   ) || 1,
@@ -1462,6 +1470,8 @@ function getFunnyBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1555,7 +1565,7 @@ function getFunnyBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getFunnyBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -1570,7 +1580,7 @@ function getFunnyBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getFunnyBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -1596,7 +1606,7 @@ function getFunnyBlog(
 /* FETCH HISTORY BLOG */
 
 function getHistoryBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current5")
   ) || 1,
@@ -1676,6 +1686,8 @@ function getHistoryBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1769,7 +1781,7 @@ function getHistoryBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getHistoryBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -1784,7 +1796,7 @@ function getHistoryBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getHistoryBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -1808,7 +1820,7 @@ function getHistoryBlog(
 }
 
 function getGovBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current6")
   ) || 1,
@@ -1888,6 +1900,8 @@ function getGovBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1981,7 +1995,7 @@ function getGovBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getGovBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -1996,7 +2010,7 @@ function getGovBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getGovBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -2020,7 +2034,7 @@ function getGovBlog(
 }
 
 function getEntBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current7")
   ) || 1,
@@ -2100,6 +2114,8 @@ function getEntBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2193,7 +2209,7 @@ function getEntBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getEntBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -2208,7 +2224,7 @@ function getEntBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getEntBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -2232,7 +2248,7 @@ function getEntBlog(
 }
 
 function getEduBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current8")
   ) || 1,
@@ -2312,6 +2328,8 @@ function getEduBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2405,7 +2423,7 @@ function getEduBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getEduBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -2420,7 +2438,7 @@ function getEduBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getEduBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -2444,7 +2462,7 @@ function getEduBlog(
 }
 
 function getDevBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current9")
   ) || 1,
@@ -2524,6 +2542,8 @@ function getDevBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2617,7 +2637,7 @@ function getDevBlog(
       prevButton.click(() => {
         if (currentPage > 1) {
           getDevBlog(
-            param,
+            param = "",
             currentPage - 1,
             itemsPerPage
           );
@@ -2632,7 +2652,7 @@ function getDevBlog(
       nextButton.click(() => {
         if (currentPage < totalPages) {
           getDevBlog(
-            param,
+            param = "",
             currentPage + 1,
             itemsPerPage
           );
@@ -2655,7 +2675,7 @@ function getDevBlog(
     .catch((error) => console.error(error));
 }
 function getSearchBlog(
-  param,
+  param = "",
   currentPage = parseInt(
     localStorage.getItem("current10")
   ) || 1,
@@ -2735,6 +2755,8 @@ function getSearchBlog(
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
                 <div class="blog-writing">${marked(blog.content)}</div>
+                <br/><br/>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
