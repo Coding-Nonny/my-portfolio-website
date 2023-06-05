@@ -34,21 +34,21 @@ $user = $users->fetch_assoc();
     <div class="left">
       <div class="dash-user">
         <h2 style="display: none;">N</h2>
-        <img src="profile/<?= $user['img'] ?>" alt="" />
+        <img src="profile/<?= $user['img'] ?>" alt="user" />
       </div>
       <div class="dash-nav">
         <li onclick="location.href = 'index.php?page=dash'" class="li-dash" title="dashboard">
           <i class="fa fa-tachometer"></i><a href="">Dashboard</a>
         </li>
         <li onclick="location.href = 'index.php?page=post&posts=2'" class="li-post" title="manage posts"><i class="fa fa-newspaper-o"></i><a href="">Posts</a></li>
-        <li onclick="location.href = 'index.php?page=subscribers&limit=2'" class="li-subscribers"><i class="fa fa-users"></i><a href="">Subscribers</a></li>
+        <li onclick="location.href = 'index.php?page=subscribers&limit=2'" class="li-subscribers" title="Subscribers"><i class="fa fa-users"></i><a href="">Subscribers</a></li>
         <li onclick="location.href = 'index.php?page=mail&limit=2'" class="li-mail" title="review and reply mails">
           <span style="display:none"></span><i class="fa fa-envelope"></i><a href="">Mails</a>
         </li>
         <li onclick="location.href = 'index.php?page=comment&limit=2'" class="li-comment" title="review comments">
           <span style="display:none"></span><i class="fa fa-comment"></i><a href="">Comments</a>
         </li>
-        <li onclick="location.href = 'index.php?page=users&limit=2'" class="li-users" title="add and edit users"><i class="fa fa-users"></i><a href="">Settings</a></li>
+        <li onclick="location.href = 'index.php?page=users&limit=2'" class="li-users" title="add and edit users"><i class="fa fa-user"></i><a href="">Settings</a></li>
         <li title="change theme"><i class="fas fa-sun" id="mode"></i> <a href="" id="dark">Light</a></li>
         <li id="logout" title="log out"><i class="fa fa-sign-out"></i><a href="">Logout</a></li>
       </div>

@@ -743,7 +743,7 @@ table button,
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: url("../../assets/svg/undraw_source_code_re_wd9m.svg");
+  background: url("../../assets/svg/undraw_into_the_night_vumi.svg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -950,11 +950,11 @@ table button,
 }
 @media screen and (max-width: 600px) {
   .login form {
-    width: 100%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #1a181f;
+    background: #1a181f8c;
     padding: 12px;
     border-radius: 12px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),

@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="../assets/script/jquery.js"></script>
     <style>
-::placeholder{
-    color: #eeeeee;
-}
+        ::placeholder {
+            color: #eeeeee;
+        }
     </style>
 </head>
 
 <body>
     <div class="login">
         <form action="">
-            <h1>Admin Login</h1>
+            <h1>Nonny
+                Portfolio Admin Login</h1>
             <input type="text" placeholder="Username" name="username" />
             <input type="password" placeholder="password" name="password" id="password" />
             <input type="checkbox" name="" id="">
@@ -29,7 +30,7 @@
         </form>
     </div>
     <script>
-        $("input[type=checkbox]").on("click", function () {
+        $("input[type=checkbox]").on("click", function() {
             if ($("#password").attr("type") !== "text") {
                 $("#password").attr("type", "text");
             } else {
@@ -37,23 +38,23 @@
             }
         })
 
-        $("form").on("submit", function(e){
+        $("form").on("submit", function(e) {
             e.preventDefault();
             let formdata = new FormData(this);
-      $.ajax({
-        url: "server/login_func.php",
-        type: "POST",
-        data: formdata,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-          if (data == "loggedin") {
-          location.href = "index.php";
-          } else {
-            window.alert(data);
-          }
-        },
-      });
+            $.ajax({
+                url: "server/login_func.php",
+                type: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data == "loggedin") {
+                        location.href = "index.php";
+                    } else {
+                        window.alert(data);
+                    }
+                },
+            });
         })
     </script>
 </body>

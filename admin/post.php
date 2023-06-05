@@ -3,6 +3,12 @@ if (!isset($_SESSION['user'])) {
     header("location: login.php");
 }
 ?>
+<?php
+require_once("server/connection.php");
+$user;
+$users = $connect->query("SELECT * FROM user WHERE user_id = '{$_SESSION['user']}'");
+$user = $users->fetch_assoc();
+?>
 <div class="manage-posts">
     <div class="mg-head">
         <h1>Manage Contents</h1>
@@ -96,7 +102,7 @@ if (!isset($_SESSION['user'])) {
     <div class="create-manage">
         <form action="">
             <input type="text" name="title" placeholder="Title" id="title" />
-            <input type="text" name="name" placeholder="Your name" id="name" />
+            <input type="text" name="name" value="<?= $user['username'] ?>" placeholder="Your name" id="name" />
             <input type="text" name="type" class="type" readonly>
             <input type="text" name="id" class="id" readonly>
             <select name="category" id="category">

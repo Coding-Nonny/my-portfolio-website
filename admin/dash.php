@@ -59,7 +59,7 @@ if (!isset($_SESSION['user'])) {
             <p>Mail</p>
         </div>
         <div class="box" id="">
-            <i class="fa fa-envelope"></i>
+            <i class="fa fa-users"></i>
             <b><?= $users ?></b>
             <p>Users</p>
         </div>
