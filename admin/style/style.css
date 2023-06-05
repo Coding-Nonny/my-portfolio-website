@@ -743,7 +743,7 @@ table button,
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: url("../../assets/image/5.jpg");
+  background: url("../../assets/svg/undraw_source_code_re_wd9m.svg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -757,11 +757,13 @@ table button,
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #1a181f;
+  background: #1a181f8c;
   padding: 12px;
   border-radius: 12px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
     -3px -3px 7px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
 }
 .login form input {
   margin-top: 1.5rem;

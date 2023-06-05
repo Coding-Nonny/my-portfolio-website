@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="../assets/style/fonts.css">
     <link rel="stylesheet" href="style/style.css">
     <script src="../assets/script/jquery.js"></script>
+    <style>
+::placeholder{
+    color: #eeeeee;
+}
+    </style>
 </head>
 
 <body>

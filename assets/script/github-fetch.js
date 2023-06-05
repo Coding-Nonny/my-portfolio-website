@@ -14,9 +14,6 @@ $(document).ready(() => {
     showRepos(data);
   }
 
-  dataRefresh();
-  setInterval(dataRefresh, 60 * 60 * 1000);
-
   function dataRefresh() {
     $.ajax({
       url: url,
@@ -30,7 +27,8 @@ $(document).ready(() => {
       },
     });
   }
-
+  dataRefresh();
+  setInterval(dataRefresh, 60 * 60 * 1000);
   function showRepos(data) {
     maxPages = Math.ceil(data.length / perPage);
     $(".all-projects").empty();
