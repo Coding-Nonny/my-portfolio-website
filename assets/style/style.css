@@ -72,7 +72,7 @@ a {
   background: var(--bg-white);
 }
 
-.bar {
+.bars {
   width: 20%;
   text-align: center;
   display: none;
@@ -146,9 +146,9 @@ th {
   background: var(--gray);
 }
 
-.bar i {
-  font-weight: 500;
+.bars .fas {
   font-size: var(--p-fsl);
+  color: var(--color-after);
 }
 i {
   transition: all 1s;
@@ -3124,12 +3124,11 @@ backdrop-filter: blur(20px);
     transition: all 600ms;
   }
 
-  .bar {
+  .bars {
     width: 20%;
     text-align: center;
     display: block;
     z-index: 11;
-    transition: all 500ms;
   }
 
   .intro #about {

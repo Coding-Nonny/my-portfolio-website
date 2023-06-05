@@ -8,10 +8,12 @@ $(document).ready(() => {
 
   if (dataCache) {
     let data = JSON.parse(dataCache);
-    document.querySelector(
-      ".intro #home .intro-img .project h4"
-    ).innerHTML = data.length;
-    showRepos(data);
+    if (!data.error) {
+      document.querySelector(
+        ".intro #home .intro-img .project h4"
+      ).textContent = data.length;
+      showRepos(data);
+    }
   }
 
   function dataRefresh() {
@@ -23,12 +25,13 @@ $(document).ready(() => {
           "my_repos",
           JSON.stringify(data)
         );
-        showRepos(data);
+        if (!data.error) {
+          showRepos(data);
+        }
       },
     });
   }
-  dataRefresh();
-  setInterval(dataRefresh, 60 * 60 * 1000);
+
   function showRepos(data) {
     maxPages = Math.ceil(data.length / perPage);
     $(".all-projects").empty();
@@ -112,7 +115,9 @@ $(document).ready(() => {
           url: url,
           method: "POST",
           success: function (data) {
-            showRepos(data);
+            if (!data.error) {
+              showRepos(data);
+            }
           },
         });
         let gitPage =
@@ -138,7 +143,9 @@ $(document).ready(() => {
           url: url,
           method: "POST",
           success: function (data) {
-            showRepos(data);
+            if (!data.error) {
+              showRepos(data);
+            }
           },
         });
         let gitPage =
@@ -151,4 +158,7 @@ $(document).ready(() => {
       console.log();
     }
   }
+
+  dataRefresh();
+  setInterval(dataRefresh, 60 * 60 * 1000);
 });

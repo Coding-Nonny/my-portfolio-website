@@ -1,12 +1,12 @@
 $(document).ready(async function () {
   const message = new AlertNotify(10000,"top-right", "#000000");
 
-  let bar = document.querySelector(".bar"),
+  let bar = document.querySelector(".bars"),
     menu = document.querySelector(".nav"),
     contact = document.querySelector(
       ".contact-me"
     ),
-    icon = document.querySelector(".bar #bars"),
+    icon = document.querySelector(".bars #bars"),
     menuList = document.querySelectorAll(
       ".welcome header .nav li"
     );
