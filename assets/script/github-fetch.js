@@ -21,11 +21,11 @@ $(document).ready(() => {
       url: url,
       method: "POST",
       success: function (data) {
-        localStorage.setItem(
-          "my_repos",
-          JSON.stringify(data)
-        );
         if (!data.error) {
+          localStorage.setItem(
+            "my_repos",
+            JSON.stringify(data)
+          );
           showRepos(data);
         }
       },

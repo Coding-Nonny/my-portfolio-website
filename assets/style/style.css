@@ -36,7 +36,7 @@
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
-  transition: all 1ms;
+  transition: all 1s;
 }
 
 html {
@@ -149,6 +149,7 @@ th {
 .bars .fas {
   font-size: var(--p-fsl);
   color: var(--color-after);
+  transition: all 1s;
 }
 i {
   transition: all 1s;
@@ -172,15 +173,17 @@ form {
 h1,
 h2 {
   font-size: var(--h1-lg);
+  transition: all 1s;
 }
 strong {
   font-weight: 600;
   font-size: var(--p-fsl);
+  transition: all 1s;
 }
 p {
-  font-weight: 600;
   font-size: var(--p-fsl);
   color: var(--gray);
+  transition: all 1s;
 }
 .light-mode p {
   color: var(--partial-dark);
@@ -369,11 +372,13 @@ header.scrolled {
 .welcome header .logo h2 {
   font-size: var(--logo-lg);
   color: var(--green);
+  transition: all 1s;
 }
 
 .welcome header .logo p {
   font-size: var(--logo-lg);
   color: var(--color-after);
+  transition: all 1s;
 }
 
 .welcome header .nav {
@@ -389,15 +394,13 @@ header.scrolled {
 
 .welcome header .nav li {
   list-style: none;
-  font-size: 18px;
-  font-weight: 600;
-  transition: all 500ms;
+  transition: all 1000ms;
 }
 
 .welcome header .nav i {
   list-style: none;
   font-size: var(--p-fsl);
-  transition: all 500ms;
+  transition: all 1000ms;
 }
 
 .welcome header .nav li a {
@@ -405,7 +408,7 @@ header.scrolled {
   padding: 8px;
   border-radius: 12px;
   font-size: var(--p-fsl);
-  transition: background-color 500ms;
+  transition: all 1000ms;
 }
 
 .welcome header .nav li:hover {
@@ -425,7 +428,6 @@ header.scrolled {
 }
 .welcome header .contact-me a {
   text-decoration: none;
-  font-weight: 600;
 }
 
 .intro #home {
@@ -527,7 +529,6 @@ header.scrolled {
 }
 .intro #home .intro-text .name p {
   position: relative;
-  font-weight: 600;
   margin-top: 16px;
   text-align: left;
   padding: 8px;
@@ -752,12 +753,13 @@ header.scrolled {
 .intro #home .my-img {
   position: absolute;
   right: 2%;
-  bottom: 8%;
+  bottom: 0;
   width: 50%;
   max-height: 85vh;
   z-index: 3;
   filter: saturate(0);
   transition: all 1s;
+  animation: heart 12s ease-in-out infinite reverse;
 }
 .intro #home .my-img:hover {
   filter: saturate(1);
@@ -774,9 +776,18 @@ header.scrolled {
   display: none;
   filter: grayscale(100);
   transition: all 1s;
+  animation: heart 12s ease-in-out infinite reverse;
 }
 .intro #home .intro-img .my-img1:hover {
   filter: grayscale(0);
+}
+@keyframes heart{
+  0%,100%{
+    transform: scale(1) translateY(0px);
+  }
+  50%{
+    transform: scale(1.03) translateY(-30px);
+  }
 }
 #about .color {
   max-width: 100%;
@@ -1059,7 +1070,6 @@ header.scrolled {
 }
 
 .intro #about .our-story p {
-  font-weight: 600;
   line-height: 1.5;
   text-align: center;
   color: var(--gray);
@@ -1294,7 +1304,7 @@ header.scrolled {
   margin: 1rem;
   border-radius: 18px;
   padding: 10px;
-  transition: all 500ms;
+  transition: all 1000ms;
   overflow: hidden;
   border: 2px solid var(--gray);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
@@ -1654,7 +1664,7 @@ backdrop-filter: blur(20px);
   div
   .fa-whatsapp {
   color: var(--bg-white);
-  transition: all 500ms;
+  transition: all 1000ms;
 }
 
 .light-mode
@@ -3032,8 +3042,6 @@ backdrop-filter: blur(20px);
   }
 
   .intro #home .intro-text .name p {
-    /* font-size: 1em; */
-    font-weight: 600;
     margin-top: 10px;
     text-align: center;
   }
@@ -3092,8 +3100,7 @@ backdrop-filter: blur(20px);
 
   .welcome header .nav li {
     list-style: none;
-    font-size: 18px;
-    transition: all 500ms;
+    transition: all 1000ms;
   }
 
   .welcome header .contact-me {
@@ -3162,7 +3169,6 @@ backdrop-filter: blur(20px);
     color: transparent;
   }
   .intro #about .our-story p {
-    font-weight: 600;
     text-align: center;
     line-height: 1.5;
     letter-spacing: 1px;
@@ -3391,7 +3397,7 @@ backdrop-filter: blur(20px);
   .welcome header i {
     list-style: none;
     font-size: var(--hi-lg);
-    transition: all 500ms;
+    transition: all 1000ms;
   }
   .footer,
   .intro
@@ -3565,7 +3571,7 @@ backdrop-filter: blur(20px);
   .welcome header i {
     list-style: none;
     font-size: var(--hi-sm);
-    transition: all 500ms;
+    transition: all 1000ms;
   }
 
   .welcome header .nav li a {
@@ -3573,7 +3579,7 @@ backdrop-filter: blur(20px);
     padding: 8px;
     border-radius: 12px;
     font-size: var(--p-fss);
-    transition: background-color 500ms;
+    transition: all 1000ms;
   }
   h1,
   h2 {
