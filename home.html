@@ -160,7 +160,10 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
       rel="stylesheet"
       href="./assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css"
     /> -->
-    <script src="https://kit.fontawesome.com/32f4291d72.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/32f4291d72.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="./assets/style/fonts.css"
@@ -297,17 +300,9 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               </pre>
             </div>
           </div>
-          <img
-            src=""
-            alt=""
-            class="my-img"
-          />
+          <img src="" alt="" class="my-img" />
           <div class="intro-img">
-            <img
-              src=""
-              alt=""
-              class="my-img1"
-            />
+            <img src="" alt="" class="my-img1" />
             <img
               src="./assets/image/colors.png"
               alt=""
@@ -888,6 +883,12 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           </div>
         </div>
       </div>
+      <div class="loader">
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+      </div>
     </div>
     <script src="./assets/script/prism.js"></script>
     <script src="./admin/script/marked.js"></script>
@@ -1061,6 +1062,9 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         svgShow1.src = svgToShow;
         setTimeout(changeSvg, 20000);
       })();
+      window.onload = ()=>{
+        document.querySelector('.loader').style = "display:none";
+      }
     </script>
     <script src="./assets/script/blog-func.js"></script>
   </body>

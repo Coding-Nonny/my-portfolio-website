@@ -114,3 +114,4 @@ if ($update) {
         echo "approved";
     }
 }
+$connect->close();

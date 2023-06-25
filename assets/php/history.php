@@ -37,7 +37,9 @@ if ($select->num_rows > 0) {
     }
 
     echo json_encode($blogData);
+    $connect->close();
     exit();
 }
 $emptyPost = array();
 echo json_encode($emptyPost);
+$connect->close();

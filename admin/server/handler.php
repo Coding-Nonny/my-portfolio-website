@@ -415,4 +415,9 @@ class Server
         $_SESSION['user'] = $row['user_id'];
         return "loggedin";
     }
+    
+    public function __destruct()
+    {
+        $this->db->close();
+    }
 }

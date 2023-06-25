@@ -54,3 +54,4 @@ if(!mysqli_stmt_execute($stmt)){
     exit();
 }
 echo "submitted";
+$connect->close();

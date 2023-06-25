@@ -104,3 +104,4 @@ if(!mysqli_stmt_execute($stmt)){
     exit();
 }
 echo "done";
+$connect->close();

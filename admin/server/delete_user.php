@@ -19,3 +19,4 @@ if ($delete) {
     exit();
 }
 echo "failed";
+$connect->close();

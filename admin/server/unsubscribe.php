@@ -105,6 +105,8 @@ if (!$mail) {
 $delete = $connect->query("DELETE FROM subscribers WHERE id = {$id}");
 if($delete){
     echo "done";
+    $connect->close();
     exit();
 }
 echo("failed");
+$connect->close();

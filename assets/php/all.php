@@ -40,3 +40,4 @@ if ($select->num_rows > 0) {
     $emptyPost = array();
     echo json_encode($emptyPost);
 }
+$connect->close();

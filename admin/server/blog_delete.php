@@ -24,3 +24,4 @@ if ($delete) {
     }
 }
 echo "failed";
+$connect->close();

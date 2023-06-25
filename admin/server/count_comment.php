@@ -11,3 +11,4 @@ if($count){
     exit();
 }
 echo "failed";
+$connect->close();

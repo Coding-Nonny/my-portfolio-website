@@ -82,7 +82,7 @@ $mail->Password = MAIL_KEY;
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 // Set the "From" email address and name
-$mail->setFrom('theophilusnonny@gmail.com', 'Nonny Theophilus');
+$mail->setFrom('theophilusnonny@gmail.com', 'Coding Nonny');
 $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->Subject = 'Subscription';
@@ -133,3 +133,4 @@ if (!$mail) {
     exit();
 }
 echo "subscribed";
+$connect->close();
