@@ -27,6 +27,8 @@ $user = $users->fetch_assoc();
   <link rel="stylesheet" href="./style/style.css" />
   <link rel="stylesheet" href="./style/prism.css">
   <script src="./script/prism.js"></script>
+  <script src="https://coding-nonny.github.io/alert-notify/dist/alertify.js"></script>
+  <link rel="stylesheet" href="../assets/style/alert.css">
 </head>
 
 <body>

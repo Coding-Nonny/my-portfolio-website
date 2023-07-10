@@ -268,9 +268,6 @@ class Server
             if (!mysqli_stmt_execute($stmt)) {
                 return $this->db->error;
             }
-            $select = $this->db->query("SELECT * FROM user WHERE username = '{$username}'");
-            $newUser = $select->fetch_assoc();
-            $_SESSION['user'] = $newUser['user_id'];
             return "done";
         }
 

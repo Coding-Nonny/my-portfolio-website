@@ -142,217 +142,226 @@ $user = $users->fetch_assoc();
 <script src="./script/marked.js"></script>
 <script src="./script/jquery.js"></script>
 <script>
-    // prevent form default submission and send formdata using ajax
-    let form = document.querySelector(".create-manage form");
-    $(".create-manage form").on("submit", function(e) {
-        e.preventDefault();
-    })
-    $(".upload").on("click", function() {
-        let formData = new FormData(form);
-        $.ajax({
-            url: "server/create_update.php",
-            method: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: (data) => {
-                if (data == "posted") {
-                    alert(data)
-                    location.reload();
-                } else {
-                    alert(data)
+    $(document).ready(() => {
+        const message = new AlertNotify(10000, "top-right", "#000000");
+        // prevent form default submission and send formdata using ajax
+        let form = document.querySelector(".create-manage form");
+        $(".create-manage form").on("submit", function(e) {
+            e.preventDefault();
+        })
+        $(".upload").on("click", function() {
+            let formData = new FormData(form);
+            $.ajax({
+                url: "server/create_update.php",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: async (data) => {
+                    if (data == "posted") {
+                        message.alert_message(data, "success");
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 3000)
+                        );
+                        location.reload();
+                    } else {
+                        message.alert_message(data, "warning");
+                    }
+                },
+                error: (jxr, xhr, error) => {
+                    console.log("error: " + error);
                 }
-            },
-            error: (jxr, xhr, error) => {
-                console.log("error: " + error);
+            })
+        })
+
+        $(".create").on("click", () => {
+            $(".create-manage").css("display", "flex");
+            $('.type').val("new");
+            $('.id').val("");
+        });
+        $(".cancel").on("click", (e) => {
+            e.preventDefault();
+            document.querySelector(".create-manage form").reset();
+            $(".create-manage").css("display", "none");
+        });
+        $("body").on("click", ".manage-posts .edit", function() {
+            $(".create-manage").css("display", "flex");
+            $('.type').val("update");
+            let v = $(this).data("id");
+            $('.id').val(v);
+            let v1 = $(".content[data-id=" + v + "] div").html();
+            let v2 = $(".title p[data-id=" + v + "]").html();
+            let v3 = $(".writer[data-id=" + v + "]").html();
+            $(".create-manage #text").val(v1);
+            $(".create-manage #title").val(v2);
+            $(".create-manage #name").val(v3);
+            const textareaValue = $(".create-manage #text").val();
+
+            // Remove spaces from the textarea value
+            const trimmedValue = textareaValue.trim();
+
+            // Set the modified value back to the textarea
+            $(".create-manage #text").val(trimmedValue);
+            $(".create-manage #text").focus();
+        });
+        const textArea = document.getElementById("text");
+
+        $("#text").on("input keyup paste", function() {
+            if ($(this).val().length >= 1) {
+                setInterval(() => {
+                    const markDown = $(this).val();
+                    const outText = marked(markDown);
+                    $(".p-tray").html(outText);
+                    Prism.highlightAll();
+                }, 1000);
+            }
+        });
+
+        function boldText() {
+            const selectionStart = textArea.selectionStart;
+            const selectionEnd = textArea.selectionEnd;
+            const selectedText = textArea.value.substring(selectionStart, selectionEnd);
+            const boldText = `<b>${selectedText}</b>`;
+            textArea.value =
+                textArea.value.substring(0, selectionStart) +
+                boldText +
+                textArea.value.substring(selectionEnd);
+            textArea.setSelectionRange(selectionStart, selectionEnd + 7);
+            textArea.focus();
+        }
+
+        function code() {
+            const selectionStart = textArea.selectionStart;
+            const selectionEnd = textArea.selectionEnd;
+            const selectedText = textArea.value.substring(selectionStart, selectionEnd);
+            const boldText = `<a href="" target="_blank">${selectedText}</a>`;
+            textArea.value =
+                textArea.value.substring(0, selectionStart) +
+                boldText +
+                textArea.value.substring(selectionEnd);
+            textArea.setSelectionRange(selectionStart, selectionEnd + 7);
+            textArea.focus();
+        }
+
+        function italicText() {
+            const selectionStart = textArea.selectionStart;
+            const selectionEnd = textArea.selectionEnd;
+            const selectedText = textArea.value.substring(selectionStart, selectionEnd);
+            const italicText = `<i>${selectedText}</i>`;
+            textArea.value =
+                textArea.value.substring(0, selectionStart) +
+                italicText +
+                textArea.value.substring(selectionEnd);
+            textArea.setSelectionRange(selectionStart, selectionEnd + 7);
+            textArea.focus();
+        }
+
+        function UnderLineText() {
+            const selectionStart = textArea.selectionStart;
+            const selectionEnd = textArea.selectionEnd;
+            const selectedText = textArea.value.substring(selectionStart, selectionEnd);
+            const lineText = `<u>${selectedText}</u>`;
+            textArea.value =
+                textArea.value.substring(0, selectionStart) +
+                lineText +
+                textArea.value.substring(selectionEnd);
+            textArea.setSelectionRange(selectionStart, selectionEnd + 7);
+            textArea.focus();
+        }
+
+        function lineBreak() {
+            const selectionStart = textArea.selectionStart;
+            const selectionEnd = textArea.selectionEnd;
+            const selectedText = textArea.value.substring(selectionStart, selectionEnd);
+            const lineText = `<br/><br/>`;
+            textArea.value =
+                textArea.value.substring(0, selectionStart) +
+                lineText +
+                textArea.value.substring(selectionEnd);
+            textArea.setSelectionRange(selectionStart, selectionEnd + 7);
+            textArea.focus();
+        }
+
+        function deleteText() {
+            const startPos = textArea.selectionStart;
+            const endPos = textArea.selectionEnd;
+            const value = textArea.value;
+            textArea.value =
+                value.substring(0, startPos) + value.substring(endPos, value.length);
+            textArea.selectionStart = startPos;
+            textArea.selectionEnd = endPos;
+            textArea.focus();
+        }
+
+        $("body").on("click", "td .delete", async function() {
+            let id = $(this).data("id");
+            if (await message.alert_Confirm("Do you want to delete this content?")) {
+                $.ajax({
+                    url: "server/blog_delete.php",
+                    type: "POST",
+                    data: {
+                        id: id
+                    },
+                    success: async (data) => {
+                        message.alert_message('Deleted', "success");
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 3000)
+                        );
+                        location.reload();
+                    }
+                })
             }
         })
-    })
+        const nextButton = document.querySelectorAll(".next");
+        const prevButton = document.querySelectorAll(".prev");
+        if (nextButton && prevButton) {
+            nextButton.forEach((nextBtn) => {
+                nextBtn.addEventListener("click", () => {
+                    // get current "posts" parameter from URL
+                    const params = new URLSearchParams(window.location.search);
+                    const currentPosts = parseInt(params.get("posts")) || 0;
 
-    $(".create").on("click", () => {
-        $(".create-manage").css("display", "flex");
-        $('.type').val("new");
-        $('.id').val("");
-    });
-    $(".cancel").on("click", (e) => {
-        e.preventDefault();
-        document.querySelector(".create-manage form").reset();
-        $(".create-manage").css("display", "none");
-    });
-    $("body").on("click", ".manage-posts .edit", function() {
-        $(".create-manage").css("display", "flex");
-        $('.type').val("update");
-        let v = $(this).data("id");
-        $('.id').val(v);
-        let v1 = $(".content[data-id=" + v + "] div").html();
-        let v2 = $(".title p[data-id=" + v + "]").html();
-        let v3 = $(".writer[data-id=" + v + "]").html();
-        $(".create-manage #text").val(v1);
-        $(".create-manage #title").val(v2);
-        $(".create-manage #name").val(v3);
-        const textareaValue = $(".create-manage #text").val();
+                    // check if current "posts" value is valid
+                    if (isNaN(currentPosts) || currentPosts < 0) {
+                        console.error("Invalid 'posts' parameter:", currentPosts);
+                        return;
+                    }
 
-        // Remove spaces from the textarea value
-        const trimmedValue = textareaValue.trim();
+                    // calculate new "posts" value
+                    const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
 
-        // Set the modified value back to the textarea
-        $(".create-manage #text").val(trimmedValue);
-        $(".create-manage #text").focus();
-    });
-    const textArea = document.getElementById("text");
+                    // redirect to new URL with updated "posts" parameter
+                    if (newPosts !== currentPosts) {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set("posts", newPosts);
+                        window.location.href = url.toString();
+                    }
+                });
+            })
 
-    $("#text").on("input keyup paste", function() {
-        if ($(this).val().length >= 1) {
-            setInterval(() => {
-                const markDown = $(this).val();
-                const outText = marked(markDown);
-                $(".p-tray").html(outText);
-                Prism.highlightAll();
-            }, 1000);
-        }
-    });
+            prevButton.forEach((prevBtn) => {
+                prevBtn.addEventListener("click", () => {
+                    // get current "posts" parameter from URL
+                    const params = new URLSearchParams(window.location.search);
+                    const currentPosts = parseInt(params.get("posts")) || 0;
 
-    function boldText() {
-        const selectionStart = textArea.selectionStart;
-        const selectionEnd = textArea.selectionEnd;
-        const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const boldText = `<b>${selectedText}</b>`;
-        textArea.value =
-            textArea.value.substring(0, selectionStart) +
-            boldText +
-            textArea.value.substring(selectionEnd);
-        textArea.setSelectionRange(selectionStart, selectionEnd + 7);
-        textArea.focus();
-    }
+                    // check if current "posts" value is valid
+                    if (isNaN(currentPosts) || currentPosts < 0) {
+                        console.error("Invalid 'posts' parameter:", currentPosts);
+                        return;
+                    }
 
-    function code() {
-        const selectionStart = textArea.selectionStart;
-        const selectionEnd = textArea.selectionEnd;
-        const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const boldText = `<a href="" target="_blank">${selectedText}</a>`;
-        textArea.value =
-            textArea.value.substring(0, selectionStart) +
-            boldText +
-            textArea.value.substring(selectionEnd);
-        textArea.setSelectionRange(selectionStart, selectionEnd + 7);
-        textArea.focus();
-    }
+                    // calculate new "posts" value
+                    const newPosts = Math.max(currentPosts - 2, 0);
 
-    function italicText() {
-        const selectionStart = textArea.selectionStart;
-        const selectionEnd = textArea.selectionEnd;
-        const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const italicText = `<i>${selectedText}</i>`;
-        textArea.value =
-            textArea.value.substring(0, selectionStart) +
-            italicText +
-            textArea.value.substring(selectionEnd);
-        textArea.setSelectionRange(selectionStart, selectionEnd + 7);
-        textArea.focus();
-    }
-
-    function UnderLineText() {
-        const selectionStart = textArea.selectionStart;
-        const selectionEnd = textArea.selectionEnd;
-        const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const lineText = `<u>${selectedText}</u>`;
-        textArea.value =
-            textArea.value.substring(0, selectionStart) +
-            lineText +
-            textArea.value.substring(selectionEnd);
-        textArea.setSelectionRange(selectionStart, selectionEnd + 7);
-        textArea.focus();
-    }
-
-    function lineBreak() {
-        const selectionStart = textArea.selectionStart;
-        const selectionEnd = textArea.selectionEnd;
-        const selectedText = textArea.value.substring(selectionStart, selectionEnd);
-        const lineText = `<br/><br/>`;
-        textArea.value =
-            textArea.value.substring(0, selectionStart) +
-            lineText +
-            textArea.value.substring(selectionEnd);
-        textArea.setSelectionRange(selectionStart, selectionEnd + 7);
-        textArea.focus();
-    }
-
-    function deleteText() {
-        const startPos = textArea.selectionStart;
-        const endPos = textArea.selectionEnd;
-        const value = textArea.value;
-        textArea.value =
-            value.substring(0, startPos) + value.substring(endPos, value.length);
-        textArea.selectionStart = startPos;
-        textArea.selectionEnd = endPos;
-        textArea.focus();
-    }
-
-    $("body").on("click", "td .delete", function() {
-        let id = $(this).data("id");
-        if (confirm("Delete this post?")) {
-            $.ajax({
-                url: "server/blog_delete.php",
-                type: "POST",
-                data: {
-                    id: id
-                },
-                success: (data) => {
-                    alert(data);
-                    location.reload();
-                }
+                    // redirect to new URL with updated "posts" parameter
+                    if (newPosts !== currentPosts) {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set("posts", newPosts);
+                        window.location.href = url.toString();
+                    }
+                });
             })
         }
     })
-    const nextButton = document.querySelectorAll(".next");
-    const prevButton = document.querySelectorAll(".prev");
-    if (nextButton && prevButton) {
-        nextButton.forEach((nextBtn) => {
-            nextBtn.addEventListener("click", () => {
-                // get current "posts" parameter from URL
-                const params = new URLSearchParams(window.location.search);
-                const currentPosts = parseInt(params.get("posts")) || 0;
-
-                // check if current "posts" value is valid
-                if (isNaN(currentPosts) || currentPosts < 0) {
-                    console.error("Invalid 'posts' parameter:", currentPosts);
-                    return;
-                }
-
-                // calculate new "posts" value
-                const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
-
-                // redirect to new URL with updated "posts" parameter
-                if (newPosts !== currentPosts) {
-                    const url = new URL(window.location.href);
-                    url.searchParams.set("posts", newPosts);
-                    window.location.href = url.toString();
-                }
-            });
-        })
-
-        prevButton.forEach((prevBtn) => {
-            prevBtn.addEventListener("click", () => {
-                // get current "posts" parameter from URL
-                const params = new URLSearchParams(window.location.search);
-                const currentPosts = parseInt(params.get("posts")) || 0;
-
-                // check if current "posts" value is valid
-                if (isNaN(currentPosts) || currentPosts < 0) {
-                    console.error("Invalid 'posts' parameter:", currentPosts);
-                    return;
-                }
-
-                // calculate new "posts" value
-                const newPosts = Math.max(currentPosts - 2, 0);
-
-                // redirect to new URL with updated "posts" parameter
-                if (newPosts !== currentPosts) {
-                    const url = new URL(window.location.href);
-                    url.searchParams.set("posts", newPosts);
-                    window.location.href = url.toString();
-                }
-            });
-        })
-    }
 </script>

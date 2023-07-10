@@ -174,6 +174,10 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
     />
     <link
       rel="stylesheet"
+      href="./assets/style/alert.css?v-<?= time() ?>"
+    />
+    <link
+      rel="stylesheet"
       href="./assets/style/prism.css"
     />
   </head>
@@ -378,7 +382,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               </h2>
               <ul>
                 <li
-                  class="frontend"
+                  class="frontend notranslate"
                   data-name="HTML"
                   data-level="90"
                 >
@@ -386,7 +390,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   <span class="level-bar"></span>
                 </li>
                 <li
-                  class="frontend"
+                  class="frontend notranslate"
                   data-name="CSS"
                   data-level="80"
                 >
@@ -394,7 +398,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   <span class="level-bar"></span>
                 </li>
                 <li
-                  class="frontend"
+                  class="frontend notranslate"
                   data-name="JAVASCRIPT"
                   data-level="50"
                 >
@@ -402,7 +406,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   <span class="level-bar"></span>
                 </li>
                 <li
-                  class="frontend"
+                  class="frontend notranslate"
                   data-name="JQUERY"
                   data-level="50"
                 >
@@ -417,7 +421,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               </h2>
               <ul>
                 <li
-                  class="backend frontend"
+                  class="backend frontend notranslate"
                   data-name="PHP"
                   data-level="50"
                 >
@@ -425,7 +429,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   <span class="level-bar"></span>
                 </li>
                 <li
-                  class="backend frontend"
+                  class="backend frontend notranslate"
                   data-name="SQL"
                   data-level="60"
                 >
@@ -611,7 +615,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
             </ul>
             <div class="more-services">
               <h1>More Services.</h1>
-              <p></p>
+              <p class="notranslate"></p>
             </div>
             <a
               href="#contact"
@@ -889,15 +893,17 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         <div class="load"></div>
         <div class="load"></div>
       </div>
+      <div id="google-element"></div>
     </div>
     <script src="./assets/script/prism.js"></script>
     <script src="./admin/script/marked.js"></script>
     <script src="./assets/script/jquery.js"></script>
-    <script src="./assets//script/alert-nonny.js"></script>
-    <script src="./assets/script/home.js"></script>
+    <script src="https://coding-nonny.github.io/alert-notify/dist/alertify.js"></script>
     <script src="./assets/script/github-fetch.js?v-<?= time() ?>"></script>
     <script src="./assets/script/mode.js"></script>
     <script src="./assets/script/lazysizes.min.js"></script>
+    <script src="./assets/script/blog-func.js"></script>
+    <script src="./assets/script/home.js"></script>
     <script>
       (function () {
         var docElem =
@@ -1062,10 +1068,11 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         svgShow1.src = svgToShow;
         setTimeout(changeSvg, 20000);
       })();
-      window.onload = ()=>{
-        document.querySelector('.loader').style = "display:none";
-      }
+      
+      window.onload = () => {
+        document.querySelector(".loader").style =
+          "display:none";
+      };
     </script>
-    <script src="./assets/script/blog-func.js"></script>
   </body>
 </html>

@@ -32,24 +32,24 @@ $user = $users->fetch_assoc();
         require_once("server/connection.php");
         $fetch = 2 + 2;
 
-  // check if "posts" parameter is set and not empty
-  if (isset($_GET['limit']) && $_GET['limit'] !== '') {
+        // check if "posts" parameter is set and not empty
+        if (isset($_GET['limit']) && $_GET['limit'] !== '') {
 
-    // parse "posts" parameter as integer
-    $posts = intval($_GET['limit']);
+            // parse "posts" parameter as integer
+            $posts = intval($_GET['limit']);
 
-    // set $fetch based on "posts" value
-    if ($posts <= 2) {
-      $fetch = 2 + 2;
-    } elseif ($posts > 2) {
-      // limit maximum value of $fetch to 100
-      $fetch = min($posts + 2, 100);
-    }
-    // limit $fetch to number of available posts in the database
-    $select1 = $connect->query("SELECT COUNT(*) FROM user");
-    $num_posts = $select1->fetch_row()[0];
-    $fetch = min($fetch, $num_posts);
-  }
+            // set $fetch based on "posts" value
+            if ($posts <= 2) {
+                $fetch = 2 + 2;
+            } elseif ($posts > 2) {
+                // limit maximum value of $fetch to 100
+                $fetch = min($posts + 2, 100);
+            }
+            // limit $fetch to number of available posts in the database
+            $select1 = $connect->query("SELECT COUNT(*) FROM user");
+            $num_posts = $select1->fetch_row()[0];
+            $fetch = min($fetch, $num_posts);
+        }
         $select = $connect->query("SELECT * FROM user ORDER BY user_id DESC LIMIT $fetch");
         $username = "";
         $count = 0;
@@ -62,8 +62,8 @@ $user = $users->fetch_assoc();
         ?>
                 <tr>
                     <th><?= $count++ ?></th>
-                    <td>
-                        <p><?= $row['username'] ?></p>
+                    <td data-id="<?= $row['user_id'] ?>">
+                        <p data-id="<?= $row['user_id'] ?>"><?= $row['username'] ?></p>
                     </td>
                     <td class="content">
                         <img src="profile/<?= $row['img'] ?>" alt="" width="50" height="50" />
@@ -81,7 +81,7 @@ $user = $users->fetch_assoc();
         <button type="button" class="next" style="background: #31d275;padding:6px;border:none;outline:none">Next</button>
     </div>
     <form action="" id="users">
-        <input type="text" value="<?= $user["username"] ?>" name="username" placeholder="username">
+        <input type="text" value="" name="username" placeholder="username" id="username">
         <input type="text" name="password" placeholder="password (leave blank for auto generated password) leave blank on update if you don't want change password">
         <input type="text" name="type" value="" class="new" readonly>
         <input type="text" name="id" value="" class="user-id" readonly>
@@ -94,111 +94,123 @@ $user = $users->fetch_assoc();
 </div>
 <script src="./script/jquery.js"></script>
 <script>
-    $(".create").on("click", () => {
-        $("#users").css("display", "flex");
-        $('.new').val("new");
-        $('.user-id').val("");
-    });
-    $(".cancel").on("click", (e) => {
-        e.preventDefault();
-        document.querySelector("#users").reset();
-        $("#users").css("display", "none");
-    });
-    $("body").on("click", " .setting .edit", function() {
-        $("#users").css("display", "flex");
-        $('.new').val("update");
-        let v = $(this).data("id");
-        $('.user-id').val(v);
-    });
+    $(document).ready(() => {
+        const message = new AlertNotify(10000, "top-right", "#000000");
+        $(".create").on("click", () => {
+            $("#users").css("display", "flex");
+            $('.new').val("new");
+            $('.user-id').val("");
+        });
+        $(".cancel").on("click", (e) => {
+            e.preventDefault();
+            document.querySelector("#users").reset();
+            $("#users").css("display", "none");
+        });
+        $("body").on("click", " .setting .edit", function() {
+            $("#users").css("display", "flex");
+            $('.new').val("update");
+            let v = $(this).data("id");
+            $('.user-id').val(v);
+            let username = $(`td p[data-id='${v}']`).text();
+            $("#username").val(username);
+        });
 
-    $("form").on("submit", function(e) {
-        e.preventDefault();
-        let formData = new FormData(this);
-        $.ajax({
-            url: "server/add_update.php",
-            method: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: (data) => {
-                if (data == "done") {
-                    location.reload();
-                } else {
-                    alert(data)
+        $("form").on("submit", function(e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            $.ajax({
+                url: "server/add_update.php",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: async (data) => {
+                    if (data == "done") {
+                        message.alert_message(data, "success");
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 3000)
+                        );
+                        location.reload();
+                    } else {
+                        message.alert_message(data, "warning");
+                    }
+                },
+                error: (jxr, xhr, error) => {
+                    console.log("error: " + error);
                 }
-            },
-            error: (jxr, xhr, error) => {
-                console.log("error: " + error);
+            })
+        })
+
+        $("body").on("click", "td .delete",async function() {
+            let id = $(this).data("id");
+            if (await message.alert_Confirm("Do you want to delete this user?")) {
+                $.ajax({
+                    url: "server/delete_user.php",
+                    type: "POST",
+                    data: {
+                        id: id
+                    },
+                    success: async (data) => {
+                        message.alert_message(data, "success");
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 3000)
+                        );
+                        location.reload();
+                    }
+                })
             }
         })
-    })
 
-    $("body").on("click", "td .delete", function() {
-        let id = $(this).data("id");
-        if (confirm("Delete this user?")) {
-            $.ajax({
-                url: "server/delete_user.php",
-                type: "POST",
-                data: {
-                    id: id
-                },
-                success: (data) => {
-                    alert(data);
-                    location.reload();
-                }
+        const nextButton = document.querySelectorAll(".next");
+        const prevButton = document.querySelectorAll(".prev");
+        if (nextButton && prevButton) {
+            nextButton.forEach((nextBtn) => {
+                nextBtn.addEventListener("click", () => {
+                    // get current "posts" parameter from URL
+                    const params = new URLSearchParams(window.location.search);
+                    const currentPosts = parseInt(params.get("limit")) || 0;
+
+                    // check if current "posts" value is valid
+                    if (isNaN(currentPosts) || currentPosts < 0) {
+                        console.error("Invalid 'limit' parameter:", currentPosts);
+                        return;
+                    }
+
+                    // calculate new "posts" value
+                    const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
+
+                    // redirect to new URL with updated "posts" parameter
+                    if (newPosts !== currentPosts) {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set("limit", newPosts);
+                        window.location.href = url.toString();
+                    }
+                });
+            })
+
+            prevButton.forEach((prevBtn) => {
+                prevBtn.addEventListener("click", () => {
+                    // get current "posts" parameter from URL
+                    const params = new URLSearchParams(window.location.search);
+                    const currentPosts = parseInt(params.get("limit")) || 0;
+
+                    // check if current "posts" value is valid
+                    if (isNaN(currentPosts) || currentPosts < 0) {
+                        console.error("Invalid 'posts' parameter:", currentPosts);
+                        return;
+                    }
+
+                    // calculate new "posts" value
+                    const newPosts = Math.max(currentPosts - 2, 0);
+
+                    // redirect to new URL with updated "posts" parameter
+                    if (newPosts !== currentPosts) {
+                        const url = new URL(window.location.href);
+                        url.searchParams.set("limit", newPosts);
+                        window.location.href = url.toString();
+                    }
+                });
             })
         }
     })
-
-    const nextButton = document.querySelectorAll(".next");
-const prevButton = document.querySelectorAll(".prev");
-if (nextButton && prevButton) {
-  nextButton.forEach((nextBtn)=>{
-    nextBtn.addEventListener("click", () => {
-    // get current "posts" parameter from URL
-    const params = new URLSearchParams(window.location.search);
-    const currentPosts = parseInt(params.get("limit")) || 0;
-
-    // check if current "posts" value is valid
-    if (isNaN(currentPosts) || currentPosts < 0) {
-      console.error("Invalid 'limit' parameter:", currentPosts);
-      return;
-    }
-
-    // calculate new "posts" value
-    const newPosts = Math.min(currentPosts + 2, <?= $fetch ?>);
-
-    // redirect to new URL with updated "posts" parameter
-    if (newPosts !== currentPosts) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("limit", newPosts);
-      window.location.href = url.toString();
-    }
-  });
-  })
-
-  prevButton.forEach((prevBtn) =>{
-    prevBtn.addEventListener("click", () => {
-    // get current "posts" parameter from URL
-    const params = new URLSearchParams(window.location.search);
-    const currentPosts = parseInt(params.get("limit")) || 0;
-
-    // check if current "posts" value is valid
-    if (isNaN(currentPosts) || currentPosts < 0) {
-      console.error("Invalid 'posts' parameter:", currentPosts);
-      return;
-    }
-
-    // calculate new "posts" value
-    const newPosts = Math.max(currentPosts - 2, 0);
-
-    // redirect to new URL with updated "posts" parameter
-    if (newPosts !== currentPosts) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("limit", newPosts);
-      window.location.href = url.toString();
-    }
-  });
-  })
-}
 </script>

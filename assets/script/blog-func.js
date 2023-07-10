@@ -615,7 +615,7 @@ function getAllBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 
@@ -957,7 +957,7 @@ function getPersonalBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 function getTechBlog(
@@ -1171,7 +1171,7 @@ function getTechBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 function getSportsBlog(
@@ -1385,7 +1385,7 @@ function getSportsBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 /* FETCH FUNNY BLOG */
@@ -1600,7 +1600,7 @@ function getFunnyBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 /* FETCH HISTORY BLOG */
@@ -1816,7 +1816,7 @@ function getHistoryBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 function getGovBlog(
@@ -2030,7 +2030,7 @@ function getGovBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 function getEntBlog(
@@ -2244,7 +2244,7 @@ function getEntBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 function getEduBlog(
@@ -2458,7 +2458,7 @@ function getEduBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 
 function getDevBlog(
@@ -2672,7 +2672,7 @@ function getDevBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }
 function getSearchBlog(
   param = "",
@@ -2889,5 +2889,5 @@ function getSearchBlog(
       paginationDiv.append(nextButton);
       //blogDiv.after(paginationDiv)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 }

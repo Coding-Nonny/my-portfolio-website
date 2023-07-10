@@ -23,8 +23,8 @@ $params = array();
 
 foreach ($searchWords as $word) {
     $word = htmlspecialchars($word, ENT_QUOTES);
-    $likeQueries[] = "title LIKE ? OR category LIKE ? OR writer LIKE ? OR content LIKE ? OR date_created LIKE ?";
-    $params = array_merge($params, array_fill(0, 5, '%' . mysqli_real_escape_string($connect, $word) . '%'));
+    $likeQueries[] = "title LIKE ? OR category LIKE ? OR writer LIKE ? OR content LIKE ? OR date_created LIKE ? OR id LIKE ?";
+    $params = array_merge($params, array_fill(0, 6, '%' . mysqli_real_escape_string($connect, $word) . '%'));
 }
 
 $toSearch = implode(' OR ', $likeQueries);

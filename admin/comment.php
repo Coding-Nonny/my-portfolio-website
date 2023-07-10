@@ -84,6 +84,8 @@ if (!isset($_SESSION['user'])) {
 </div>
 <script src="./script/jquery.js"></script>
 <script>
+ $(document).ready(()=>{
+  const message = new AlertNotify(10000, "top-right", "#000000");
   $("body").on("click", ".edit", function() {
     let id = $(this).data("id");
     if (confirm("Approve this comment?")) {
@@ -101,19 +103,21 @@ if (!isset($_SESSION['user'])) {
   })
 
 
-  $("body").on("click", ".delete", function() {
+  $("body").on("click", ".delete",async function() {
     let id = $(this).data("id");
-    if (confirm("Delete this comment?")) {
+    if (await message.alert_Confirm("Do you want to delete this comment?")) {
       $.ajax({
         url: "server/comment_delete.php",
         type: "POST",
         data: {
           id: id
         },
-        success: (data) => {
-         if(data == "approved"){
-          alert(data);
-         }
+        success:async (data) => {
+          message.alert_message('Deleted', "success");
+            await new Promise((resolve) =>
+              setTimeout(resolve, 3000)
+            );
+            location.reload();
         }
       })
     }
@@ -171,4 +175,5 @@ if (nextButton && prevButton) {
   })
 }
 
+ })
 </script>

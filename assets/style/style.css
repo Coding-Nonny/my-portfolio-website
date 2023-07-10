@@ -1,3 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  transition: all 1s;
+}
 :root {
   --green: #31d275;
   --bg-black: #141414;
@@ -29,15 +37,7 @@
   background: var(--color-after);
   color: var(--green);
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
-  transition: all 1s;
-}
+
 
 html {
   width: 100%;
@@ -197,6 +197,10 @@ h4 {
 }
 h4 {
   font-size: var(--h4-lg);
+  color: var(--bg-white);
+}
+.light-mode h4 {
+  color: var(--bg-black);
 }
 .s-down {
   position: absolute;
@@ -221,6 +225,7 @@ button {
   transition: all 1s;
   box-shadow: var(--button-shadow-light);
   color: var(--bg-white);
+  cursor: pointer;
 }
 .light-mode button {
   box-shadow: var(--button-shadow-dark);
@@ -248,7 +253,18 @@ pre {
   scrollbar-width: 0px;
   border-radius: 12px;
 }
-
+#google-element{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+body > .skiptranslate{
+  display: none;
+}
+body{
+  top: 0 !important;
+}
 /* ----- Home css ----- */
 .welcome {
   position: relative;
@@ -491,8 +507,11 @@ header.scrolled {
 }
 
 #blog span {
-  font-weight: 700;
+ color: var(--bg-white);
 }
+.light-mode #blog span {
+  color: var(--bg-black);
+ }
 
 .intro #home .intro-text .name {
   max-width: 100%;
@@ -858,6 +877,10 @@ header.scrolled {
 
 .intro #home .intro-img small {
   font-size: var(--p-fss);
+  color: var(--gray);
+}
+.light-mode .intro #home .intro-img small {
+  color: var(--partial-dark);
 }
 .intro #home .intro-img .xp {
   position: absolute;
@@ -1662,7 +1685,7 @@ backdrop-filter: blur(20px);
   .contact
   .contact-icon
   div
-  .fa-whatsapp {
+  i {
   color: var(--bg-white);
   transition: all 1000ms;
 }
@@ -1673,7 +1696,7 @@ backdrop-filter: blur(20px);
   .contact
   .contact-icon
   div
-  .fa-whatsapp {
+  i {
   color: var(--bg-black);
 }
 
@@ -1785,6 +1808,10 @@ backdrop-filter: blur(20px);
   form
   .form-left
   div
+  label, .intro #contact
+  .contact
+  form
+  .form-right
   label {
   width: 100%;
   padding: 2px 2px 6px 6px;
@@ -1800,6 +1827,10 @@ backdrop-filter: blur(20px);
   form
   .form-left
   div
+  label, .light-mode .intro #contact
+  .contact
+  form
+  .form-right
   label {
   width: 100%;
   padding: 2px 2px 6px 6px;
@@ -1904,7 +1935,11 @@ backdrop-filter: blur(20px);
 .intro #contact .contact form h3 {
   width: 100%;
   text-align: center;
+  color: var(--bg-white);
   z-index: 1;
+}
+.light-mode .intro #contact .contact form h3 {
+  color: var(--bg-black);
 }
 
 /* contact ends */
@@ -2150,9 +2185,19 @@ backdrop-filter: blur(20px);
   text-align: left;
   font-weight: 600;
   margin-top: 18px;
+  color: var(--bg-white);
   text-transform: capitalize;
   height: 45px;
   overflow: hidden;
+}
+.light-mode .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts
+  .blog-text
+  h3 {
+  color: var(--bg-black);
 }
 .intro
   #blog
@@ -2216,13 +2261,43 @@ backdrop-filter: blur(20px);
   background: var(--green);
   padding: 8px;
   font-size: var(--p-fsl);
+  color: var(--bg-white);
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
   box-shadow: var(--blog-div);
   font-weight: 500;
 }
-
+.light-mode .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts
+  .blog-text
+  .read-post
+  h4 {
+  color: var(--bg-black);
+}
+.intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts
+  .blog-text
+  .read-post
+  h4 i{
+    color: var(--bg-white);
+  }
+  .light-mode .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts
+  .blog-text
+  .read-post
+  h4 i{
+    color: var(--bg-black);
+  }
 .intro
   #blog
   .blog
@@ -2231,12 +2306,7 @@ backdrop-filter: blur(20px);
   .blog-text
   .read-post
   h4 {
-  background: var(--green);
-  padding: 8px;
   display: none;
-  border-radius: 6px;
-  text-align: center;
-  cursor: pointer;
 }
 
 .intro
@@ -2770,6 +2840,15 @@ backdrop-filter: blur(20px);
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  border: 2px solid #fff;
+}
+.light-mode .intro
+  #blog
+  .blog
+  .blog-div
+  .blog-posts.blog-toggle
+  #profile-img {
+  border: 2px solid #141414;
 }
 
 
@@ -2815,7 +2894,11 @@ backdrop-filter: blur(20px);
   margin-bottom: 30px;
   letter-spacing: 1px;
   font-size: var(--h4-lg);
+  color: var(--bg-white);
   transition: all 1s;
+}
+.light-mode .footer div h3 {
+  color: var(--bg-black);
 }
 .col-2 .form input {
   width: 400px;

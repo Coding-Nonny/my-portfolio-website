@@ -261,15 +261,16 @@ $(document).ready(async function () {
   await new Promise((resolve) =>
     setTimeout(resolve, 1000)
   );
-  $("meta[property='og:url']").attr(
-    "content",
-    location.href
-  );
   const queryString = window.location.search;
   const urlString = new URLSearchParams(queryString);
   const blogId = urlString.get("blog_id");
-  
-  jQuery("body .intro #blog .blog .blog-div .blog-posts[data-id=" + blogId + "]").addClass("blog-toggle");
+  if(blogId !== null){
+    getSearchBlog(blogId);
+    await new Promise((resolve) =>
+    setTimeout(resolve, 2000)
+  );
+    jQuery("body .intro #blog .blog .blog-div .blog-posts[data-id=" + blogId + "]").addClass("blog-toggle");
+  }
   
   const userName = localStorage.getItem("username");
   const userEmail = localStorage.getItem("email");
