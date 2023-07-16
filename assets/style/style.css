@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
-  transition: all 1s;
+  transition: all 400ms;
 }
 :root {
   --green: #31d275;
@@ -16,7 +16,7 @@
   --box-shadow: rgba(0, 0, 0, 0.212);
   --large-home-h1: 4rem;
   --small-home-h1: 3rem;
-  --xsmall-home-h1: 2rem;
+  --xsmall-home-h1: 2.5rem;
   --p-fsl: 18px;
   --p-fss: 16px;
   --logo-lg: 28px;
@@ -147,9 +147,12 @@ th {
 }
 
 .bars .fas {
-  font-size: var(--p-fsl);
-  color: var(--color-after);
+  font-size: var(--hi-lg);
+  color: var(--bg-white);
   transition: all 1s;
+}
+.light-mode .bars .fas {
+  color: var(--partial-dark);
 }
 i {
   transition: all 1s;
@@ -192,8 +195,17 @@ p {
 h1,
 h2,
 h3,
-h4 {
+h4,
+.blog li  {
   font-weight: 600;
+  color: var(--bg-white);
+}
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode .blog li {
+  color: var(--bg-black);
 }
 h4 {
   font-size: var(--h4-lg);
@@ -464,6 +476,7 @@ header.scrolled {
   right: 5%;
   border-radius: 100px 100px 0px 0px;
   background: var(--color-after);
+  box-shadow: -20px -20px 30px var(--color-after),20px 20px 30px var(--color-after);
   transition: all 1.5s;
 }
 .intro #contact .bg-image {
@@ -506,10 +519,10 @@ header.scrolled {
   opacity: 0;
 }
 
-#blog span {
+#blog .title span {
  color: var(--bg-white);
 }
-.light-mode #blog span {
+.light-mode #blog .title span {
   color: var(--bg-black);
  }
 
@@ -543,7 +556,7 @@ header.scrolled {
   -moz-background-clip: text;
   background-clip: text;
   color: transparent;
-  letter-spacing: -0.4px;
+  letter-spacing: 1.4px;
   white-space: normal;
 }
 .intro #home .intro-text .name p {
@@ -1113,19 +1126,19 @@ header.scrolled {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: rgba(20, 20, 20, 0.23);
+  background: rgba(20, 20, 20, 0.26);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   z-index: 1;
 }
 .light-mode .intro #about .our-story .skill-div , .light-mode .intro #service .service .more-services{
   background: rgba(255, 255, 255, 0.26);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   z-index: 1;
 }
 .intro #about .our-story .skill-div ul {
@@ -1856,7 +1869,11 @@ backdrop-filter: blur(20px);
   border-radius: 10px;
   background: var(--green);
 }
-
+.form-right label i{
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--color-after);
+}
 .intro
   #contact
   .contact
@@ -2026,6 +2043,11 @@ backdrop-filter: blur(20px);
   padding: 8px;
   cursor: pointer;
   border-radius: 20px;
+  font-weight: 600;
+  color: var(--gray);
+}
+.light-mode .intro #blog .blog .blog-type span {
+  color: var(--partial-dark);
 }
 .intro #blog .blog .blog-type span:hover {
   transform: scale(1.1);
@@ -2156,7 +2178,8 @@ backdrop-filter: blur(20px);
   align-items: center;
   flex-wrap: wrap;
   background: rgba(255, 255, 255, 0.315);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   padding: 10px;
 }
 
@@ -2841,6 +2864,7 @@ backdrop-filter: blur(20px);
   height: 35px;
   border-radius: 50%;
   border: 2px solid #fff;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1)
 }
 .light-mode .intro
   #blog

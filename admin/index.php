@@ -72,9 +72,9 @@ $user = $users->fetch_assoc();
   <script src="./script/jquery.js"></script>
   <script>
     $('.li-<?php echo isset($_GET['page']) ? $_GET['page'] : '' ?>').addClass('active');
-
-    $("#logout").on("click", function() {
-      if(confirm("Do You Wish To Logout?")){
+const alert = new AlertNotify(10000, "top-right", "#000000");
+    $("#logout").on("click", async function() {
+      if(await alert.alert_Confirm("Do you want to logout?")){
         $.ajax({
         url: "./server/logout.php",
         method: "POST",

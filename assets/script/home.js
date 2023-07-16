@@ -265,6 +265,7 @@ $(document).ready(async function () {
   const urlString = new URLSearchParams(queryString);
   const blogId = urlString.get("blog_id");
   if(blogId !== null){
+    localStorage.setItem("current10",1)
     getSearchBlog(blogId);
     await new Promise((resolve) =>
     setTimeout(resolve, 2000)
@@ -398,7 +399,7 @@ $("body").on("click", ".instagram-share", function (e) {
 
   let date = new Date();
   let year = date.getFullYear();
-  $(".footer .col-1 h3 em").text(year);
+  $(".footer .col-1 h3 p").text(year);
 
   // comments
 

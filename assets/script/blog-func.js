@@ -459,7 +459,7 @@ function getAllBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -471,6 +471,7 @@ function getAllBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -517,7 +518,7 @@ function getAllBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -800,7 +801,7 @@ function getPersonalBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -812,6 +813,7 @@ function getPersonalBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -858,7 +860,7 @@ function getPersonalBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1014,7 +1016,7 @@ function getTechBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -1026,6 +1028,7 @@ function getTechBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -1072,7 +1075,7 @@ function getTechBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1228,7 +1231,7 @@ function getSportsBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -1240,6 +1243,7 @@ function getSportsBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -1286,7 +1290,7 @@ function getSportsBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1443,7 +1447,7 @@ function getFunnyBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -1455,6 +1459,7 @@ function getFunnyBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -1501,7 +1506,7 @@ function getFunnyBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1659,7 +1664,7 @@ function getHistoryBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -1671,6 +1676,7 @@ function getHistoryBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -1717,7 +1723,7 @@ function getHistoryBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1873,7 +1879,7 @@ function getGovBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -1885,6 +1891,7 @@ function getGovBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -1931,7 +1938,7 @@ function getGovBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2087,7 +2094,7 @@ function getEntBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -2099,6 +2106,7 @@ function getEntBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -2145,7 +2153,7 @@ function getEntBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2301,7 +2309,7 @@ function getEduBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -2313,6 +2321,7 @@ function getEduBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -2359,7 +2368,7 @@ function getEduBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2515,7 +2524,7 @@ function getDevBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -2527,6 +2536,7 @@ function getDevBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -2573,7 +2583,7 @@ function getDevBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2728,7 +2738,7 @@ function getSearchBlog(
           file = `<video data-src="admin/blog/${blog.files}" controls class="blog-ui lazyload"></video>`;
         }
 
-        const commentsHtml = blog.comment
+        let commentsHtml = blog.comment
           .map(
             (comment) => `
                 <div class="comments">
@@ -2740,6 +2750,7 @@ function getSearchBlog(
               `
           )
           .join("");
+          if(commentsHtml === "")commentsHtml="Be the first to comment";
 
         const blogPost = `
             <div class="blog-posts" data-id="${blog.id}">
@@ -2786,7 +2797,7 @@ function getSearchBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
+              coding-nonny &copy; <p></p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">

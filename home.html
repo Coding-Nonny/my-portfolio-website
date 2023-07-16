@@ -151,16 +151,10 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
       property="article:publisher"
       content="+2348135733563"
     />
-
-    <!-- <link
-      rel="stylesheet"
-      href="./assets/fontawesome-free-5.15.3-web/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="./assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css"
-    /> -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="" />
     <script
+      type="text/Javascript"
       src="https://kit.fontawesome.com/32f4291d72.js"
       crossorigin="anonymous"
     ></script>
@@ -170,11 +164,11 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
     />
     <link
       rel="stylesheet"
-      href="./assets/style/style.css?v-<?= time() ?>"
+      href="./assets/style/style.css"
     />
     <link
       rel="stylesheet"
-      href="./assets/style/alert.css?v-<?= time() ?>"
+      href="./assets/style/alert.css"
     />
     <link
       rel="stylesheet"
@@ -506,6 +500,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Website design and development.
+                  <i class="fa fa-globe"></i>
                 </h2>
                 <p>
                   Set to give you a well
@@ -518,6 +513,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   E-commerce website development.
+                  <i class="fa fa-exchange"></i>
                 </h2>
                 <p>
                   Every business organization
@@ -532,6 +528,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Content management system.
+                  <i class="fa fa-tachometer"></i>
                 </h2>
                 <p>
                   This enables you the client to
@@ -544,6 +541,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Web application development.
+                  <i class="fa fa-crosshairs"></i>
                 </h2>
                 <p>
                   This involves web-based
@@ -554,6 +552,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Responsive website design.
+                  <i class="fa fa-desktop"></i>
                 </h2>
                 <p>
                   A responsive website gives you a
@@ -566,6 +565,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Website maintenance and updates.
+                  <i class="fa fa-cog"></i>
                 </h2>
                 <p>
                   I maintain and update your
@@ -576,6 +576,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                 <h2>
                   Web hosting and server
                   management.
+                  <i class="fa fa-server"></i>
                 </h2>
                 <p>
                   I host your website with a good
@@ -587,6 +588,9 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Search engine optimization.
+                  <i
+                    class="fa fa-search-plus"
+                  ></i>
                 </h2>
                 <p>
                   This improves your website
@@ -596,6 +600,10 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   Website Security and Protection.
+                  <i
+                    class="fa fa-shield"
+                    aria-hidden="true"
+                  ></i>
                 </h2>
                 <p>
                   Protects your website from cyber
@@ -605,6 +613,10 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               <li>
                 <h2>
                   website analytics and tracking.
+                  <i
+                    class="fa fa-bar-chart"
+                    aria-hidden="true"
+                  ></i>
                 </h2>
                 <p>
                   This helps you see how people
@@ -733,8 +745,9 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
               </div>
               <div class="form-right">
                 <label for="message"
-                  >Message</label
-                >
+                  >Message
+                  <i class="fa fa-comment"></i
+                ></label>
                 <textarea
                   name="message"
                   id="message"
@@ -828,8 +841,9 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         <div class="footer">
           <div class="col-1">
             <h3>
-              Nonny.com &copy; <em></em>. All
-              Right Reserved
+              coding-nonny.com &copy;
+              <p></p>
+              . All Right Reserved
             </h3>
             <img
               src="./assets/image/logo-no-background.png"
@@ -895,16 +909,56 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
       </div>
       <div id="google-element"></div>
     </div>
-    <script src="./assets/script/prism.js"></script>
-    <script src="./admin/script/marked.js"></script>
-    <script src="./assets/script/jquery.js"></script>
-    <script src="https://coding-nonny.github.io/alert-notify/dist/alertify.js"></script>
-    <script src="./assets/script/github-fetch.js?v-<?= time() ?>"></script>
-    <script src="./assets/script/mode.js"></script>
-    <script src="./assets/script/lazysizes.min.js"></script>
-    <script src="./assets/script/blog-func.js"></script>
-    <script src="./assets/script/home.js"></script>
-    <script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/prism.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./admin/script/marked.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/jquery.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="https://coding-nonny.github.io/alert-notify/dist/alertify.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/github-fetch.js?v-<?= time() ?>"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/mode.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/lazysizes.min.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/blog-func.js"
+    ></script>
+    <script
+      type="text/Javascript"
+      src="./assets/script/home.js"
+    ></script>
+    <script type="text/Javascript">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('./servicer-worker.js')
+            .then(function(registration) {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function(error) {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+    <script type="text/Javascript">
       (function () {
         var docElem =
           document.querySelector(".welcome");
@@ -1001,29 +1055,12 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           ) || "#31d275"
         ); // Updated color
       });
-      const homeImg = document.querySelector(
-        ".intro #home .my-img"
-      );
 
-      homeImg.addEventListener(
-        "mousemove",
-        (event) => {
-          const rect =
-            homeImg.getBoundingClientRect();
-          const xAxis = event.clientX - rect.left;
-          const yAxis = event.clientY - rect.top;
-          const tX = xAxis - rect.width / 2;
-          const tY = yAxis - rect.height / 2;
+      const metaTag = document.querySelector('meta[name="theme-color"]');
+      metaTag.setAttribute('content',JSON.parse(
+            localStorage.getItem("color")
+          ) || "#31d275");
 
-          homeImg.style.transform = `translateX(${tX}px) translateY(${tY}px)`;
-        }
-      );
-      homeImg.addEventListener(
-        "mouseleave",
-        () => {
-          homeImg.style.transform = "";
-        }
-      );
       let waves =
         document.querySelectorAll("svg path");
       waves.forEach((wave) => {
@@ -1057,6 +1094,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         "./assets/svg/undraw_artificial_intelligence_re_enpp.svg",
         "./assets/svg/undraw_fixing_bugs_w7gi.svg",
         "./assets/svg/undraw_into_the_night_vumi.svg",
+        "./assets/svg/undraw_social_share_re_qb4v.svg",
       ];
 
       (function changeSvg() {
@@ -1068,7 +1106,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         svgShow1.src = svgToShow;
         setTimeout(changeSvg, 20000);
       })();
-      
+
       window.onload = () => {
         document.querySelector(".loader").style =
           "display:none";

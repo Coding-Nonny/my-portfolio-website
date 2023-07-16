@@ -86,17 +86,21 @@ if (!isset($_SESSION['user'])) {
 <script>
  $(document).ready(()=>{
   const message = new AlertNotify(10000, "top-right", "#000000");
-  $("body").on("click", ".edit", function() {
+  $("body").on("click", ".edit", async function() {
     let id = $(this).data("id");
-    if (confirm("Approve this comment?")) {
+    if (await message.alert_Confirm("Do you want to approve this comment?")) {
       $.ajax({
         url: "server/comment_approve.php",
         type: "POST",
         data: {
           id: id
         },
-        success: (data) => {
-          alert(data);
+        success: async (data) => {
+          message.alert_message(data, "");
+            await new Promise((resolve) =>
+              setTimeout(resolve, 3000)
+            );
+            location.reload();
         }
       })
     }
