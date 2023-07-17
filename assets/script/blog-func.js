@@ -518,7 +518,7 @@ function getAllBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -860,7 +860,7 @@ function getPersonalBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1075,7 +1075,7 @@ function getTechBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1290,7 +1290,7 @@ function getSportsBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1506,7 +1506,7 @@ function getFunnyBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1723,7 +1723,7 @@ function getHistoryBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1938,7 +1938,7 @@ function getGovBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2153,7 +2153,7 @@ function getEntBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2368,7 +2368,7 @@ function getEduBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2583,7 +2583,7 @@ function getDevBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2797,7 +2797,7 @@ function getSearchBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p></p>. All
+              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
