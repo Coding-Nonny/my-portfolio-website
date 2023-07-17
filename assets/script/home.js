@@ -1,5 +1,9 @@
 $(document).ready(async function () {
-  const message = new AlertNotify(10000,"top-right", "#000000");
+  const message = new AlertNotify(
+    10000,
+    "top-right",
+    "#000000"
+  );
 
   let bar = document.querySelector(".bars"),
     menu = document.querySelector(".nav"),
@@ -57,9 +61,7 @@ $(document).ready(async function () {
   });
 
   document
-    .querySelector(
-      ".welcome header .contact-me"
-    )
+    .querySelector(".welcome header .contact-me")
     .addEventListener("click", function () {
       if (menu.classList.contains("show-menu")) {
         menu.classList.remove("show-menu");
@@ -121,7 +123,15 @@ $(document).ready(async function () {
     "As a seasoned professional, I'm excited to showcase my accomplishments and demonstrate my expertise.",
     " Here, you'll find a curated selection of my best projects, along with information about my skills, interests, and goals.",
     "As a creative professional, I'm excited to share my work and inspire you with my unique vision.",
-    "Programs must be written for people to read, and only incidentally for machines to execute. This quote emphasizes the importance of writing code that is clear and understandable for human readers, not just efficient for machines.","Code is like humor. When you have to explain it, it’s bad","The best error message is the one that never shows up.","Any one can write code that a computer can understand. Good programmers write code that humans can understand.","The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.","Give a man a program, frustrate him for a day. Teach a man to program, frustrate him for a lifetime.","If debugging is the process of removing software bugs, then programming must be the process of putting them in.","The function of good software is to make the complex appear to be simple.","Programming isn't about what you know; it's about what you can figure out."
+    "Programs must be written for people to read, and only incidentally for machines to execute. This quote emphasizes the importance of writing code that is clear and understandable for human readers, not just efficient for machines.",
+    "Code is like humor. When you have to explain it, it’s bad",
+    "The best error message is the one that never shows up.",
+    "Any one can write code that a computer can understand. Good programmers write code that humans can understand.",
+    "The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.",
+    "Give a man a program, frustrate him for a day. Teach a man to program, frustrate him for a lifetime.",
+    "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
+    "The function of good software is to make the complex appear to be simple.",
+    "Programming isn't about what you know; it's about what you can figure out."
   );
 
   let letters = "";
@@ -130,14 +140,21 @@ $(document).ready(async function () {
     let p = document.querySelector(
       ".intro #home .intro-text .name p"
     );
-    letters = messageArrays[Math.floor(Math.random() * messageArrays.length)];
+    letters =
+      messageArrays[
+        Math.floor(
+          Math.random() * messageArrays.length
+        )
+      ];
     p.style = "transition:all 1s;opacity:0";
     p.style.opacity = "1";
     p.innerHTML = letters;
-   let voice = new SpeechSynthesisUtterance(letters);
-   p.onclick = () =>{
-    speechSynthesis.speak(voice);
-   } 
+    let voice = new SpeechSynthesisUtterance(
+      letters
+    );
+    p.onclick = () => {
+      speechSynthesis.speak(voice);
+    };
     setTimeout(typing, 10000);
   })();
 
@@ -170,19 +187,24 @@ $(document).ready(async function () {
           "]"
       );
       blog.removeClass("blog-toggle");
-        let searchRl = new URL(window.location.href);
-        if(searchRl.searchParams.has("blog_id")){
-          searchRl.searchParams.delete("blog_id");
-          history.pushState(null,'',searchRl.href);
-        }
-        await new Promise((resolve) =>
-          setTimeout(resolve, 1000)
+      let searchRl = new URL(
+        window.location.href
+      );
+      if (searchRl.searchParams.has("blog_id")) {
+        searchRl.searchParams.delete("blog_id");
+        history.pushState(
+          null,
+          "",
+          searchRl.href
         );
+      }
+      await new Promise((resolve) =>
+        setTimeout(resolve, 1000)
+      );
       let rl = document.getElementById("blog");
-      rl.scrollIntoView({behavior: 'smooth'});
+      rl.scrollIntoView({ behavior: "smooth" });
     }
   );
-
 
   $(".intro #home .intro-text").css(
     "opacity",
@@ -261,66 +283,125 @@ $(document).ready(async function () {
   await new Promise((resolve) =>
     setTimeout(resolve, 1000)
   );
+
   const queryString = window.location.search;
-  const urlString = new URLSearchParams(queryString);
-  const blogId = urlString.get("blog_id");
-  if(blogId !== null){
-    localStorage.setItem("current10",1)
-    getSearchBlog(blogId);
-    await new Promise((resolve) =>
-    setTimeout(resolve, 2000)
+  const urlString = new URLSearchParams(
+    queryString
   );
-    jQuery("body .intro #blog .blog .blog-div .blog-posts[data-id=" + blogId + "]").addClass("blog-toggle");
+  const blogId = urlString.get("blog_id");
+
+  if (blogId !== null) {
+    localStorage.setItem("current10", 1);
+    getSearchBlog(blogId);
+    setTimeout(function () {
+      let display = $(
+        "body .intro #blog .blog .blog-div .blog-posts[data-id=" +
+          blogId +
+          "]"
+      );
+      if (display.length > 0) {
+        display.addClass("blog-toggle");
+        return;
+      }
+      message.alert_message("This content is not available","info");
+    }, 1000);
   }
-  
-  const userName = localStorage.getItem("username");
+
+  const userName =
+    localStorage.getItem("username");
   const userEmail = localStorage.getItem("email");
-  
-  jQuery(".intro #blog .blog .blog-div .blog-posts.blog-toggle .blog-action form input[type=text][user-id=" + blogId + "]").val(userName);
-  jQuery(".intro #blog .blog .blog-div .blog-toggle .blog-action form input[type=email][email-id=" + blogId + "]").val(userEmail);
-  
+
+  jQuery(
+    ".intro #blog .blog .blog-div .blog-posts.blog-toggle .blog-action form input[type=text][user-id=" +
+      blogId +
+      "]"
+  ).val(userName);
+  jQuery(
+    ".intro #blog .blog .blog-div .blog-toggle .blog-action form input[type=email][email-id=" +
+      blogId +
+      "]"
+  ).val(userEmail);
+
   /* --- sharing --- */
 
   // Get the page metadata
-let pageTitle = $('meta[property="og:title"]').attr("content");
-let pageDescription = $('meta[property="og:description"]').attr("content");
-let pageUrl = $('meta[property="og:url"]').attr("content");
-let pageImage = $('meta[property="og:image"]').attr("content");
+  let pageTitle = $(
+    'meta[property="og:title"]'
+  ).attr("content");
+  let pageDescription = $(
+    'meta[property="og:description"]'
+  ).attr("content");
+  let pageUrl = $('meta[property="og:url"]').attr(
+    "content"
+  );
+  let pageImage = $(
+    'meta[property="og:image"]'
+  ).attr("content");
 
-// Customize the sharing messages
-let fbMessage =  pageTitle;
-let twMessage = pageUrl;
-let waMessage =  pageUrl;
-let instaMessage = pageTitle;
+  // Customize the sharing messages
+  let fbMessage = pageTitle;
+  let twMessage = pageUrl;
+  let waMessage = pageUrl;
+  let instaMessage = pageTitle;
 
-// Share on Facebook
-$("body").on("click", ".facebook-share", function (e) {
-  e.preventDefault();
-  let shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageUrl);
-  window.open(shareUrl, "_blank");
-});
+  // Share on Facebook
+  $("body").on(
+    "click",
+    ".facebook-share",
+    function (e) {
+      e.preventDefault();
+      let shareUrl =
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+        encodeURIComponent(pageUrl);
+      window.open(shareUrl, "_blank");
+    }
+  );
 
-// Share on Twitter
-$("body").on("click", ".twitter-share", function (e) {
-  e.preventDefault();
-  let shareUrl = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(pageUrl) + "&text=" + encodeURIComponent(twMessage);
-  window.open(shareUrl, "_blank");
-});
+  // Share on Twitter
+  $("body").on(
+    "click",
+    ".twitter-share",
+    function (e) {
+      e.preventDefault();
+      let shareUrl =
+        "https://twitter.com/intent/tweet?url=" +
+        encodeURIComponent(pageUrl) +
+        "&text=" +
+        encodeURIComponent(twMessage);
+      window.open(shareUrl, "_blank");
+    }
+  );
 
-// Share on WhatsApp
-$("body").on("click", ".wa-share", function (e) {
-  e.preventDefault();
-  let shareUrl = "whatsapp://send?text=" + encodeURIComponent(waMessage);
-  window.location.href = shareUrl;
-});
+  // Share on WhatsApp
+  $("body").on(
+    "click",
+    ".wa-share",
+    function (e) {
+      e.preventDefault();
+      let shareUrl =
+        "whatsapp://send?text=" +
+        encodeURIComponent(waMessage);
+      window.location.href = shareUrl;
+    }
+  );
 
-// Share on Instagram
-$("body").on("click", ".instagram-share", function (e) {
-  e.preventDefault();
-  let instaUrl = "https://www.instagram.com/create/story"; // Instagram's story creation URL
-  window.open(instaUrl + "?url=" + encodeURIComponent(pageUrl) + "&text=" + encodeURIComponent(instaMessage));
-});
-
+  // Share on Instagram
+  $("body").on(
+    "click",
+    ".instagram-share",
+    function (e) {
+      e.preventDefault();
+      let instaUrl =
+        "https://www.instagram.com/create/story"; // Instagram's story creation URL
+      window.open(
+        instaUrl +
+          "?url=" +
+          encodeURIComponent(pageUrl) +
+          "&text=" +
+          encodeURIComponent(instaMessage)
+      );
+    }
+  );
 
   // Subscriber js
   $(".subscribe button").on(
@@ -349,17 +430,23 @@ $("body").on("click", ".instagram-share", function (e) {
                 "warning"
               );
             }
-            message.shouldAutoHide(true)
+            message.shouldAutoHide(true);
           },
         });
       }
     }
   );
 
-  $(".footer .col-2 .form .s").on("click", async function (e) {
+  $(".footer .col-2 .form .s").on(
+    "click",
+    async function (e) {
       e.preventDefault();
-      let id = $(this).data('id');
-      const email = $(".footer .col-2 .form input[data-id="+id+"]").val();
+      let id = $(this).data("id");
+      const email = $(
+        ".footer .col-2 .form input[data-id=" +
+          id +
+          "]"
+      ).val();
       if (
         await message.alert_Confirm(
           "Do You Wish To Subscribe?"
@@ -375,14 +462,18 @@ $("body").on("click", ".instagram-share", function (e) {
                 "You successfully subscribed.",
                 "success"
               );
-              $(".footer .col-2 .form input[data-id="+id+"]").val("")
+              $(
+                ".footer .col-2 .form input[data-id=" +
+                  id +
+                  "]"
+              ).val("");
             } else {
               message.alert_message(
                 data,
                 "warning"
               );
             }
-            message.shouldAutoHide(true)
+            message.shouldAutoHide(true);
           },
         });
       }
@@ -414,22 +505,37 @@ $("body").on("click", ".instagram-share", function (e) {
           formId +
           "]"
       );
-      const nameOf = userN.val().charAt(0).toUpperCase();
+      const nameOf = userN
+        .val()
+        .charAt(0)
+        .toUpperCase();
       const initial = nameOf;
-      const canvas = document.createElement("canvas");
+      const canvas =
+        document.createElement("canvas");
       canvas.width = 100;
       canvas.height = 100;
 
       const context = canvas.getContext("2d");
       context.fillStyle = "#000000";
-      context.fillRect(0,0,canvas.width, canvas.height);
+      context.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
       context.font = "48px Arial";
       context.textAlign = "center";
       context.textBaseline = "middle";
-context.fillStyle = JSON.parse(localStorage.getItem("color")) ||
-"#31d275";
-context.fillText(initial,canvas.width / 2,canvas.height / 2);
-const img = canvas.toDataURL();
+      context.fillStyle =
+        JSON.parse(
+          localStorage.getItem("color")
+        ) || "#31d275";
+      context.fillText(
+        initial,
+        canvas.width / 2,
+        canvas.height / 2
+      );
+      const img = canvas.toDataURL();
 
       if (
         $(
@@ -480,7 +586,7 @@ const img = canvas.toDataURL();
                 "warning"
               );
             }
-            message.shouldAutoHide(true)
+            message.shouldAutoHide(true);
           },
         });
       } else {
@@ -508,7 +614,7 @@ const img = canvas.toDataURL();
                 "warning"
               );
             }
-            message.shouldAutoHide(true)
+            message.shouldAutoHide(true);
           },
         });
       }
@@ -543,7 +649,7 @@ const img = canvas.toDataURL();
               "warning"
             );
           }
-          message.shouldAutoHide(true)
+          message.shouldAutoHide(true);
         },
       });
     }
