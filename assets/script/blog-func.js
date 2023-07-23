@@ -430,7 +430,7 @@ function getAllBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -452,6 +452,7 @@ function getAllBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -466,7 +467,7 @@ function getAllBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -481,14 +482,14 @@ function getAllBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -518,7 +519,7 @@ function getAllBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -562,7 +563,8 @@ function getAllBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
       // Add buttons to DOM
       // Generate pagination buttons
       const buttonHtml =
@@ -646,7 +648,6 @@ function generatePaginationButtons(
   // Get the last viewed page from localStorage
   const lastPage =
     localStorage.getItem("lastPage");
-
   // Add page buttons
   for (let i = start; i <= end; i++) {
     if (i === parseInt(lastPage)) {
@@ -772,7 +773,7 @@ function getPersonalBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -794,6 +795,7 @@ function getPersonalBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -808,7 +810,7 @@ function getPersonalBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -823,14 +825,14 @@ function getPersonalBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -860,7 +862,7 @@ function getPersonalBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -904,7 +906,8 @@ function getPersonalBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -987,7 +990,7 @@ function getTechBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -1009,6 +1012,7 @@ function getTechBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -1023,7 +1027,7 @@ function getTechBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -1038,14 +1042,14 @@ function getTechBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1075,7 +1079,7 @@ function getTechBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1119,7 +1123,8 @@ function getTechBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1202,7 +1207,7 @@ function getSportsBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -1224,6 +1229,7 @@ function getSportsBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -1238,7 +1244,7 @@ function getSportsBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -1253,14 +1259,14 @@ function getSportsBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1290,7 +1296,7 @@ function getSportsBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1334,7 +1340,8 @@ function getSportsBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1418,7 +1425,7 @@ function getFunnyBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -1440,6 +1447,7 @@ function getFunnyBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -1454,7 +1462,7 @@ function getFunnyBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -1469,14 +1477,14 @@ function getFunnyBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1506,7 +1514,7 @@ function getFunnyBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1550,7 +1558,8 @@ function getFunnyBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1635,7 +1644,7 @@ function getHistoryBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -1657,6 +1666,7 @@ function getHistoryBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -1671,7 +1681,7 @@ function getHistoryBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -1686,14 +1696,14 @@ function getHistoryBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1723,7 +1733,7 @@ function getHistoryBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1767,7 +1777,8 @@ function getHistoryBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -1850,7 +1861,7 @@ function getGovBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -1872,6 +1883,7 @@ function getGovBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -1886,7 +1898,7 @@ function getGovBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -1901,14 +1913,14 @@ function getGovBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -1938,7 +1950,7 @@ function getGovBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -1982,7 +1994,8 @@ function getGovBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2065,7 +2078,7 @@ function getEntBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -2087,6 +2100,7 @@ function getEntBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -2101,7 +2115,7 @@ function getEntBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -2116,14 +2130,14 @@ function getEntBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2153,7 +2167,7 @@ function getEntBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2197,7 +2211,8 @@ function getEntBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2280,7 +2295,7 @@ function getEduBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -2302,6 +2317,7 @@ function getEduBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -2316,7 +2332,7 @@ function getEduBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -2331,14 +2347,14 @@ function getEduBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2368,7 +2384,7 @@ function getEduBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2412,7 +2428,8 @@ function getEduBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2495,7 +2512,7 @@ function getDevBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -2517,6 +2534,7 @@ function getDevBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -2531,7 +2549,7 @@ function getDevBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -2546,14 +2564,14 @@ function getDevBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2583,7 +2601,7 @@ function getDevBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2627,7 +2645,8 @@ function getDevBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2709,7 +2728,7 @@ function getSearchBlog(
     .then((data) => {
       if (data.length == 0) {
         blogDiv.html(
-          "<p>No content to display</p>"
+          "<p>Coming Soon</p>"
         );
         paginationDiv.empty();
         return;
@@ -2731,6 +2750,7 @@ function getSearchBlog(
           .split(".")
           .pop();
         let file;
+        let postTime = formatDateToJustNowTime(blog.date_created);
 
         if (fileType.match(/^(jpg|jpeg|png)$/i)) {
           file = `<img data-src="admin/blog/${blog.files}" class="blog-ui lazyload" alt="blog image"/>`;
@@ -2745,7 +2765,7 @@ function getSearchBlog(
                 <img src="./assets/user/${comment.img}" alt="user" id="profile-img"/>
                   <strong style="color: ${color}">${comment.username}</strong>
                   <small>${comment.comment_text} </small>
-                  <em>${comment.comment_date}</em>
+                  <em>${formatDateToJustNowTime(comment.comment_date)}</em>
                 </div>
               `
           )
@@ -2760,14 +2780,14 @@ function getSearchBlog(
                 <div class="title">
                   <p>${blog.writer}</p>
                   <p>${blog.category}</p>
-                  <span>${blog.date_created}</span>
+                  <span>${postTime}</span>
                 </div>
               </div>
               <div class="blog-text">
                 <h3 class="title-text" style="border-bottom:2px solid ${color};">${blog.title}</h3>
-                <div class="blog-writing">${marked(blog.content)}</div>
+                <div class="blog-writing">${marked(blog.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"))}</div>
                 <br/><br/>
-                <p style="width:100%;text-align:left;color:${color};margin-top:18px" class="title-date">Written By ${blog.writer.toUpperCase()} <br/>On ${blog.date_created}</p>
+                <p style="width:100%;text-align:left;color:${color};margin-top:18px;text-transform:capitalize" class="title-date">By ${blog.writer} - ${formatDateToJustNowTime(blog.date_created)}</p>
                 <div class="blog-action">
                   <form action="" data-id="${blog.id}">
                     <input type="text" style="border:2px solid ${color}" autocomplete="off" placeholder="Your name" name="name" user-id="${blog.id}" class="name" />
@@ -2797,7 +2817,7 @@ function getSearchBlog(
               <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny &copy; <p>${new Date().getFullYear()}</p>. All
+              CodingNonny &copy; <p>${new Date().getFullYear()}</p>. All
               Right Reserved
             </h3>
             <img src="./assets/image/logo-no-background.png" alt="logo">
@@ -2841,7 +2861,8 @@ function getSearchBlog(
         blogHtml += blogPost;
       });
       blogDiv.html(blogHtml);
-       Prism.highlightAll();
+          Prism.highlightAll();
+      //  Prism.highlightAllUnder(blogDiv);
 
       // Add buttons to DOM
       // Generate pagination buttons
@@ -2902,3 +2923,55 @@ function getSearchBlog(
     })
     .catch((error) => console.log(error));
 }
+function formatDateToJustNowTime(dateString) {
+  const currentDate = new Date();
+  const givenDateParts = dateString.split(/[-: ]+/);
+  const months = [
+    "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"
+  ];
+
+  // Manually extract the date components
+  const day = parseInt(givenDateParts[0]);
+  const monthIndex = months.indexOf(givenDateParts[1]);
+  const year = parseInt(givenDateParts[2]);
+  const hours = parseInt(givenDateParts[3]);
+  const minutes = parseInt(givenDateParts[4]);
+  const seconds = parseInt(givenDateParts[5]);
+  const amOrPm = givenDateParts[6].toUpperCase();
+
+  // Create a new date object with the extracted components
+  const givenDate = new Date(year, monthIndex, day, (hours % 12) + (amOrPm === "PM" ? 12 : 0), minutes, seconds);
+
+  const timeDifferenceInSeconds = Math.floor((currentDate - givenDate) / 1000);
+
+  if (timeDifferenceInSeconds < 60) {
+    return "just now";
+  } else if (timeDifferenceInSeconds < 3600) {
+    const minutes = Math.floor(timeDifferenceInSeconds / 60);
+    return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+  } else if (timeDifferenceInSeconds < 86400) {
+    const hours = Math.floor(timeDifferenceInSeconds / 3600);
+    return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+  } else if (timeDifferenceInSeconds < 604800) {
+    const days = Math.floor(timeDifferenceInSeconds / 86400);
+    return `${days} day${days > 1 ? "s" : ""} ago`;
+  } else {
+    // If the time difference is greater than a week, format the date manually
+    const formatter = new Intl.DateTimeFormat('en', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true
+    });
+
+    return formatter.format(givenDate);
+  }
+}
+
+
+
+

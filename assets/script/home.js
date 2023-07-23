@@ -293,6 +293,10 @@ $(document).ready(async function () {
   if (blogId !== null) {
     localStorage.setItem("current10", 1);
     getSearchBlog(blogId);
+    localStorage.setItem(
+      "lastCategory",
+      "search-blog"
+    );
     setTimeout(function () {
       let display = $(
         "body .intro #blog .blog .blog-div .blog-posts[data-id=" +
@@ -437,8 +441,8 @@ $(document).ready(async function () {
     }
   );
 
-  $(".footer .col-2 .form .s").on(
-    "click",
+  $("body").on(
+    "click",".footer .col-2 .form button",
     async function (e) {
       e.preventDefault();
       let id = $(this).data("id");
@@ -457,7 +461,7 @@ $(document).ready(async function () {
           type: "POST",
           data: { email: email },
           success: function (data) {
-            if (data == "subscribed") {
+            if (data === "subscribed") {
               message.alert_message(
                 "You successfully subscribed.",
                 "success"
@@ -467,12 +471,26 @@ $(document).ready(async function () {
                   id +
                   "]"
               ).val("");
-            } else {
+              message.shouldAutoHide(true);
+              return;
+            }
+            if(data === "You have already subscribed"){
+              message.alert_message(
+                data,
+                "info"
+              );
+              $(
+                ".footer .col-2 .form input[data-id=" +
+                  id +
+                  "]"
+              ).val("");
+            message.shouldAutoHide(true);
+            return;
+            }
               message.alert_message(
                 data,
                 "warning"
               );
-            }
             message.shouldAutoHide(true);
           },
         });

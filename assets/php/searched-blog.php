@@ -1,8 +1,10 @@
 <?php
+
 if ($_SERVER['REQUEST_METHOD'] !== "GET") {
     echo "you don't have permission to access this page";
     exit();
 }
+
 try {
     $database = "localhost";
     $user = "root";
@@ -14,25 +16,32 @@ try {
     }
 } catch (Exception $error) {
     echo $error->getMessage();
+    exit();
 }
+
 $searchParam = $_GET['param'];
 $searchWords = explode(" ", $searchParam);
 
+$exactMatchQueries = [];
 $likeQueries = [];
-$params = array();
+$params = [];
 
 foreach ($searchWords as $word) {
     $word = htmlspecialchars($word, ENT_QUOTES);
-    $likeQueries[] = "title LIKE ? OR category LIKE ? OR writer LIKE ? OR content LIKE ? OR date_created LIKE ? OR id LIKE ?";
-    $params = array_merge($params, array_fill(0, 6, '%' . mysqli_real_escape_string($connect, $word) . '%'));
+    $exactMatchQueries[] = "title = ? OR id = ? OR date_created = ?";
+    $likeQueries[] = "title LIKE ? OR category LIKE ? OR writer LIKE ? OR content LIKE ?";
+    $params = array_merge($params, array($word, $word, $word), array_fill(0, 4, '%' . mysqli_real_escape_string($connect, $word) . '%'));
 }
 
-$toSearch = implode(' OR ', $likeQueries);
+$exactMatchConditions = implode(' OR ', $exactMatchQueries);
+$likeConditions = implode(' OR ', $likeQueries);
+$toSearch = "($exactMatchConditions) OR ($likeConditions)";
 
 $stmt = mysqli_prepare($connect, "SELECT * FROM blog WHERE $toSearch");
 
 if (!$stmt) {
     echo $connect->error;
+    $connect->close();
     exit();
 }
 
@@ -40,6 +49,7 @@ mysqli_stmt_bind_param($stmt, str_repeat('s', count($params)), ...$params);
 
 if (!mysqli_stmt_execute($stmt)) {
     echo $connect->error;
+    $connect->close();
     exit();
 }
 
@@ -67,4 +77,5 @@ if ($result->num_rows > 0) {
     $emptyPost = array();
     echo json_encode($emptyPost);
 }
+
 $connect->close();

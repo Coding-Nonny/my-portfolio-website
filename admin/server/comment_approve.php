@@ -101,7 +101,7 @@ if ($update) {
             background-color: #0a509b;
             border: none;
             border-radius: 5px;
-            cursor: pointer;"><a href="" style="text-decoration: none;color:#ded7e9">visit website</a></button>
+            cursor: pointer;"><a href="'.BASE_URL.'" style="text-decoration: none;color:#ded7e9">visit website</a></button>
             </div>
         </body>
         </html>

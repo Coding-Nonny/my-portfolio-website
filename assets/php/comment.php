@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_get();
+date_default_timezone_set("Africa/Lagos");
 try {
     $database = "localhost";
     $user = "root";

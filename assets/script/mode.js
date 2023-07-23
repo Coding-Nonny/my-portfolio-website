@@ -72,9 +72,6 @@ function generateColor() {
     ".intro #home .intro-text .intro-special .n h1"
   );
   h1Element.style.color = color;
-  document.querySelector(
-    ".welcome header .logo h2 "
-  ).style.color = color;
   let waves = document.querySelectorAll("svg path");
 waves.forEach((wave)=>{
   wave.setAttribute('fill', color);
@@ -281,9 +278,6 @@ if (savedColor) {
     ".intro #home .intro-text .intro-special .n h1"
   );
   h1Element.style.color = savedColor;
-  document.querySelector(
-    ".welcome header .logo h2 "
-  ).style.color = savedColor;
   document.querySelector(
     ".intro #home .intro-text .intro-special p b "
   ).style.color = savedColor;

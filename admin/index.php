@@ -24,7 +24,7 @@ $user = $users->fetch_assoc();
   <link rel="stylesheet" href="../assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" /> -->
   <script src="https://kit.fontawesome.com/32f4291d72.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/style/fonts.css" />
-  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="stylesheet" href="./style/style.css?v-<?= time() ?>" />
   <link rel="stylesheet" href="./style/prism.css">
   <script src="./script/prism.js"></script>
   <script src="https://coding-nonny.github.io/alert-notify/dist/alertify.js"></script>
@@ -89,9 +89,6 @@ const alert = new AlertNotify(10000, "top-right", "#000000");
   </script>
   <script src="./script/admin.js"></script>
   <script src="./script/theme.js"></script>
-  <script>
-      Prism.highlightAll();
-    </script>
 </body>
 
 </html>

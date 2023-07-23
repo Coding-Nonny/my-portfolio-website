@@ -36,8 +36,8 @@ $post_content = strip_tags($row['content']); $type
 if(isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"]
 == "on") { $page_url .= "s"; } $page_url .=
 "://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-$ogUrl = $page_url; } else { echo "Post not
-found."; exit; } }else{ $post_title = "Nonny
+$ogUrl = $page_url; } else {  http_response_code(404);
+  exit(); } }else{ $post_title = "Nonny
 Portfolio | Web Design and Development Blog";
 $post_image =
 str_replace("home.html","",$main)."assets/image/logo-no-background.png";
@@ -183,8 +183,8 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           class="logo"
           onclick="location.reload();"
         >
-          <h2>C</h2>
-          <p>N</p>
+          <img src="./assets/image/logo-no-background.png" alt="logo">
+          <p>CodingNonny</p>
         </div>
         <ul class="nav">
           <li class="here main" id="homes">
@@ -349,7 +349,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
                   I believe that with the
                   continued support from You, I
                   can achieve this goal. Apart
-                  from being a Software Enginner,
+                  from being a Software developer,
                   I also specialize in computer
                   repairs, sales and maintenance,
                   CCTV camera installation and
@@ -841,7 +841,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
         <div class="footer">
           <div class="col-1">
             <h3>
-              coding-nonny.com &copy;
+              CodingNonny &copy;
               <p></p>
               . All Right Reserved
             </h3>
@@ -944,7 +944,7 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
     <script
       type="text/Javascript"
       src="./assets/script/home.js"
-    ></script>
+    defer></script>
     <script type="text/Javascript">
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
@@ -1112,5 +1112,9 @@ $_SERVER["REQUEST_URI"]; } $ogUrl = $main_url; }
           "display:none";
       };
     </script>
+     <script
+     type="text/Javascript"
+     src="./assets/script/installer.js"
+   ></script>
   </body>
 </html>

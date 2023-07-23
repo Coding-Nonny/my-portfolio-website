@@ -265,10 +265,15 @@ pre {
   scrollbar-width: 0px;
   border-radius: 12px;
 }
+#blog pre {
+  scrollbar-width: 0px;
+  border-radius: 12px;
+  height: 400px;
+}
 #google-element{
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 10%;
+  left: 10%;
   z-index: 1000;
 }
 body > .skiptranslate{
@@ -384,31 +389,28 @@ header.scrolled {
 }
 
 .welcome header .logo {
-  width: 50px;
-  height: 50px;
+  width: fit-content;
+  /* height: 50px; */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   padding: 8px;
-  background: var(--bg-white);
   cursor: pointer;
 }
-.light-mode header .logo {
-  background: var(--partial-dark);
-}
-.welcome header .logo h2 {
-  font-size: var(--logo-lg);
-  color: var(--green);
-  transition: all 1s;
-}
+
+
 
 .welcome header .logo p {
+  display: block;
   font-size: var(--logo-lg);
   color: var(--color-after);
   transition: all 1s;
 }
-
+.welcome header .logo img{
+  width: 45px;
+  height: 45px;
+}
 .welcome header .nav {
   max-width: 100%;
   width: fit-content;
@@ -3155,7 +3157,9 @@ backdrop-filter: blur(20px);
     padding: 10px;
     z-index: 999;
   }
-
+  .welcome header .logo p {
+    display: none;
+  }
   .intro #home {
     position: relative;
     width: 100%;
@@ -3298,7 +3302,7 @@ backdrop-filter: blur(20px);
 
   .bars {
     width: 20%;
-    text-align: center;
+    text-align: right;
     display: block;
     z-index: 11;
   }

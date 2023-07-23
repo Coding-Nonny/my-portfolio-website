@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_get();
+date_default_timezone_set("Africa/Lagos");
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -47,6 +47,9 @@ class Server
                 if ($file_size > 100 * 1024 * 1024) {
                     return "file must not be bigger than 100mb";
                 }
+                $newText = str_replace("<","&lt;",$text);
+                $newText = str_replace(">","&gt;",$text);
+                $newText = str_replace("<br/&gt;","<br/>",$text);
                 $date = date("d-F-Y H:i:s A");
                 /* rename files  and move to folder location */
                 $dateFile = date("Y-M-D") . "_" . rand(time(), 11111111);
@@ -58,7 +61,7 @@ class Server
                 $stmt = mysqli_stmt_init($this->db);
                 $new_post = "INSERT INTO blog (title, category, writer, content, files, date_created) VALUES (?,?,?,?,?,?)";
                 mysqli_stmt_prepare($stmt, $new_post);
-                mysqli_stmt_bind_param($stmt, "ssssss", $title, $category, $name, $text, $img, $date);
+                mysqli_stmt_bind_param($stmt, "ssssss", $title, $category, $name, $newText, $img, $date);
                 if (!mysqli_stmt_execute($stmt)) {
                     return $this->db->error;
                 }
@@ -71,7 +74,7 @@ class Server
                 if (!mysqli_stmt_prepare($stmtb,  $select_blog)) {
                     return $this->db->error.": error". var_dump($select_blog);
                 }
-                mysqli_stmt_bind_param($stmtb, "s", $date);
+                mysqli_stmt_bind_param($stmtb, "s", $img);
                 if (!mysqli_stmt_execute($stmtb)) {
                     return $this->db->error;
                 }
@@ -134,7 +137,7 @@ class Server
                          background-color: #0a509b;
                          border: none;
                          border-radius: 5px;
-                         cursor: pointer;"><a href="" style="text-decoration: none;color:#ded7e9">view blog</a></button>
+                         cursor: pointer;"><a href="'.BASE_URL.'/?blog_id='.$idb["id"].'" style="text-decoration: none;color:#ded7e9">view blog</a></button>
                          <small>You are getting this mail becuase you subscribed to my newsletter. If you want to unsubscribe, reply "unsubscribe me" to this mail.</small>
                          </div>
                      </body>
