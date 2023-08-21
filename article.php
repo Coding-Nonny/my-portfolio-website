@@ -41,13 +41,13 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $post_title = $row['title'];
-            $post_image = str_replace("article/45", "", getMainUrl()) . "admin/blog/" . $row["files"];
+            $post_image = str_replace("article/$post_id", "", getMainUrl()) . "admin/blog/" . $row["files"];
             $title = $_GET['title'];
              $post_image = str_replace("/$title", "", $post_image);
             $post_content = strip_tags($row['content']);
             $type = "article";
             $page_url = getMainUrl();
-            $ogUrl = $page_url . "?article=$post_id";
+            $ogUrl = $page_url";
         } else {
             http_response_code(404);
             mysqli_stmt_close($stmt);
