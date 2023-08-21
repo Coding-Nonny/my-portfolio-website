@@ -5,26 +5,23 @@ if (!isset($_SESSION['user'])) {
 }
 ?>
 <?php
-include("server/connection.php");
-$user;
-$users = $connect->query("SELECT * FROM user WHERE user_id = '{$_SESSION['user']}'");
+include_once("server/connection.php");
+$user = "";
+$session = $_SESSION['user'];
+$users = $connect->query("SELECT * FROM user WHERE user_id = '$session' ");
 $user = $users->fetch_assoc();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashborad</title>
   <link rel="shortcut icon" href="../assets/image/logo-no-background.png" type="image/x-icon" />
-  <!-- <link rel="stylesheet" href="../assets/fontawesome-free-5.15.3-web/css/all.min.css">
-  <link rel="stylesheet" href="../assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" /> -->
   <script src="https://kit.fontawesome.com/32f4291d72.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/style/fonts.css" />
-  <link rel="stylesheet" href="./style/style.css?v-<?= time() ?>" />
+  <link rel="stylesheet" href="./style/style.css" />
   <link rel="stylesheet" href="./style/prism.css">
   <script src="./script/prism.js"></script>
   <script src="https://coding-nonny.github.io/alert-notify/dist/alertify.js"></script>
@@ -60,7 +57,7 @@ $user = $users->fetch_assoc();
       <div class="top">
         <div class="dash-head">
           <i class="fa fa-bars"></i>
-          <h2>Howdy, <?= ucwords($user['username']) ?></h2>
+          <h2>Welcome, <?= ucwords($user['username']) ?></h2>
         </div>
       </div>
       <main>

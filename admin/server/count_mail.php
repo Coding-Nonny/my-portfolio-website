@@ -8,6 +8,7 @@ $count = $connect->query("SELECT * FROM mail WHERE status = 0 ");
 
 if($count){
     echo $count->num_rows;
+    $connect->close();
     exit();
 }
 echo "failed";

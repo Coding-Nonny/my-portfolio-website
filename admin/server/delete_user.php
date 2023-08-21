@@ -10,12 +10,14 @@ $row = $select->fetch_assoc();
 if (file_exists("../profile/" . $row['img'] . "")) {
     if (!unlink("../profile/" . $row['img'] . "")) {
         echo "failed removing file";
+         $connect->close();
         exit();
     }
 }
 $delete = $connect->query("DELETE FROM user WHERE user_id = {$id}");
 if ($delete) {
     echo "user deleted";
+    $connect->close();
     exit();
 }
 echo "failed";

@@ -9,6 +9,7 @@ $delete = $connect->query("DELETE FROM mail WHERE mail_id = {$id}");
 
 if($delete){
     echo "done";
+    $connect->close();
     exit();
 }
 echo "failed";

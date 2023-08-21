@@ -3,18 +3,10 @@ if ($_SERVER['REQUEST_METHOD'] !== "GET") {
     http_response_code(403);
     exit();
 }
-try {
-    $database = "localhost";
-    $user = "root";
-    $password = "";
-    $name = "dashboard";
-    $connect = new mysqli($database, $user, $password, $name);
-    if ($connect->error) {
-        throw new Exception("connection failed" . $connect->error);
-    }
-} catch (Exception $error) {
-    echo $error->getMessage();
-}
+header("Access-Control-Allow-Origin: *");
+Include_once("../../admin/server/connection.php");
+
+
 
 $select = $connect->query("SELECT * FROM blog ORDER BY id DESC");
 

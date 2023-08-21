@@ -5,19 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] !== "GET") {
     exit();
 }
 
-try {
-    $database = "localhost";
-    $user = "root";
-    $password = "";
-    $name = "dashboard";
-    $connect = new mysqli($database, $user, $password, $name);
-    if ($connect->error) {
-        throw new Exception("connection failed" . $connect->error);
-    }
-} catch (Exception $error) {
-    echo $error->getMessage();
-    exit();
-}
+include_once("../../admin/server/connection.php");
+
 
 $searchParam = $_GET['param'];
 $searchWords = explode(" ", $searchParam);
@@ -54,7 +43,7 @@ if (!mysqli_stmt_execute($stmt)) {
 }
 
 $result = mysqli_stmt_get_result($stmt);
-
+mysqli_stmt_close($stmt);
 if ($result->num_rows > 0) {
     $blogData = array();
 
@@ -73,9 +62,11 @@ if ($result->num_rows > 0) {
     }
 
     echo json_encode($blogData);
+    $connect->close();
 } else {
     $emptyPost = array();
     echo json_encode($emptyPost);
+    $connect->close();
 }
 
-$connect->close();
+

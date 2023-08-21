@@ -1,13 +1,15 @@
 <?php
 
+require_once(__DIR__ .'/../../assets/php/config.php');
+
 try {
     $database = "localhost";
-    $user = "root";
-    $password = "";
-    $name = "dashboard";
+    $user = USER;
+    $password = PASSWORD;
+    $name = DB;
     $connect = new mysqli($database, $user, $password, $name);
-    if ($connect->error) {
-        throw new Exception("connection failed" . $connect->error);
+    if ($connect->connect_error) {
+        throw new Exception("Connection failed: " . $connect->connect_error);
     }
 } catch (Exception $error) {
     echo $error->getMessage();

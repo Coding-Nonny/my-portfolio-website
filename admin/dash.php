@@ -1,8 +1,3 @@
-<?php
-if (!isset($_SESSION['user'])) {
-    header("location: login.php");
-  }
-?>
 <?php  
         require_once("server/connection.php");
         $posts = 0;

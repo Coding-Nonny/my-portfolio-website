@@ -100,6 +100,9 @@ waves.forEach((wave)=>{
     ".intro #about .about-left strong "
   ).style.color = color;
   document.querySelector(
+    "meta[name=theme-color]"
+  ).setAttribute(`content`, color);
+  document.querySelector(
     ".intro #about .about-left strong "
   ).style.borderBottom = `2px solid${color}`;
   document

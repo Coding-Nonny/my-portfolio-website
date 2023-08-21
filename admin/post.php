@@ -1,13 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if (!isset($_SESSION['user'])) {
     header("location: login.php");
 }
-?>
-<?php
-require_once("server/connection.php");
-$user;
-$users = $connect->query("SELECT * FROM user WHERE user_id = '{$_SESSION['user']}'");
-$user = $users->fetch_assoc();
 ?>
 <div class="manage-posts">
     <div class="mg-head">
@@ -38,10 +34,12 @@ $user = $users->fetch_assoc();
             </th>
         </tr>
         <?php
-        require_once("server/connection.php");
+        require_once(__DIR__ . "/server/connection.php");
         // set default value for $fetch
         $fetch = 2 + 2;
+        $postfiles = "";
         $selectId = "";
+        $select = "";
         // check if "posts" parameter is set and not empty
         if (isset($_GET['posts']) && $_GET['posts'] !== '') {
 
@@ -71,11 +69,14 @@ $user = $users->fetch_assoc();
         if ($select->num_rows > 0) :
 
             while ($row = $select->fetch_assoc()) :
-                $mimeType = mime_content_type("./blog/" . $row['files']);
-                if (strpos($mimeType, "video/") === 0) {
+                $file_explode = explode(".", $row['files']);
+                $end = end($file_explode);
+                if ($end == "mp4" || $end == "gif" || $end == "mpeg-4") {
                     $postfiles = '<video src="./blog/' . $row['files'] . '" width="150" height="150" controls></video>';
-                } else {
+                } elseif ($end == "jpg" || $end == "jpeg" || $end == "png" || $end == "svg") {
                     $postfiles = ' <img src="./blog/' . $row['files'] . '" alt="content file" width="150" height="150">';
+                } else {
+                    echo "unsuppoerted file type";
                 }
         ?>
                 <tr>

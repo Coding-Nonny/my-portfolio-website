@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-    echo "you don't have permission to access this page";
+   http_response_code(403);
     exit();
 }
 include("connection.php");
@@ -20,6 +20,7 @@ if ($delete) {
     $delete1 = $connect->query("DELETE FROM blog_comment WHERE blog_id = {$id}");
     if ($delete1) {
         echo "done";
+        $connect->close();
         exit();
     }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "Nonny Portfolio Website",
+  "name": "Coding Nonny",
   "short_name": "Coding Nonny",
-  "start_url": "http://localhost:8080/portfolio/",
+  "start_url": "http://localhost:8080",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",

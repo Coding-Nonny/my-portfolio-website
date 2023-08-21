@@ -513,7 +513,7 @@ function getAllBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -856,7 +856,7 @@ function getPersonalBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -1073,7 +1073,7 @@ function getTechBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -1290,7 +1290,7 @@ function getSportsBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -1508,7 +1508,7 @@ function getFunnyBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -1727,7 +1727,7 @@ function getHistoryBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -1944,7 +1944,7 @@ function getGovBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -2161,7 +2161,7 @@ function getEntBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -2378,7 +2378,7 @@ function getEduBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -2595,7 +2595,7 @@ function getDevBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">
@@ -2811,7 +2811,7 @@ function getSearchBlog(
                   ${commentsHtml}
                 </div>
                 <div class="read-post">
-                  <h4 data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
+                  <h4 data-title="${blog.title}" data-id="${blog.id}" style="background: ${color}">Continue Reading <i class="fas fa-arrow-right"></i></h4>
                 </div>
               </div>
               <div class="footer">

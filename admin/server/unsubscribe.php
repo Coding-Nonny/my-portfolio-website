@@ -35,7 +35,6 @@ if($result->num_rows == 0){
 
 $row = $result->fetch_assoc();
 
-require_once(__DIR__ . '../../../assets/php/config.php');
 
 if (!defined('MAIL_KEY')) {
     http_response_code(500);
@@ -44,14 +43,14 @@ if (!defined('MAIL_KEY')) {
 
 $mail = new PHPMailer(true);
 $mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'mail host';
 $mail->SMTPAuth = true;
-$mail->Username = 'theophilusnonny@gmail.com';
+$mail->Username = 'your email address';
 $mail->Password = MAIL_KEY;
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 // Set the "From" email address and name
-$mail->setFrom('theophilusnonny@gmail.com', 'Coding Nonny');
+$mail->setFrom('your email address', 'name');
 $mail->addAddress($row['email']);
 $mail->isHTML(true);
 $mail->Subject = 'Subscription';
@@ -80,8 +79,8 @@ padding: 20px;height: 100%;font-weight: 700;">
     <div class="mail">
         <h1 style="font-size: 24px;
     color: #241f2b;
-    margin-bottom: 20px; background: #31d275;padding: 10px;text-align: center;border-radius: 20px;">Nonny.com</h1>
-    <p style="margin-bottom: 20px; color: #31d275;">You request to unsubscribe from our newsletter has been completed, you will no longer get mail notification when new contents are posted. If you wish to subscribe, visit website and subscribe.</p>
+    margin-bottom: 20px; background: #31d275;padding: 10px;text-align: center;border-radius: 20px;">Coding Nonny</h1>
+    <p style="margin-bottom: 20px; color: #31d275;">You request to unsubscribe from our newsletter has been completed, you will no longer get email notification when new contents are posted. If you wish to subscribe, visit website and subscribe.</p>
     <p style="margin-bottom: 20px;">If you have any questions or feedback, feel free to reply to this email or contact us through our website.</p>
     <button style="display: inline-block;
     padding: 10px 20px;
@@ -105,8 +104,10 @@ if (!$mail) {
 $delete = $connect->query("DELETE FROM subscribers WHERE id = {$id}");
 if($delete){
     echo "done";
+    $stmt->close();
     $connect->close();
     exit();
 }
 echo("failed");
+   $stmt->close();
 $connect->close();

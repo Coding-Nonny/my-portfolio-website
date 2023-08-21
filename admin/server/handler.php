@@ -1,6 +1,5 @@
 <?php
 date_default_timezone_set("Africa/Lagos");
-session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -37,19 +36,20 @@ class Server
                     return "fiil out all fields and try again";
                 }
                 /* check for known video and image extensions */
-                $ext_array = ["jpg", "png", "jpeg", "mp4", "mpeg-4", "gif"];
+                $ext_array = ["jpg", "png", "jpeg", "svg", "webp", "mp4", "mpeg-4", "gif"];
                 $file_explode = explode(".", $file);
                 $end = end($file_explode);
                 if (!in_array($end, $ext_array)) {
-                    return "unsupported file type, please choose a video or image file";
+                    return "unsupported file type, please choose a jpg, png, svg, jpeg, webp, mp4, mpeg-4, gif file";
                 }
                 /* check if file is size is greater than 100mb */
                 if ($file_size > 100 * 1024 * 1024) {
                     return "file must not be bigger than 100mb";
                 }
-                $newText = str_replace("<","&lt;",$text);
-                $newText = str_replace(">","&gt;",$text);
-                $newText = str_replace("<br/&gt;","<br/>",$text);
+                $newText = $text;
+                $newText = str_replace("<", "&lt;", $newText);
+                $newText = str_replace(">", "&gt;", $newText);
+                $newText = str_replace("<br/&gt;", "<br/>", $newText);
                 $date = date("d-F-Y H:i:s A");
                 /* rename files  and move to folder location */
                 $dateFile = date("Y-M-D") . "_" . rand(time(), 11111111);
@@ -63,6 +63,7 @@ class Server
                 mysqli_stmt_prepare($stmt, $new_post);
                 mysqli_stmt_bind_param($stmt, "ssssss", $title, $category, $name, $newText, $img, $date);
                 if (!mysqli_stmt_execute($stmt)) {
+                    $stmt->close();
                     return $this->db->error;
                 }
                 $subscribers = $this->db->query("SELECT email FROM subscribers");
@@ -72,25 +73,29 @@ class Server
                 $stmtb = mysqli_stmt_init($this->db);
                 $select_blog = "SELECT * FROM blog WHERE files = ?";
                 if (!mysqli_stmt_prepare($stmtb,  $select_blog)) {
-                    return $this->db->error.": error". var_dump($select_blog);
+                    return $this->db->error;
                 }
                 mysqli_stmt_bind_param($stmtb, "s", $img);
                 if (!mysqli_stmt_execute($stmtb)) {
+                    $this->db->close();
                     return $this->db->error;
                 }
                 $result = mysqli_stmt_get_result($stmtb);
                 $idb = $result->fetch_assoc();
+                $newTitle = $title;
+                $newTitle = str_replace(" ", "-", $newTitle);
+                $newTitle = strtolower($newTitle);
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
+                $mail->Host = 'mail host';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'theophilusnonny@gmail.com';
+                $mail->Username = 'your email address';
                 $mail->Password = MAIL_KEY;
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
 
                 // Set the "From" email address and name 
-                $mail->setFrom('theophilusnonny@gmail.com', 'Coding Nonny');
+                $mail->setFrom('your email address', 'your name');
 
                 // Loop through subscribers and send an email to each
                 while ($subscriber = $subscribers->fetch_assoc()) {
@@ -137,17 +142,21 @@ class Server
                          background-color: #0a509b;
                          border: none;
                          border-radius: 5px;
-                         cursor: pointer;"><a href="'.BASE_URL.'/?blog_id='.$idb["id"].'" style="text-decoration: none;color:#ded7e9">view blog</a></button>
-                         <small>You are getting this mail becuase you subscribed to my newsletter. If you want to unsubscribe, reply "unsubscribe me" to this mail.</small>
+                         cursor: pointer;"><a href="' . BASE_URL . '/article/' . $idb["id"] . '/' . $newTitle . '" style="text-decoration: none;color:#ded7e9">view blog</a></button>
+                         <small>You are getting this mail because you subscribed to my newsletter. If you want to unsubscribe, reply "unsubscribe me" to this mail.</small>
                          </div>
                      </body>
                      </html>
                      ';
                     $mail->send();
                     if (!$mail) {
+                        $stmt->close();
+                        $this->db->close();
                         return "failed sending mail";
                     }
                 }
+                $stmt->close();
+                $this->db->close();
                 return "posted";
                 break;
             case 'update':
@@ -162,7 +171,7 @@ class Server
                         if (file_exists("../blog/" . $row['files'])) {
                             unlink("../blog/" . $row['files']);
                         }
-                        $ext_array = ["jpg", "png", "jpeg", "mp4", "mpeg-4", "gif"];
+                        $ext_array = ["jpg", "png", "jpeg", "svg", "mp4", "mpeg-4", "gif"];
                         $file_explode = explode(".", $file);
                         $end = end($file_explode);
                         if (!in_array($end, $ext_array)) {
@@ -183,6 +192,7 @@ class Server
                             mysqli_stmt_prepare($stmt, $update);
                             mysqli_stmt_bind_param($stmt, "ssssi", $title, $name, $text, $img, $id);
                             if (!mysqli_stmt_execute($stmt)) {
+                                $this->db->close();
                                 return $this->db->error;
                             }
                         }
@@ -199,9 +209,11 @@ class Server
                             mysqli_stmt_prepare($stmt, $update);
                             mysqli_stmt_bind_param($stmt, "sssssi", $title, $category, $name, $text, $img, $id);
                             if (!mysqli_stmt_execute($stmt)) {
-                                return $this->db->error;
+                                $this->db->close();
+                                return "error";
                             }
                         }
+                        $this->db->close();
                         return "posted";
                     }
                     if (!isset($file) || empty($file)) {
@@ -211,6 +223,7 @@ class Server
                             mysqli_stmt_prepare($stmt, $update);
                             mysqli_stmt_bind_param($stmt, "sssi", $title, $name, $text, $id);
                             if (!mysqli_stmt_execute($stmt)) {
+                                $this->db->close();
                                 return $this->db->error;
                             }
                         }
@@ -220,9 +233,11 @@ class Server
                             mysqli_stmt_prepare($stmt, $update);
                             mysqli_stmt_bind_param($stmt, "ssssi", $title, $category, $name, $text, $id);
                             if (!mysqli_stmt_execute($stmt)) {
+                                $this->db->close();
                                 return $this->db->error;
                             }
                         }
+                        $this->db->close();
                         return "posted";
                     }
                 }
@@ -246,16 +261,15 @@ class Server
             if (!preg_match("!^[A-Z a-z']+$!", $username)) {
                 return "Name cannot contain numbers and symbols";
             }
-            $ext_array = ["jpg", "png", "jpeg"];
+            $ext_array = ["jpg", "png", "svg", "jpeg"];
             $file_explode = explode(".", $img);
             $end = end($file_explode);
             if (!in_array($end, $ext_array)) {
-                return "unsupported file type, please choose an image file";
+                return "unsupported file type, please choose a jpg, png, svg, jpeg file";
             }
 
             if ($img_size > 100 * 1024 * 1024) {
                 return "file must not be bigger than 100mb";
-                exit();
             }
             $date = date("d-F-Y H:i:s A");
             $dateFile = rand(time(), 11111111);
@@ -269,8 +283,10 @@ class Server
             mysqli_stmt_prepare($stmt, $new_post);
             mysqli_stmt_bind_param($stmt, "ssss", $username, $hash, $imgNew, $date);
             if (!mysqli_stmt_execute($stmt)) {
+                $this->db->close();
                 return $this->db->error;
             }
+            $this->db->close();
             return "done";
         }
 
@@ -282,17 +298,18 @@ class Server
                 if (!preg_match("!^[A-Z a-z']+$!", $username)) {
                     return "Name cannot contain numbers and symbols";
                 }
-                $ext_array = ["jpg", "png", "jpeg"];
+                $ext_array = ["jpg", "png", "svg", "jpeg"];
                 $file_explode = explode(".", $img);
                 $end = end($file_explode);
                 if (!in_array($end, $ext_array)) {
-                    return "unsupported file type, please choose a jpg, png, jpeg file";
+                    return "unsupported file type, please choose a jpg, png, svg, jpeg file";
                 }
                 if ($img_size > 100 * 1024 * 1024) {
                     return "file must not be bigger than 100mb";
                 }
                 $selectU = $this->db->query("SELECT * FROM user WHERE user_id != {$id} AND username = '$username'");
                 if ($selectU->num_rows > 0) {
+                    $this->db->close();
                     return "username already in user choose another one";
                 }
                 $select = $this->db->query("SELECT * FROM user WHERE user_id = {$id}");
@@ -311,25 +328,28 @@ class Server
                 mysqli_stmt_prepare($stmt, $update);
                 mysqli_stmt_bind_param($stmt, "ssss", $username, $hash, $imgNew, $id);
                 if (!mysqli_stmt_execute($stmt)) {
-                    return $this->db->error;
+                    $this->db->close();
+                    return "error";
                 }
+                $this->db->close();
                 return "done";
             }
             if (isset($img) && !empty($img) && empty($password)) {
                 if (!preg_match("!^[A-Z a-z']+$!", $username)) {
                     return "Name cannot contain numbers and symbols";
                 }
-                $ext_array = ["jpg", "png", "jpeg"];
+                $ext_array = ["jpg", "png", "svg", "jpeg"];
                 $file_explode = explode(".", $img);
                 $end = end($file_explode);
                 if (!in_array($end, $ext_array)) {
-                    return "unsupported file type, please choose an image file";
+                    return "unsupported file type, please choose a jpg, png, svg, jpeg file";
                 }
                 if ($img_size > 100 * 1024 * 1024) {
                     return "file must not be bigger than 100mb";
                 }
                 $selectU = $this->db->query("SELECT * FROM user WHERE user_id != {$id} AND username = '$username'");
                 if ($selectU->num_rows > 0) {
+                    $this->db->close();
                     return "username already in use choose another one";
                 }
                 $select = $this->db->query("SELECT * FROM user WHERE user_id = {$id}");
@@ -348,7 +368,9 @@ class Server
                 mysqli_stmt_bind_param($stmt, "sss", $username, $imgNew, $id);
                 if (!mysqli_stmt_execute($stmt)) {
                     return $this->db->error;
+                    $this->db->close();
                 }
+                $this->db->close();
                 return "done";
             }
             if (!isset($img) || empty($img) && empty($password)) {
@@ -357,6 +379,7 @@ class Server
                 }
                 $selectU = $this->db->query("SELECT * FROM user WHERE user_id != {$id} AND username = '$username'");
                 if ($selectU->num_rows > 0) {
+                    $this->db->close();
                     return "username already in user choose another one";
                 }
                 $update1 = "UPDATE user SET username = ? WHERE user_id = ?";
@@ -364,8 +387,10 @@ class Server
                 mysqli_stmt_prepare($stmt1, $update1);
                 mysqli_stmt_bind_param($stmt1, "ss", $username, $id);
                 if (!mysqli_stmt_execute($stmt1)) {
+                    $this->db->close();
                     return $this->db->error;
                 }
+                $this->db->close();
                 return "done";
             }
             if (!isset($img) || empty($img) && !empty($password)) {
@@ -383,9 +408,14 @@ class Server
                 mysqli_stmt_bind_param($stmt1, "sss", $username, $hash, $id);
                 if (!mysqli_stmt_execute($stmt1)) {
                     return $this->db->error;
+                    $this->db->close();
                 }
+
+                $this->db->close();
                 return "done";
             }
+
+            $this->db->close();
             return $this->db->error;
         }
     }
@@ -393,31 +423,44 @@ class Server
     public function login($username, $password)
     {
         if (empty($username) || empty($password)) {
-            return "fill all fields and try again";
+            return "Fill all fields and try again";
         }
+
         $select = "SELECT * FROM user WHERE username = ?";
         $stmt = mysqli_stmt_init($this->db);
+
         if (!mysqli_stmt_prepare($stmt, $select)) {
-            return $this->db->error;
+            return "Database error. Please try again later.";
         }
-        mysqli_stmt_bind_param($stmt, "s", $username);
+
+        mysqli_stmt_bind_param($stmt, "i", $username);
+
         if (!mysqli_stmt_execute($stmt)) {
-            return $this->db->error;
+            return "Database error. Please try again later.";
         }
+
         $result = mysqli_stmt_get_result($stmt);
+
         if ($result->num_rows == 0) {
-            return "no user found";
+            return var_dump($result);
+            $this->db->close();
         }
+
         $row = $result->fetch_assoc();
+
         if (!password_verify($password, $row['passcode'])) {
-            return "incorrect password";
+            return "Incorrect password";
+            $this->db->close();
         }
+
+        // Start a session and store user information
+        session_start();
         $_SESSION['user'] = $row['user_id'];
-        return "loggedin";
-    }
-    
-    public function __destruct()
-    {
+
+        // Close the database connection
+        mysqli_stmt_close($stmt);
         $this->db->close();
+
+        return "Logged in";
     }
 }

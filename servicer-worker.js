@@ -2,8 +2,8 @@
 
 const CACHE_NAME = "my-cache-v1";
 const urlsToCache = [
-  "/",
   "./assets/script/home.js",
+  "./assets/script/view.js",
   "./assets/script/blog-func.js",
   "./assets/script/github-fetch.js",
   "./assets/script/mode.js",

@@ -1,19 +1,9 @@
 <?php
 
-try {
-    $database = "localhost";
-    $user = "root";
-    $password = "";
-    $name = "dashboard";
-    $connect = new mysqli($database, $user, $password, $name);
-    if ($connect->error) {
-        throw new Exception("connection failed" . $connect->error);
-    }
-} catch (Exception $error) {
-    echo $error->getMessage();
-}
+include_once("../../admin/server/connection.php");
 if ($_SERVER['REQUEST_METHOD'] !== "GET") {
     http_response_code(403);
+    $connect->close();
     exit();
 }
 

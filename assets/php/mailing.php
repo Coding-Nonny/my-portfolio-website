@@ -1,18 +1,8 @@
 <?php
-try {
-    $database = "localhost";
-    $user = "root";
-    $password = "";
-    $name = "dashboard";
-    $connect = new mysqli($database, $user, $password, $name);
-    if ($connect->error) {
-        throw new Exception("connection failed" . $connect->error);
-    }
-} catch (Exception $error) {
-    echo $error->getMessage();
-}
+include_once("../../admin/server/connection.php");
 if($_SERVER['REQUEST_METHOD'] !== "POST"){
     http_response_code(403);
+     $connect->close();
     exit();
 }
 date_default_timezone_get();
@@ -47,11 +37,16 @@ $stmt = mysqli_stmt_init($connect);
 mysqli_stmt_prepare($stmt, $insert);
 if(!mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $number, $message, $date)){
     echo $connect->error;
+    mysqli_stmt_close($stmt);
+    $connect->close();
     exit();
 }
 if(!mysqli_stmt_execute($stmt)){
     echo $connect->error;
+    mysqli_stmt_close($stmt);
+    $connect->close();
     exit();
 }
 echo "submitted";
+mysqli_stmt_close($stmt);
 $connect->close();
